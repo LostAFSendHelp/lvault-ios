@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9BD26C742B4AEE46008DE4C9 /* lvault_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD26C732B4AEE46008DE4C9 /* lvault_iosApp.swift */; };
+		9B165D8F2B4AF8D100B39509 /* CreateVaultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B165D8E2B4AF8D100B39509 /* CreateVaultScreen.swift */; };
+		9B165D922B4AF92500B39509 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B165D912B4AF92500B39509 /* Strings.swift */; };
+		9B165D952B4B002700B39509 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B165D942B4B002700B39509 /* StringExtensions.swift */; };
+		9BD26C742B4AEE46008DE4C9 /* LVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD26C732B4AEE46008DE4C9 /* LVaultApp.swift */; };
 		9BD26C762B4AEE46008DE4C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD26C752B4AEE46008DE4C9 /* ContentView.swift */; };
 		9BD26C782B4AEE47008DE4C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD26C772B4AEE47008DE4C9 /* Assets.xcassets */; };
 		9BD26C7B2B4AEE47008DE4C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD26C7A2B4AEE47008DE4C9 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B165D8E2B4AF8D100B39509 /* CreateVaultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVaultScreen.swift; sourceTree = "<group>"; };
+		9B165D912B4AF92500B39509 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		9B165D942B4B002700B39509 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		9BD26C702B4AEE46008DE4C9 /* lvault-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lvault-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BD26C732B4AEE46008DE4C9 /* lvault_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvault_iosApp.swift; sourceTree = "<group>"; };
+		9BD26C732B4AEE46008DE4C9 /* LVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultApp.swift; sourceTree = "<group>"; };
 		9BD26C752B4AEE46008DE4C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9BD26C772B4AEE47008DE4C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BD26C7A2B4AEE47008DE4C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -32,6 +38,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B165D8D2B4AF8A400B39509 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B165D8E2B4AF8D100B39509 /* CreateVaultScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9B165D902B4AF91000B39509 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B165D912B4AF92500B39509 /* Strings.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9B165D932B4B001500B39509 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9B165D942B4B002700B39509 /* StringExtensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		9BD26C672B4AEE46008DE4C9 = {
 			isa = PBXGroup;
 			children = (
@@ -51,7 +81,10 @@
 		9BD26C722B4AEE46008DE4C9 /* lvault-ios */ = {
 			isa = PBXGroup;
 			children = (
-				9BD26C732B4AEE46008DE4C9 /* lvault_iosApp.swift */,
+				9B165D932B4B001500B39509 /* Utils */,
+				9B165D902B4AF91000B39509 /* Resources */,
+				9B165D8D2B4AF8A400B39509 /* Views */,
+				9BD26C732B4AEE46008DE4C9 /* LVaultApp.swift */,
 				9BD26C752B4AEE46008DE4C9 /* ContentView.swift */,
 				9BD26C772B4AEE47008DE4C9 /* Assets.xcassets */,
 				9BD26C792B4AEE47008DE4C9 /* Preview Content */,
@@ -138,7 +171,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BD26C762B4AEE46008DE4C9 /* ContentView.swift in Sources */,
-				9BD26C742B4AEE46008DE4C9 /* lvault_iosApp.swift in Sources */,
+				9B165D8F2B4AF8D100B39509 /* CreateVaultScreen.swift in Sources */,
+				9B165D952B4B002700B39509 /* StringExtensions.swift in Sources */,
+				9B165D922B4AF92500B39509 /* Strings.swift in Sources */,
+				9BD26C742B4AEE46008DE4C9 /* LVaultApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
