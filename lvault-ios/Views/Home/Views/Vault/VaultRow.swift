@@ -14,11 +14,11 @@ struct VaultRow: View {
         HStack {
             Text(vault.name)
             Spacer()
-        }.padding()
+        }
     }
 }
 
 #Preview {
-    let vault = Vault(id: "id", name: "vault")
+    let vault = Vault(id: "id", name: "vault", chests: [])
     return VaultRow(vault: vault)
 }

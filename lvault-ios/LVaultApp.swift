@@ -1,5 +1,5 @@
 //
-//  lvault_iosApp.swift
+//  LVaultApp.swift
 //  lvault-ios
 //
 //  Created by Chuong Nguyen on 4/19/24.
@@ -8,13 +8,13 @@
 import SwiftUI
 
 @main
-struct lvault_iosApp: App {
+struct LVaultApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             Home()
-                .environment(\.vaultInteractor, VaultInteractorImpl(repo: VaultRepositoryStub()))
+                .environment(\.vaultInteractor, VaultInteractorImpl(repo: VaultRepositoryImpl(persistence: .shared)))
         }
     }
 }

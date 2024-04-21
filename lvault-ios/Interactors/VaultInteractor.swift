@@ -21,14 +21,14 @@ class VaultInteractorImpl: VaultInteractor {
     }
     
     func loadVaults(into binding: Binding<Loadable<[Vault]>>) {
+        binding.wrappedValue = .loading
         repo.getVaults()
             .sink(
                 receiveCompletion: { result in
                     guard case .failure(let error) = result else { return }
                     binding.wrappedValue = .error(error)
                 },
-                receiveValue: { data in
-                    let vaults = data.map({ Vault(id: $0.id, name: $0.name) })
+                receiveValue: { vaults in
                     binding.wrappedValue = .data(vaults)
                 }
             ).store(in: &subscriptions)

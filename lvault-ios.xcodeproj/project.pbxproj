@@ -8,25 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3359832BD4AF720010221C /* EnvironmentKeys.swift */; };
-		9B57A95C2BD4343A00096CC5 /* Vault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A95B2BD4343A00096CC5 /* Vault.swift */; };
 		9B57A95F2BD4354200096CC5 /* VaultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A95E2BD4354200096CC5 /* VaultRow.swift */; };
 		9B57A9612BD437D200096CC5 /* VaultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9602BD437D200096CC5 /* VaultInteractor.swift */; };
 		9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9642BD4380300096CC5 /* Loadable.swift */; };
 		9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9672BD4385700096CC5 /* VaultRepository.swift */; };
-		9B57A96C2BD4394C00096CC5 /* VaultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A96B2BD4394C00096CC5 /* VaultEntity.swift */; };
+		9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A96B2BD4394C00096CC5 /* Vault.swift */; };
 		9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */; };
 		9B57A9712BD444C300096CC5 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9702BD444C300096CC5 /* Types.swift */; };
 		9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9722BD446EB00096CC5 /* VaultList.swift */; };
-		9B8EC7802BD26560005BDBA3 /* lvault_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC77F2BD26560005BDBA3 /* lvault_iosApp.swift */; };
+		9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B75B1C42BDD2F5F0053B845 /* CoreStore */; };
+		9B75B1D02BDEC7390053B845 /* V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B75B1CF2BDEC7390053B845 /* V1.swift */; };
+		9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */; };
 		9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7812BD26560005BDBA3 /* Persistence.swift */; };
-		9B8EC7852BD26560005BDBA3 /* lvault_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7832BD26560005BDBA3 /* lvault_ios.xcdatamodeld */; };
 		9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7862BD26560005BDBA3 /* Home.swift */; };
 		9B8EC7892BD26561005BDBA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8EC7882BD26561005BDBA3 /* Assets.xcassets */; };
 		9B8EC78D2BD26561005BDBA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8EC78C2BD26561005BDBA3 /* Preview Assets.xcassets */; };
 		9B8EC7972BD26561005BDBA3 /* lvault_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7962BD26561005BDBA3 /* lvault_iosTests.swift */; };
 		9B8EC7A12BD26561005BDBA3 /* lvault_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7A02BD26561005BDBA3 /* lvault_iosUITests.swift */; };
 		9B8EC7A32BD26561005BDBA3 /* lvault_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7A22BD26561005BDBA3 /* lvault_iosUITestsLaunchTests.swift */; };
+		9BA020C62BD5538D00BAA43C /* VaultDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA020C52BD5538D00BAA43C /* VaultDetail.swift */; };
+		9BA020CA2BD5575100BAA43C /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA020C92BD5575100BAA43C /* Chest.swift */; };
+		9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA020CD2BD55DFD00BAA43C /* ChestRow.swift */; };
 		9BCE42D42BD4BB8300D4F1A1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE42D32BD4BB8300D4F1A1 /* .gitignore */; };
+		9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */; };
+		9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */; };
+		9BDD52FE2BDFA08F002B9939 /* Transaction+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FD2BDFA08F002B9939 /* Transaction+CSO.swift */; };
+		9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */; };
+		9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD53012BDFA199002B9939 /* TransactionLabel.swift */; };
+		9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD53032BDFA1A2002B9939 /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,19 +57,18 @@
 
 /* Begin PBXFileReference section */
 		9B3359832BD4AF720010221C /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
-		9B57A95B2BD4343A00096CC5 /* Vault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vault.swift; sourceTree = "<group>"; };
 		9B57A95E2BD4354200096CC5 /* VaultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRow.swift; sourceTree = "<group>"; };
 		9B57A9602BD437D200096CC5 /* VaultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultInteractor.swift; sourceTree = "<group>"; };
 		9B57A9642BD4380300096CC5 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		9B57A9672BD4385700096CC5 /* VaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepository.swift; sourceTree = "<group>"; };
-		9B57A96B2BD4394C00096CC5 /* VaultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultEntity.swift; sourceTree = "<group>"; };
+		9B57A96B2BD4394C00096CC5 /* Vault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vault.swift; sourceTree = "<group>"; };
 		9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtensions.swift; sourceTree = "<group>"; };
 		9B57A9702BD444C300096CC5 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		9B57A9722BD446EB00096CC5 /* VaultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultList.swift; sourceTree = "<group>"; };
+		9B75B1CF2BDEC7390053B845 /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
 		9B8EC77C2BD26560005BDBA3 /* lvault-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lvault-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B8EC77F2BD26560005BDBA3 /* lvault_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvault_iosApp.swift; sourceTree = "<group>"; };
+		9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultApp.swift; sourceTree = "<group>"; };
 		9B8EC7812BD26560005BDBA3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		9B8EC7842BD26560005BDBA3 /* lvault_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = lvault_ios.xcdatamodel; sourceTree = "<group>"; };
 		9B8EC7862BD26560005BDBA3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9B8EC7882BD26561005BDBA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B8EC78A2BD26561005BDBA3 /* lvault_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lvault_ios.entitlements; sourceTree = "<group>"; };
@@ -70,7 +78,16 @@
 		9B8EC79C2BD26561005BDBA3 /* lvault-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "lvault-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8EC7A02BD26561005BDBA3 /* lvault_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvault_iosUITests.swift; sourceTree = "<group>"; };
 		9B8EC7A22BD26561005BDBA3 /* lvault_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvault_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BA020C52BD5538D00BAA43C /* VaultDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultDetail.swift; sourceTree = "<group>"; };
+		9BA020C92BD5575100BAA43C /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
+		9BA020CD2BD55DFD00BAA43C /* ChestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRow.swift; sourceTree = "<group>"; };
 		9BCE42D32BD4BB8300D4F1A1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vault+CSO.swift"; sourceTree = "<group>"; };
+		9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chest+CSO.swift"; sourceTree = "<group>"; };
+		9BDD52FD2BDFA08F002B9939 /* Transaction+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CSO.swift"; sourceTree = "<group>"; };
+		9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionLabel+CSO.swift"; sourceTree = "<group>"; };
+		9BDD53012BDFA199002B9939 /* TransactionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabel.swift; sourceTree = "<group>"; };
+		9BDD53032BDFA1A2002B9939 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,12 +116,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B522FB12BD8339C00E20599 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9BDD52F82BDF9FED002B9939 /* Extensions */,
+				9B75B1CE2BDEC61F0053B845 /* Schemas */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9B57A9562BD4324700096CC5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				9B57A95D2BD4352000096CC5 /* Views */,
-				9B57A95A2BD4342A00096CC5 /* Models */,
 				9B8EC7862BD26560005BDBA3 /* Home.swift */,
+				9BA020C52BD5538D00BAA43C /* VaultDetail.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -127,25 +154,18 @@
 		9B57A9592BD4333300096CC5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9B522FB12BD8339C00E20599 /* Models */,
 				9B57A9662BD4382A00096CC5 /* Repositories */,
 				9B8EC7812BD26560005BDBA3 /* Persistence.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		9B57A95A2BD4342A00096CC5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A95B2BD4343A00096CC5 /* Vault.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		9B57A95D2BD4352000096CC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9B57A95E2BD4354200096CC5 /* VaultRow.swift */,
-				9B57A9722BD446EB00096CC5 /* VaultList.swift */,
+				9BA020CC2BD55DEA00BAA43C /* Chest */,
+				9BA020CB2BD55DE300BAA43C /* Vault */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,7 +207,10 @@
 		9B57A96A2BD4393F00096CC5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				9B57A96B2BD4394C00096CC5 /* VaultEntity.swift */,
+				9B57A96B2BD4394C00096CC5 /* Vault.swift */,
+				9BA020C92BD5575100BAA43C /* Chest.swift */,
+				9BDD53032BDFA1A2002B9939 /* Transaction.swift */,
+				9BDD53012BDFA199002B9939 /* TransactionLabel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -199,6 +222,14 @@
 				9B3359832BD4AF720010221C /* EnvironmentKeys.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9B75B1CE2BDEC61F0053B845 /* Schemas */ = {
+			isa = PBXGroup;
+			children = (
+				9B75B1CF2BDEC7390053B845 /* V1.swift */,
+			);
+			path = Schemas;
 			sourceTree = "<group>";
 		};
 		9B8EC7732BD26560005BDBA3 = {
@@ -230,10 +261,9 @@
 				9B57A9692BD4387800096CC5 /* Domain */,
 				9B57A9582BD4332100096CC5 /* Interactors */,
 				9B57A9572BD4331100096CC5 /* Views */,
-				9B8EC77F2BD26560005BDBA3 /* lvault_iosApp.swift */,
+				9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */,
 				9B8EC7882BD26561005BDBA3 /* Assets.xcassets */,
 				9B8EC78A2BD26561005BDBA3 /* lvault_ios.entitlements */,
-				9B8EC7832BD26560005BDBA3 /* lvault_ios.xcdatamodeld */,
 				9B8EC78B2BD26561005BDBA3 /* Preview Content */,
 			);
 			path = "lvault-ios";
@@ -264,6 +294,34 @@
 			path = "lvault-iosUITests";
 			sourceTree = "<group>";
 		};
+		9BA020CB2BD55DE300BAA43C /* Vault */ = {
+			isa = PBXGroup;
+			children = (
+				9B57A95E2BD4354200096CC5 /* VaultRow.swift */,
+				9B57A9722BD446EB00096CC5 /* VaultList.swift */,
+			);
+			path = Vault;
+			sourceTree = "<group>";
+		};
+		9BA020CC2BD55DEA00BAA43C /* Chest */ = {
+			isa = PBXGroup;
+			children = (
+				9BA020CD2BD55DFD00BAA43C /* ChestRow.swift */,
+			);
+			path = Chest;
+			sourceTree = "<group>";
+		};
+		9BDD52F82BDF9FED002B9939 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */,
+				9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */,
+				9BDD52FD2BDFA08F002B9939 /* Transaction+CSO.swift */,
+				9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,6 +338,9 @@
 			dependencies = (
 			);
 			name = "lvault-ios";
+			packageProductDependencies = (
+				9B75B1C42BDD2F5F0053B845 /* CoreStore */,
+			);
 			productName = "lvault-ios";
 			productReference = 9B8EC77C2BD26560005BDBA3 /* lvault-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -352,6 +413,9 @@
 				Base,
 			);
 			mainGroup = 9B8EC7732BD26560005BDBA3;
+			packageReferences = (
+				9B75B1C32BDD2F5F0053B845 /* XCRemoteSwiftPackageReference "CoreStore" */,
+			);
 			productRefGroup = 9B8EC77D2BD26560005BDBA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -395,20 +459,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B8EC7802BD26560005BDBA3 /* lvault_iosApp.swift in Sources */,
+				9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */,
+				9BA020C62BD5538D00BAA43C /* VaultDetail.swift in Sources */,
+				9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */,
+				9BA020CA2BD5575100BAA43C /* Chest.swift in Sources */,
 				9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */,
 				9B57A95F2BD4354200096CC5 /* VaultRow.swift in Sources */,
 				9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */,
 				9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */,
 				9B57A9712BD444C300096CC5 /* Types.swift in Sources */,
+				9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */,
+				9B75B1D02BDEC7390053B845 /* V1.swift in Sources */,
 				9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */,
-				9B57A96C2BD4394C00096CC5 /* VaultEntity.swift in Sources */,
+				9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */,
+				9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */,
 				9B57A9612BD437D200096CC5 /* VaultInteractor.swift in Sources */,
+				9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */,
+				9BDD52FE2BDFA08F002B9939 /* Transaction+CSO.swift in Sources */,
 				9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */,
 				9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */,
-				9B8EC7852BD26560005BDBA3 /* lvault_ios.xcdatamodeld in Sources */,
 				9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */,
-				9B57A95C2BD4343A00096CC5 /* Vault.swift in Sources */,
+				9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */,
+				9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,17 +644,19 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Vault;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -611,17 +685,19 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Vault;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -768,18 +844,24 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCVersionGroup section */
-		9B8EC7832BD26560005BDBA3 /* lvault_ios.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9B8EC7842BD26560005BDBA3 /* lvault_ios.xcdatamodel */,
-			);
-			currentVersion = 9B8EC7842BD26560005BDBA3 /* lvault_ios.xcdatamodel */;
-			path = lvault_ios.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+/* Begin XCRemoteSwiftPackageReference section */
+		9B75B1C32BDD2F5F0053B845 /* XCRemoteSwiftPackageReference "CoreStore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnEstropia/CoreStore";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.2.0;
+			};
 		};
-/* End XCVersionGroup section */
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9B75B1C42BDD2F5F0053B845 /* CoreStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B75B1C32BDD2F5F0053B845 /* XCRemoteSwiftPackageReference "CoreStore" */;
+			productName = CoreStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9B8EC7742BD26560005BDBA3 /* Project object */;
 }

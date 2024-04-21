@@ -13,11 +13,15 @@ struct Home: View {
     @Environment(\.vaultInteractor) var vaultInteractor: VaultInteractor
     
     var body: some View {
-        buildStateView(vaultsLoadable)
-            .onAppear(perform: {
-                print("mine appear")
-                vaultInteractor.loadVaults(into: $vaultsLoadable)
-            })
+        NavigationSplitView {
+            buildStateView(vaultsLoadable)
+                .onAppear(perform: {
+                    vaultInteractor.loadVaults(into: $vaultsLoadable)
+                })
+                .navigationTitle(Text("Vaults"))
+        } detail: {
+            Text("Vault details here")
+        }
     }
 }
 
@@ -30,11 +34,18 @@ private extension Home {
         case .error(let error):
             Text(error.localizedDescription)
         case .data(let vaults):
-            VaultList(vaults: vaults)
+            if vaults.isEmpty {
+                Text("No vaults found. Create one?")
+                Button(action: { }) {
+                    Text("Create")
+                }
+            } else {
+                VaultList(vaults: vaults)
+            }
         }
     }
 }
 
 #Preview {
-    Home()
+    Home().environment(\.vaultInteractor, VaultInteractorImpl(repo: VaultRepositoryImpl(persistence: .preview)))
 }
