@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct VaultInteractorKey: EnvironmentKey {
-    static var defaultValue: VaultInteractor = VaultInteractorImpl(repo: VaultRepositoryStub())
+    static var defaultValue: VaultInteractor = VaultInteractor(repo: VaultRepositoryStub())
 }
 
 extension EnvironmentValues {

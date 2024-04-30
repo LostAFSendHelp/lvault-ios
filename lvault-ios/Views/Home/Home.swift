@@ -9,16 +9,25 @@ import SwiftUI
 import CoreData
 
 struct Home: View {
-    @State private var vaultsLoadable: Loadable<[Vault]> = .loading
-    @Environment(\.vaultInteractor) var vaultInteractor: VaultInteractor
+    @State private var showCreateVaultSheet: Bool = false
+    @EnvironmentObject private var vaultInteractor: VaultInteractor
     
     var body: some View {
         NavigationSplitView {
-            buildStateView(vaultsLoadable)
+            buildStateView(vaultInteractor.vaults)
                 .onAppear(perform: {
-                    vaultInteractor.loadVaults(into: $vaultsLoadable)
+                    vaultInteractor.loadVaults()
                 })
                 .navigationTitle(Text("Vaults"))
+                .sheet(isPresented: $showCreateVaultSheet) {
+                    CreateVaultSheet(isPresented: $showCreateVaultSheet)
+                }.toolbar {
+                    Button(action: {
+                        showCreateVaultSheet = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                }
         } detail: {
             Text("Vault details here")
         }
@@ -27,8 +36,8 @@ struct Home: View {
 
 private extension Home {
     @ViewBuilder
-    func buildStateView(_ state: Loadable<[Vault]>) -> some View {
-        switch vaultsLoadable {
+    func buildStateView(_ state: LoadableList<Vault>) -> some View {
+        switch state {
         case .loading:
             ProgressView()
         case .error(let error):
@@ -36,16 +45,20 @@ private extension Home {
         case .data(let vaults):
             if vaults.isEmpty {
                 Text("No vaults found. Create one?")
-                Button(action: { }) {
+                Button(action: {
+                    showCreateVaultSheet = true
+                }) {
                     Text("Create")
                 }
             } else {
                 VaultList(vaults: vaults)
             }
+        default:
+            EmptyView()
         }
     }
 }
 
 #Preview {
-    Home().environment(\.vaultInteractor, VaultInteractorImpl(repo: VaultRepositoryImpl(persistence: .preview)))
+    Home().environment(\.vaultInteractor, VaultInteractor(repo: VaultRepositoryImpl(persistence: .preview)))
 }

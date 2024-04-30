@@ -14,7 +14,7 @@ struct LVaultApp: App {
     var body: some Scene {
         WindowGroup {
             Home()
-                .environment(\.vaultInteractor, VaultInteractorImpl(repo: VaultRepositoryImpl(persistence: .shared)))
+                .environmentObject(VaultInteractor(repo: VaultRepositoryImpl(persistence: .shared)))
         }
     }
 }

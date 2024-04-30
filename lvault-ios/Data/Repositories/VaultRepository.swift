@@ -10,6 +10,7 @@ import Combine
 
 protocol VaultRepository: AnyObject {
     func getVaults() -> AnyPublisher<[Vault], Error>
+    func createVault(_ vault: Vault) -> AnyPublisher<Vault, Error>
 }
 
 class VaultRepositoryStub: VaultRepository {
@@ -28,6 +29,10 @@ class VaultRepositoryStub: VaultRepository {
             .delay(for: 1, scheduler: DispatchQueue.main)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
+    }
+    
+    func createVault(_ vault: Vault) -> AnyPublisher<Vault, Error> {
+        return Just(vault).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }
 

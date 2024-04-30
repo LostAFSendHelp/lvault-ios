@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */; };
 		9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3359832BD4AF720010221C /* EnvironmentKeys.swift */; };
 		9B57A95F2BD4354200096CC5 /* VaultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A95E2BD4354200096CC5 /* VaultRow.swift */; };
 		9B57A9612BD437D200096CC5 /* VaultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9602BD437D200096CC5 /* VaultInteractor.swift */; };
@@ -18,6 +19,7 @@
 		9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9722BD446EB00096CC5 /* VaultList.swift */; };
 		9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B75B1C42BDD2F5F0053B845 /* CoreStore */; };
 		9B75B1D02BDEC7390053B845 /* V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B75B1CF2BDEC7390053B845 /* V1.swift */; };
+		9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */; };
 		9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */; };
 		9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7812BD26560005BDBA3 /* Persistence.swift */; };
 		9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7862BD26560005BDBA3 /* Home.swift */; };
@@ -56,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultError.swift; sourceTree = "<group>"; };
 		9B3359832BD4AF720010221C /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		9B57A95E2BD4354200096CC5 /* VaultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRow.swift; sourceTree = "<group>"; };
 		9B57A9602BD437D200096CC5 /* VaultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultInteractor.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 		9B57A9702BD444C300096CC5 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		9B57A9722BD446EB00096CC5 /* VaultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultList.swift; sourceTree = "<group>"; };
 		9B75B1CF2BDEC7390053B845 /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
+		9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVaultSheet.swift; sourceTree = "<group>"; };
 		9B8EC77C2BD26560005BDBA3 /* lvault-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lvault-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultApp.swift; sourceTree = "<group>"; };
 		9B8EC7812BD26560005BDBA3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 			children = (
 				9B57A9642BD4380300096CC5 /* Loadable.swift */,
 				9B57A9702BD444C300096CC5 /* Types.swift */,
+				9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 			children = (
 				9B57A95E2BD4354200096CC5 /* VaultRow.swift */,
 				9B57A9722BD446EB00096CC5 /* VaultList.swift */,
+				9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */,
 			);
 			path = Vault;
 			sourceTree = "<group>";
@@ -459,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */,
 				9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */,
 				9BA020C62BD5538D00BAA43C /* VaultDetail.swift in Sources */,
 				9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */,
@@ -480,6 +487,7 @@
 				9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */,
 				9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */,
 				9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */,
+				9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */,
 				9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,11 +8,9 @@
 import Foundation
 import SwiftUI
 
-protocol VaultInteractor {
-    func loadVaults(into binding: Binding<Loadable<[Vault]>>)
-}
-
-class VaultInteractorImpl: VaultInteractor {
+class VaultInteractor: ObservableObject {
+    @Published var vaults: LoadableList<Vault> = .loading
+    
     private let repo: VaultRepository
     private var subscriptions: DisposeBag = []
     
@@ -20,16 +18,30 @@ class VaultInteractorImpl: VaultInteractor {
         self.repo = repo
     }
     
-    func loadVaults(into binding: Binding<Loadable<[Vault]>>) {
-        binding.wrappedValue = .loading
+    func loadVaults() {
+        vaults = .loading
         repo.getVaults()
+            .sink(
+                receiveCompletion: { [weak self] result in
+                    guard let self, case .failure(let error) = result else { return }
+                    vaults = .error(error)
+                },
+                receiveValue: { [weak self] data in
+                    guard let self else { return }
+                    vaults = .data(data)
+                }
+            ).store(in: &subscriptions)
+    }
+    
+    func createVault(_ vault: Vault, into binding: Binding<Loadable<Vault>>) {
+        repo.createVault(vault)
             .sink(
                 receiveCompletion: { result in
                     guard case .failure(let error) = result else { return }
                     binding.wrappedValue = .error(error)
                 },
-                receiveValue: { vaults in
-                    binding.wrappedValue = .data(vaults)
+                receiveValue: { vault in
+                    binding.wrappedValue = .data(vault)
                 }
             ).store(in: &subscriptions)
     }

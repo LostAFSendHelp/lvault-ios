@@ -7,6 +7,15 @@
 
 import Foundation
 
+typealias LoadableList<T> = Loadable<[T]>
+
 enum Loadable<T> {
-    case loading, data(T), error(Error)
+    case loading, data(T), error(Error), idle
+    
+    var currentData: T? {
+        switch self {
+        case .data(let current): return current
+        default: return nil
+        }
+    }
 }
