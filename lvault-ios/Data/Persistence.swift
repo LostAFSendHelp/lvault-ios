@@ -51,7 +51,15 @@ extension PersistenceController {
                 closure?(object)
                 return object
             },
-            completion: completion ?? { _ in }
+            completion: { result in
+                switch result {
+                case .success(let cso):
+                    let cso = self.store.fetchExisting(cso)!
+                    completion?(.success(cso))
+                default:
+                    completion?(result)
+                }
+            }
         )
     }
 }

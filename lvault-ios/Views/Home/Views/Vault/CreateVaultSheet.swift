@@ -47,8 +47,9 @@ struct CreateVaultSheet: View {
                 
                 Button(action: {
                     vaultInteractor.createVault(
-                        .init(id: UUID().uuidString, name: vaultName, chests: [], createdAt: 0),
-                        into: $vaultLoadable)
+                        named: vaultName,
+                        into: $vaultLoadable
+                    )
                 }) {
                     Text("Confirm")
                 }

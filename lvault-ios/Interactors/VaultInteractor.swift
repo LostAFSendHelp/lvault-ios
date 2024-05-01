@@ -33,8 +33,8 @@ class VaultInteractor: ObservableObject {
             ).store(in: &subscriptions)
     }
     
-    func createVault(_ vault: Vault, into binding: Binding<Loadable<Vault>>) {
-        repo.createVault(vault)
+    func createVault(named name: String, into binding: Binding<Loadable<Vault>>) {
+        repo.createVault(named: name)
             .sink(
                 receiveCompletion: { result in
                     guard case .failure(let error) = result else { return }
