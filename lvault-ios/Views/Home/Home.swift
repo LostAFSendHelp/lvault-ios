@@ -60,5 +60,5 @@ private extension Home {
 }
 
 #Preview {
-    Home().environment(\.vaultInteractor, VaultInteractor(repo: VaultRepositoryImpl(persistence: .preview)))
+    Home().environmentObject(VaultInteractor(repo: VaultRepositoryImpl(persistence: .preview)))
 }
