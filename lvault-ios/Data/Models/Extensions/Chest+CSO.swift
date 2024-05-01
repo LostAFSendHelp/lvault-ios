@@ -11,7 +11,8 @@ extension Chest {
             id: cso.id,
             name: cso.name,
             initialAmount: cso.initialAmount,
-            transactions: cso.transactions.map({ Transaction.fromCSO($0) })
+            transactions: cso.transactions.map({ Transaction.fromCSO($0) }),
+            createdAt: cso.createdAt
         )
     }
 }

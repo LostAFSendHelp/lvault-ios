@@ -8,7 +8,6 @@
 import Foundation
 import CoreStore
 
-// update the following to newest version when models change
 typealias VaultCSO = V1.VaultCSO
 typealias ChestCSO = V1.ChestCSO
 typealias TransactionCSO = V1.TransactionCSO
@@ -17,18 +16,21 @@ typealias TransactionLabelCSO = V1.TransactionLabelCSO
 enum V1 {
     class VaultCSO: CoreStoreObject {
         @Field.Stored("id", dynamicInitialValue: { UUID().uuidString })
-        var id: String
+        private(set) var id: String
         
         @Field.Stored("name")
         var name: String = "New vault"
         
         @Field.Relationship("chests")
         var chests: [ChestCSO]
+        
+        @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
+        private(set) var createdAt: Double
     }
     
     class ChestCSO: CoreStoreObject {
         @Field.Stored("id", dynamicInitialValue: { UUID().uuidString })
-        var id: String
+        private(set) var id: String
         
         @Field.Stored("name")
         var name: String = "New chest"
@@ -41,11 +43,14 @@ enum V1 {
         
         @Field.Relationship("transactions")
         var transactions: [TransactionCSO]
+        
+        @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
+        private(set) var createdAt: Double
     }
     
     class TransactionCSO: CoreStoreObject {
         @Field.Stored("id", dynamicInitialValue: { UUID().uuidString })
-        var id: String
+        private(set) var id: String
         
         @Field.Stored("amount")
         var amount: Double = 0
@@ -55,11 +60,14 @@ enum V1 {
         
         @Field.Relationship("labels")
         var labels: Set<TransactionLabelCSO>
+        
+        @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
+        private(set) var createdAt: Double
     }
     
     class TransactionLabelCSO: CoreStoreObject {
         @Field.Stored("id", dynamicInitialValue: { UUID().uuidString })
-        var id: String
+        private(set) var id: String
         
         @Field.Stored("name")
         var name: String = "label"
@@ -69,6 +77,9 @@ enum V1 {
         
         @Field.Relationship("transactions", inverse: \.$labels)
         var transactions: [TransactionCSO]
+        
+        @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
+        private(set) var createdAt: Double
     }
 
     static var schema: CoreStoreSchema = .init(

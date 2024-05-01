@@ -11,4 +11,5 @@ struct TransactionLabel {
     var id: String
     var name: String
     var color: String
+    var createdAt: Double
 }

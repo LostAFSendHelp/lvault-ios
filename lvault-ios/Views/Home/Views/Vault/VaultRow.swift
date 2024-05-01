@@ -19,6 +19,6 @@ struct VaultRow: View {
 }
 
 #Preview {
-    let vault = Vault(id: "id", name: "vault", chests: [])
+    let vault = Vault(id: "id", name: "vault", chests: [], createdAt: 0)
     return VaultRow(vault: vault)
 }

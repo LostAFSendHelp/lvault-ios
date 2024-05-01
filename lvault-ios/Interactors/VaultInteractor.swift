@@ -28,7 +28,7 @@ class VaultInteractor: ObservableObject {
                 },
                 receiveValue: { [weak self] data in
                     guard let self else { return }
-                    vaults = .data(data)
+                    vaults = .data(data.sorted(by: { left, right in left.createdAt < right.createdAt }))
                 }
             ).store(in: &subscriptions)
     }

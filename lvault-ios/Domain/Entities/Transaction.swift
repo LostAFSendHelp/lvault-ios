@@ -9,4 +9,5 @@ struct Transaction {
     var id: String
     var amount: Double
     var labels: [TransactionLabel]
+    var createdAt: Double
 }

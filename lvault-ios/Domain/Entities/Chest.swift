@@ -12,19 +12,22 @@ struct Chest {
     var name: String
     var initialAmount: Double
     var transactions: [Transaction]
+    var createdAt: Double
 }
 
 extension Chest {
     static func create(
         vaultId: String,
         name: String,
-        initialAmount: Double = 1000
+        initialAmount: Double = 1000,
+        createdAt: Double = 0
     ) -> Chest {
         return .init(
             id: UUID().uuidString,
             name: name,
             initialAmount: initialAmount,
-            transactions: []
+            transactions: [],
+            createdAt: createdAt
         )
     }
 }

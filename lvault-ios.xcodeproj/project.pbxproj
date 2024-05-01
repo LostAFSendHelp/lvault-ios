@@ -38,6 +38,7 @@
 		9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */; };
 		9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD53012BDFA199002B9939 /* TransactionLabel.swift */; };
 		9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD53032BDFA1A2002B9939 /* Transaction.swift */; };
+		9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF8453A2BE2277A0039C826 /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionLabel+CSO.swift"; sourceTree = "<group>"; };
 		9BDD53012BDFA199002B9939 /* TransactionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabel.swift; sourceTree = "<group>"; };
 		9BDD53032BDFA1A2002B9939 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		9BF8453A2BE2277A0039C826 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			children = (
 				9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */,
 				9B3359832BD4AF720010221C /* EnvironmentKeys.swift */,
+				9BF8453A2BE2277A0039C826 /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */,
 				9B57A9712BD444C300096CC5 /* Types.swift in Sources */,
 				9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */,
+				9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */,
 				9B75B1D02BDEC7390053B845 /* V1.swift in Sources */,
 				9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */,
 				9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */,

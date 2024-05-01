@@ -24,6 +24,7 @@ struct ChestRow: View {
         id: "",
         name: "example chest",
         initialAmount: 300,
-        transactions: []
+        transactions: [],
+        createdAt: 0
     ))
 }

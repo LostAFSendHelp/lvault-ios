@@ -10,7 +10,8 @@ extension TransactionLabel {
         return .init(
             id: cso.id,
             name: cso.name,
-            color: cso.color
+            color: cso.color,
+            createdAt: cso.createdAt
         )
     }
 }

@@ -10,7 +10,8 @@ extension Vault {
         return .init(
             id: cso.id,
             name: cso.name,
-            chests: cso.chests.map({ Chest.fromCSO($0) })
+            chests: cso.chests.map({ Chest.fromCSO($0) }),
+            createdAt: cso.createdAt
         )
     }
 }
