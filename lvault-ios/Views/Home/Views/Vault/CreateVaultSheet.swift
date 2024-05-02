@@ -27,23 +27,7 @@ struct CreateVaultSheet: View {
                     .multilineTextAlignment(.center)
                     .lineLimit(1)
                 
-                switch vaultLoadable {
-                case .loading:
-                    ProgressView()
-                case .error(let error):
-                    Text("Error: \(error.localizedDescription)")
-                        .foregroundStyle(.red)
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 12))
-                case .idle:
-                    EmptyView()
-                case .data:
-                    Text("Vault successfully created").task {
-                        try? await Task.sleep(for: .seconds(0.75))
-                        vaultInteractor.loadVaults()
-                        isPresented = false
-                    }
-                }
+                buildStateView(vaultLoadable)
                 
                 Button(action: {
                     vaultInteractor.createVault(
@@ -61,6 +45,29 @@ struct CreateVaultSheet: View {
                 }
             }
         ).padding()
+    }
+}
+
+private extension CreateVaultSheet {
+    @ViewBuilder
+    func buildStateView(_ state: Loadable<Vault>) -> some View {
+        switch state {
+        case .loading:
+            ProgressView()
+        case .error(let error):
+            Text("Error: \(error.localizedDescription)")
+                .foregroundStyle(.red)
+                .multilineTextAlignment(.center)
+                .font(.system(size: 12))
+        case .idle:
+            EmptyView()
+        case .data:
+            Text("Vault successfully created").task {
+                try? await Task.sleep(for: .seconds(0.75))
+                vaultInteractor.loadVaults()
+                isPresented = false
+            }
+        }
     }
 }
 

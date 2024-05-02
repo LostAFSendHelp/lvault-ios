@@ -8,22 +8,58 @@
 import SwiftUI
 
 struct VaultDetail: View {
-    var vault: Vault
+    @State private var showCreateChestSheet = false
+    @EnvironmentObject private var chestInteractor: ChestInteractor
     
     var body: some View {
-        List(vault.chests, id: \.id) { chest in
-            ChestRow(chest: chest)
+        buildStateView(chestInteractor.chests)
+            .onAppear {
+                chestInteractor.loadChests()
+            }
+            .navigationTitle(Text(chestInteractor.parentVaultName))
+            .toolbar {
+                Button(action: {
+                    showCreateChestSheet = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            }.sheet(
+                isPresented: $showCreateChestSheet,
+                content: {
+                    CreateChestSheet(isPresented: $showCreateChestSheet)
+                        .environmentObject(chestInteractor)
+                }
+            )
+    }
+}
+
+private extension VaultDetail {
+    @ViewBuilder
+    func buildStateView(_ state: LoadableList<Chest>) -> some View {
+        switch state {
+        case .data(let chests):
+            List(chests, id: \.id) { chest in
+                ChestRow(chest: chest)
+            }
+        case .error(let error):
+            Text(error.localizedDescription)
+        case .loading:
+            ProgressView()
+        default:
+            EmptyView()
         }
-        .navigationTitle(Text(vault.name))
     }
 }
 
 #Preview {
-    VaultDetail(
-        vault: .create(name: "Example vault")
-            .withChest(name: "Chest 1", amount: 2000)
-            .withChest(name: "Chest 2", amount: 3000)
-            .withChest(name: "Chest 3", amount: 4000)
-            .withChest(name: "Chest 4", amount: 5000)
+    let vault = Vault.create(name: "Example vault")
+        .withChest(name: "Chest 1", amount: 2000)
+        .withChest(name: "Chest 2", amount: 3000)
+        .withChest(name: "Chest 3", amount: 4000)
+        .withChest(name: "Chest 4", amount: 5000)
+    let chestInteractor = ChestInteractor(
+        vault: vault,
+        repo: ChestRepositoryImpl(persistence: .preview)
     )
+    return VaultDetail().environmentObject(chestInteractor)
 }

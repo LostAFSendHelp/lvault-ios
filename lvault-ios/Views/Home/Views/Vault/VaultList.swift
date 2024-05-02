@@ -13,7 +13,13 @@ struct VaultList: View {
     var body: some View {
         List(vaults, id: \.id) { vault in
             NavigationLink {
-                VaultDetail(vault: vault)
+                VaultDetail()
+                    .environmentObject(
+                        ChestInteractor(
+                            vault: vault,
+                            repo: ChestRepositoryImpl(persistence: .shared)
+                        )
+                    )
             } label: {
                 VaultRow(vault: vault)
             }

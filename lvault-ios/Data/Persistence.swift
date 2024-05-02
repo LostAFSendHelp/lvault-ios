@@ -24,7 +24,7 @@ class PersistenceController {
         do {
             if inMemory {
                 try CoreStoreDefaults.dataStack.addStorageAndWait(InMemoryStore())
-                create({ (cso: VaultCSO) -> Void in
+                create({ (cso: VaultCSO, _) -> Void in
                     cso.name = "example vault"
                 })
             } else {
@@ -37,18 +37,33 @@ class PersistenceController {
 }
 
 extension PersistenceController {
-    func fetchAll<T: CoreStoreObject>() throws -> [T] {
-        return try store.fetchAll(From<T>())
+    func fetchAll<T: CoreStoreObject>(_ format: String? = nil, _ args: Any...) throws -> [T] {
+        if let format {
+            return try store.fetchAll(
+                From<T>(),
+                Where<T>(format, args)
+            )
+        } else {
+            return try store.fetchAll(From<T>())
+        }
+    }
+    
+    func fetchFirst<T: CoreStoreObject>(_ format: String, _ args: Any...) throws -> T? {
+        let z: FetchClause
+        return try store.fetchOne(
+            From<T>(),
+            Where<T>(format, args)
+        )
     }
     
     func create<T: CoreStoreObject>(
-        _ closure: VoidHandler<T>? = nil,
+        _ closure: VoidHandler2Throws<T, AsynchronousDataTransaction>? = nil,
         completion: VoidHandler<AsynchronousDataTransaction.Result<T>>? = nil
     ) {
         store.perform(
             asynchronous: { transaction in
                 let object = transaction.create(Into<T>())
-                closure?(object)
+                try closure?(object, transaction)
                 return object
             },
             completion: { result in

@@ -17,9 +17,12 @@
 		9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */; };
 		9B57A9712BD444C300096CC5 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9702BD444C300096CC5 /* Types.swift */; };
 		9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9722BD446EB00096CC5 /* VaultList.swift */; };
+		9B6C79C12BE538AF004B8649 /* ChestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */; };
+		9B6C79C32BE53D29004B8649 /* ChestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C79C22BE53D29004B8649 /* ChestRepository.swift */; };
 		9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B75B1C42BDD2F5F0053B845 /* CoreStore */; };
 		9B75B1D02BDEC7390053B845 /* V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B75B1CF2BDEC7390053B845 /* V1.swift */; };
 		9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */; };
+		9B8ABC8D2BE23B2500314C72 /* CreateChestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */; };
 		9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */; };
 		9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7812BD26560005BDBA3 /* Persistence.swift */; };
 		9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7862BD26560005BDBA3 /* Home.swift */; };
@@ -69,8 +72,11 @@
 		9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtensions.swift; sourceTree = "<group>"; };
 		9B57A9702BD444C300096CC5 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		9B57A9722BD446EB00096CC5 /* VaultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultList.swift; sourceTree = "<group>"; };
+		9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestInteractor.swift; sourceTree = "<group>"; };
+		9B6C79C22BE53D29004B8649 /* ChestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepository.swift; sourceTree = "<group>"; };
 		9B75B1CF2BDEC7390053B845 /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
 		9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVaultSheet.swift; sourceTree = "<group>"; };
+		9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChestSheet.swift; sourceTree = "<group>"; };
 		9B8EC77C2BD26560005BDBA3 /* lvault-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lvault-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultApp.swift; sourceTree = "<group>"; };
 		9B8EC7812BD26560005BDBA3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				9B57A9602BD437D200096CC5 /* VaultInteractor.swift */,
+				9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				9B57A9672BD4385700096CC5 /* VaultRepository.swift */,
+				9B6C79C22BE53D29004B8649 /* ChestRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -316,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				9BA020CD2BD55DFD00BAA43C /* ChestRow.swift */,
+				9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */,
 			);
 			path = Chest;
 			sourceTree = "<group>";
@@ -485,10 +494,13 @@
 				9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */,
 				9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */,
 				9B57A9612BD437D200096CC5 /* VaultInteractor.swift in Sources */,
+				9B8ABC8D2BE23B2500314C72 /* CreateChestSheet.swift in Sources */,
 				9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */,
+				9B6C79C32BE53D29004B8649 /* ChestRepository.swift in Sources */,
 				9BDD52FE2BDFA08F002B9939 /* Transaction+CSO.swift in Sources */,
 				9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */,
 				9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */,
+				9B6C79C12BE538AF004B8649 /* ChestInteractor.swift in Sources */,
 				9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */,
 				9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */,
 				9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */,

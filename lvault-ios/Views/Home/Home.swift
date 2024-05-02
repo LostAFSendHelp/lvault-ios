@@ -15,9 +15,9 @@ struct Home: View {
     var body: some View {
         NavigationSplitView {
             buildStateView(vaultInteractor.vaults)
-                .onAppear(perform: {
+                .onAppear {
                     vaultInteractor.loadVaults()
-                })
+                }
                 .navigationTitle(Text("Vaults"))
                 .sheet(isPresented: $showCreateVaultSheet) {
                     CreateVaultSheet(isPresented: $showCreateVaultSheet)

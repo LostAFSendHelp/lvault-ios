@@ -58,7 +58,7 @@ class VaultRepositoryImpl: VaultRepository {
     func createVault(named name: String) -> AnyPublisher<Vault, Error> {
         return Future { [unowned self] promise in
             persistence.create(
-                { (cso: VaultCSO) -> Void in
+                { (cso: VaultCSO, _) -> Void in
                     cso.name = name
                 },
                 completion: { result in
