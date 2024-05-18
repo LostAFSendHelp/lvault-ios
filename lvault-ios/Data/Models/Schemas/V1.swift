@@ -38,6 +38,9 @@ enum V1 {
         @Field.Stored("initialAmount")
         var initialAmount: Double = 0
         
+        @Field.Stored("currentAmount")
+        var currentAmount: Double = 0
+        
         @Field.Relationship("vault", inverse: \.$chests)
         var vault: VaultCSO?
         
@@ -54,6 +57,12 @@ enum V1 {
         
         @Field.Stored("amount")
         var amount: Double = 0
+        
+        @Field.Stored("transactionDate", dynamicInitialValue: { Date().millisecondsSince1970 })
+        var transactionDate: Double
+        
+        @Field.Stored("note")
+        var note: String?
         
         @Field.Relationship("chest", inverse: \.$transactions)
         var chest: ChestCSO?

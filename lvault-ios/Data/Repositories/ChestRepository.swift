@@ -68,6 +68,7 @@ class ChestRepositoryImpl: ChestRepository {
                     let vault = transaction.edit(vault)!
                     cso.name = name
                     cso.initialAmount = initialAmount
+                    cso.currentAmount = initialAmount
                     cso.vault = vault
                 },
                 completion: { result in
