@@ -15,7 +15,7 @@ struct TransactionRow: View {
             Text(transaction.amountText)
                 .foregroundStyle(transaction.amount < 0 ? .red : .green)
             Spacer()
-            Text(transaction.timeText)
+            Text(transaction.dateText)
         }
     }
 }

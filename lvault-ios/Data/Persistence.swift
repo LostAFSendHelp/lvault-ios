@@ -8,7 +8,7 @@
 import CoreStore
 
 class PersistenceController {
-    static let shared = PersistenceController(inMemory: true) // TODO: update logic here
+    static let shared = PersistenceController(inMemory: false) // TODO: update logic here
 
     static var preview: PersistenceController = {
         return .init(inMemory: true)

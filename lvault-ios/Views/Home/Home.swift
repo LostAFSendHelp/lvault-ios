@@ -21,12 +21,6 @@ struct Home: View {
                 .navigationTitle(Text("Vaults"))
                 .sheet(isPresented: $showCreateVaultSheet) {
                     CreateVaultSheet(isPresented: $showCreateVaultSheet)
-                }.toolbar {
-                    Button(action: {
-                        showCreateVaultSheet = true
-                    }) {
-                        Image(systemName: "plus")
-                    }
                 }
         }
     }
@@ -50,6 +44,13 @@ private extension Home {
                 }
             } else {
                 VaultList(vaults: vaults)
+                    .toolbar {
+                        Button(action: {
+                            showCreateVaultSheet = true
+                        }) {
+                            Image(systemName: "plus")
+                        }
+                    }
             }
         default:
             EmptyView()
