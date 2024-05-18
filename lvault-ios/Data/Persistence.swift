@@ -49,7 +49,6 @@ extension PersistenceController {
     }
     
     func fetchFirst<T: CoreStoreObject>(_ format: String, _ args: Any...) throws -> T? {
-        let z: FetchClause
         return try store.fetchOne(
             From<T>(),
             Where<T>(format, args)
