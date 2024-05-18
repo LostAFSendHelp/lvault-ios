@@ -13,7 +13,7 @@ struct Home: View {
     @EnvironmentObject private var vaultInteractor: VaultInteractor
     
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             buildStateView(vaultInteractor.vaults)
                 .onAppear {
                     vaultInteractor.loadVaults()
@@ -28,8 +28,6 @@ struct Home: View {
                         Image(systemName: "plus")
                     }
                 }
-        } detail: {
-            Text("Vault details here")
         }
     }
 }

@@ -11,6 +11,7 @@ struct Chest {
     var id: String
     var name: String
     var initialAmount: Double
+    var currentAmount: Double
     var transactions: [Transaction]
     var createdAt: Double
 }
@@ -20,12 +21,14 @@ extension Chest {
         vaultId: String,
         name: String,
         initialAmount: Double = 1000,
+        currentAmount: Double = 1000,
         createdAt: Double = 0
     ) -> Chest {
         return .init(
             id: UUID().uuidString,
             name: name,
             initialAmount: initialAmount,
+            currentAmount: currentAmount,
             transactions: [],
             createdAt: createdAt
         )

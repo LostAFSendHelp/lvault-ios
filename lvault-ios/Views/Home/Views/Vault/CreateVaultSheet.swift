@@ -16,7 +16,7 @@ struct CreateVaultSheet: View {
     var body: some View {
         VStack(
             alignment: .center,
-            spacing: 8,
+            spacing: 16,
             content: {
                 TextField(
                     text: $vaultName,

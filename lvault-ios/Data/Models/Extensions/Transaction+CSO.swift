@@ -10,6 +10,7 @@ extension Transaction {
         return .init(
             id: cso.id,
             amount: cso.amount,
+            transactionDate: cso.transactionDate,
             labels: cso.labels.map({ TransactionLabel.fromCSO($0) }),
             createdAt: cso.createdAt
         )

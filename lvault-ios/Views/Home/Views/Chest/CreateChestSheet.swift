@@ -17,7 +17,7 @@ struct CreateChestSheet: View {
     var body: some View {
         VStack(
             alignment: .center,
-            spacing: 8,
+            spacing: 16,
             content: {
                 TextField(
                     text: $chestName,
@@ -69,7 +69,7 @@ struct CreateChestSheet: View {
 private extension CreateChestSheet {
     @ViewBuilder
     func buildStateView(_ state: Loadable<Chest>) -> some View {
-        switch chestLoadable {
+        switch state {
         case .loading:
             ProgressView()
         case .error(let error):

@@ -18,9 +18,9 @@ struct VaultDetail: View {
             }
             .navigationTitle(Text(chestInteractor.parentVaultName))
             .toolbar {
-                Button(action: {
+                Button {
                     showCreateChestSheet = true
-                }) {
+                } label: {
                     Image(systemName: "plus")
                 }
             }.sheet(
@@ -38,9 +38,7 @@ private extension VaultDetail {
     func buildStateView(_ state: LoadableList<Chest>) -> some View {
         switch state {
         case .data(let chests):
-            List(chests, id: \.id) { chest in
-                ChestRow(chest: chest)
-            }
+            ChestList(chests: chests)
         case .error(let error):
             Text(error.localizedDescription)
         case .loading:

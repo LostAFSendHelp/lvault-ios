@@ -14,7 +14,7 @@ struct ChestRow: View {
         HStack {
             Text(chest.name)
             Spacer()
-            Text(String(chest.initialAmount))
+            Text(String(chest.currentAmount))
         }
     }
 }
@@ -24,6 +24,7 @@ struct ChestRow: View {
         id: "",
         name: "example chest",
         initialAmount: 300,
+        currentAmount: 300,
         transactions: [],
         createdAt: 0
     ))
