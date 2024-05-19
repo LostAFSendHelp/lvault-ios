@@ -24,7 +24,7 @@ class ChestInteractor: ObservableObject {
     
     func loadChests() {
         chests = .loading
-        repo.getChests(vaultId: vault.id)
+        repo.getChests(vault: vault)
             .sink(
                 receiveCompletion: { [weak self] result in
                     guard let self, case .failure(let error) = result else { return }
@@ -38,7 +38,7 @@ class ChestInteractor: ObservableObject {
     }
     
     func createChest(named name: String, initialAmount: Double, into binding: Binding<Loadable<Chest>>) {
-        repo.createChest(named: name, initialAmount: initialAmount, vaultId: vault.id)
+        repo.createChest(named: name, initialAmount: initialAmount, vault: vault)
             .sink(
                 receiveCompletion: { result in
                     guard case .failure(let error) = result else { return }

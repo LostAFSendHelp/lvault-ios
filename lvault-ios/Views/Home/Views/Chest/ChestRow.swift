@@ -20,7 +20,7 @@ struct ChestRow: View {
 }
 
 #Preview {
-    ChestRow(chest: .init(
+    ChestRow(chest: ChestDTO.init(
         id: "",
         name: "example chest",
         initialAmount: 300,

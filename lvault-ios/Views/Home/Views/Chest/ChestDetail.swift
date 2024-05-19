@@ -48,7 +48,7 @@ private extension ChestDetail {
 
 #Preview {
     let interactor: TransactionInteractor = .init(
-        chest: .create(vaultId: "1", name: "Example chest"),
+        chest: ChestDTO.create(vaultId: "1", name: "Example chest"),
         repo: TransactionRepositoryStub()
     )
     

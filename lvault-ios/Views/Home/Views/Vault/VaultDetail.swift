@@ -50,7 +50,7 @@ private extension VaultDetail {
 }
 
 #Preview {
-    let vault = Vault.create(name: "Example vault")
+    let vault = VaultDTO.create(name: "Example vault")
         .withChest(name: "Chest 1", amount: 2000)
         .withChest(name: "Chest 2", amount: 3000)
         .withChest(name: "Chest 3", amount: 4000)

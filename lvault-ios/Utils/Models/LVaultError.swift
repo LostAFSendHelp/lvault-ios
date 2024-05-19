@@ -10,6 +10,7 @@ import Foundation
 enum LVaultError: Error {
     case custom(String)
     case notFound(String?)
+    case invalidArguments(String?)
 }
 
 extension LVaultError: LocalizedError {
@@ -19,6 +20,12 @@ extension LVaultError: LocalizedError {
             return message
         case .notFound(let clause):
             var message = "Data not found"
+            if let clause {
+                message += ": \(clause)"
+            }
+            return message
+        case .invalidArguments(let clause):
+            var message = "Invalid arguments"
             if let clause {
                 message += ": \(clause)"
             }

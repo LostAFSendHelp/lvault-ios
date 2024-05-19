@@ -7,9 +7,16 @@
 
 import UIKit
 
-struct TransactionLabel {
-    var id: String
-    var name: String
-    var color: String
-    var createdAt: Double
+protocol TransactionLabel {
+    var id: String { get }
+    var name: String { get }
+    var color: String { get }
+    var createdAt: Double { get }
+}
+
+struct TransactionLabelDTO: TransactionLabel {
+    let id: String
+    let name: String
+    let color: String
+    let createdAt: Double
 }

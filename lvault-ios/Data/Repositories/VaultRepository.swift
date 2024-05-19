@@ -14,7 +14,7 @@ protocol VaultRepository: AnyObject {
 }
 
 class VaultRepositoryStub: VaultRepository {
-    static var data: [Vault] {
+    static var data: [VaultDTO] {
         return [
             .create(name: "Vault 1").withChest(name: "Chest 1", amount: 1000),
             .create(name: "Vault 2").withChest(name: "Chest 2", amount: 2000),
@@ -32,7 +32,7 @@ class VaultRepositoryStub: VaultRepository {
     }
     
     func createVault(named name: String) -> AnyPublisher<Vault, Error> {
-        return Just(.create(name: name)).setFailureType(to: Error.self).eraseToAnyPublisher()
+        return Just(VaultDTO.create(name: name)).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }
 
@@ -46,8 +46,7 @@ class VaultRepositoryImpl: VaultRepository {
     func getVaults() -> AnyPublisher<[Vault], Error> {
         return Future { [unowned self] promise in
             do {
-                let data: [VaultCSO] = try persistence.fetchAll()
-                let vaults = data.map({ Vault.fromCSO($0) })
+                let vaults: [VaultCSO] = try persistence.fetchAll()
                 promise(.success(vaults))
             } catch {
                 promise(.failure(error))
@@ -64,7 +63,7 @@ class VaultRepositoryImpl: VaultRepository {
                 completion: { result in
                     switch result {
                     case .success(let cso):
-                        promise(.success(.fromCSO(cso)))
+                        promise(.success(cso))
                     case .failure(let error):
                         promise(.failure(error))
                     }

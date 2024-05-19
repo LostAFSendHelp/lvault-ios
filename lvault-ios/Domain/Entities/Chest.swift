@@ -1,5 +1,5 @@
 //
-//  ChestEntity.swift
+//  Chest.swift
 //  lvault-ios
 //
 //  Created by Chuong Nguyen on 4/21/24.
@@ -7,23 +7,32 @@
 
 import Foundation
 
-struct Chest {
-    var id: String
-    var name: String
-    var initialAmount: Double
-    var currentAmount: Double
-    var transactions: [Transaction]
-    var createdAt: Double
+protocol Chest {
+    var id: String { get }
+    var name: String { get }
+    var initialAmount: Double { get }
+    var currentAmount: Double { get }
+    var transactions: [Transaction] { get }
+    var createdAt: Double { get }
 }
 
-extension Chest {
+struct ChestDTO: Chest {
+    let id: String
+    let name: String
+    let initialAmount: Double
+    let currentAmount: Double
+    let transactions: [Transaction]
+    let createdAt: Double
+}
+
+extension ChestDTO {
     static func create(
         vaultId: String,
         name: String,
         initialAmount: Double = 1000,
         currentAmount: Double = 1000,
         createdAt: Double = 0
-    ) -> Chest {
+    ) -> ChestDTO {
         return .init(
             id: UUID().uuidString,
             name: name,

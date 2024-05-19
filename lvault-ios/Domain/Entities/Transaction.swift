@@ -5,12 +5,12 @@
 //  Created by Chuong Nguyen on 4/29/24.
 //
 
-struct Transaction {
-    var id: String
-    var amount: Double
-    var transactionDate: Double
-    var labels: [TransactionLabel]
-    var createdAt: Double
+protocol Transaction {
+    var id: String { get }
+    var amount: Double { get }
+    var transactionDate: Double { get }
+    var labels: [TransactionLabel] { get }
+    var createdAt: Double { get }
 }
 
 extension Transaction {
@@ -25,4 +25,12 @@ extension Transaction {
     var timeText: String {
         return transactionDate.millisecondToDate.HHmmGMT
     }
+}
+
+struct TransactionDTO: Transaction {
+    let id: String
+    let amount: Double
+    let transactionDate: Double
+    let labels: [TransactionLabel]
+    let createdAt: Double
 }

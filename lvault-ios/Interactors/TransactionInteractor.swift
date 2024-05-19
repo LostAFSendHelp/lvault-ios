@@ -24,7 +24,7 @@ class TransactionInteractor: ObservableObject {
     
     func loadTransactions() {
         transactions = .loading
-        repo.getTransactions(chestId: chest.id)
+        repo.getTransactions(chest: chest)
             .sink(
                 receiveCompletion: { [weak self] result in
                     guard let self, case .failure(let error) = result else { return }
@@ -38,7 +38,7 @@ class TransactionInteractor: ObservableObject {
     }
     
     func createTransaction(amount: Double, date: Double, into binding: Binding<Loadable<Transaction>>) {
-        repo.createTransaction(amount: amount, date: date, chestId: chest.id)
+        repo.createTransaction(amount: amount, date: date, chest: chest)
             .sink(
                 receiveCompletion: { result in
                     guard case .failure(let error) = result else { return }

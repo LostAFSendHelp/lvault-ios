@@ -21,7 +21,7 @@ struct TransactionRow: View {
 }
 
 #Preview {
-    TransactionRow(transaction: .init(
+    TransactionRow(transaction: TransactionDTO(
         id: "",
         amount: 1000000,
         transactionDate: Date.now.millisecondsSince1970,

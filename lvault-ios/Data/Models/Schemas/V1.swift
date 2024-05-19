@@ -22,7 +22,7 @@ enum V1 {
         var name: String = "New vault"
         
         @Field.Relationship("chests")
-        var chests: [ChestCSO]
+        var rChests: [ChestCSO]
         
         @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
         private(set) var createdAt: Double
@@ -41,11 +41,11 @@ enum V1 {
         @Field.Stored("currentAmount")
         var currentAmount: Double = 0
         
-        @Field.Relationship("vault", inverse: \.$chests)
-        var vault: VaultCSO?
+        @Field.Relationship("vault", inverse: \.$rChests)
+        var rVault: VaultCSO?
         
         @Field.Relationship("transactions")
-        var transactions: [TransactionCSO]
+        var rTransactions: [TransactionCSO]
         
         @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
         private(set) var createdAt: Double
@@ -64,11 +64,11 @@ enum V1 {
         @Field.Stored("note")
         var note: String?
         
-        @Field.Relationship("chest", inverse: \.$transactions)
-        var chest: ChestCSO?
+        @Field.Relationship("chest", inverse: \.$rTransactions)
+        var rChest: ChestCSO?
         
         @Field.Relationship("labels")
-        var labels: Set<TransactionLabelCSO>
+        var rLabels: Set<TransactionLabelCSO>
         
         @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
         private(set) var createdAt: Double
@@ -84,8 +84,8 @@ enum V1 {
         @Field.Stored("color")
         var color: String = "#FFFFFF"
         
-        @Field.Relationship("transactions", inverse: \.$labels)
-        var transactions: [TransactionCSO]
+        @Field.Relationship("transactions", inverse: \.$rLabels)
+        var rTransactions: [TransactionCSO]
         
         @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
         private(set) var createdAt: Double

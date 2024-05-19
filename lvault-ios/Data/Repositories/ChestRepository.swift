@@ -10,19 +10,19 @@ import Combine
 import CoreStore
 
 protocol ChestRepository: AnyObject {
-    func getChests(vaultId: String) -> AnyPublisher<[Chest], Error>
-    func createChest(named name: String, initialAmount: Double, vaultId: String) -> AnyPublisher<Chest, Error>
+    func getChests(vault: Vault) -> AnyPublisher<[Chest], Error>
+    func createChest(named name: String, initialAmount: Double, vault: Vault) -> AnyPublisher<Chest, Error>
 }
 
 class ChestRepositoryStub: ChestRepository {
-    func getChests(vaultId: String) -> AnyPublisher<[Chest], Error> {
+    func getChests(vault: Vault) -> AnyPublisher<[Chest], Error> {
         return Just([])
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
     
-    func createChest(named name: String, initialAmount: Double, vaultId: String) -> AnyPublisher<Chest, Error> {
-        return Just(Chest.create(vaultId: "", name: "example chest"))
+    func createChest(named name: String, initialAmount: Double, vault: Vault) -> AnyPublisher<Chest, Error> {
+        return Just(ChestDTO.create(vaultId: "", name: "example chest"))
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
@@ -35,31 +35,20 @@ class ChestRepositoryImpl: ChestRepository {
         self.persistence = persistence
     }
     
-    func getChests(vaultId: String) -> AnyPublisher<[Chest], Error> {
-        Future { [unowned self] promise in
-            do {
-                let data: [ChestCSO] = try persistence.fetchAll("vault.id == %@", vaultId as NSString)
-                let chests = data.map({ Chest.fromCSO($0) })
-                promise(.success(chests))
-            } catch {
-                promise(.failure(error))
+    func getChests(vault: Vault) -> AnyPublisher<[Chest], Error> {
+        Future { promise in
+            guard let vault = vault as? VaultCSO else {
+                promise(.failure(LVaultError.invalidArguments("Expected VaultCSO")))
+                return
             }
+            promise(.success(vault.chests))
         }.eraseToAnyPublisher()
     }
     
-    func createChest(named name: String, initialAmount: Double, vaultId: String) -> AnyPublisher<Chest, Error> {
+    func createChest(named name: String, initialAmount: Double, vault: Vault) -> AnyPublisher<Chest, Error> {
         Future { [unowned self] promise in
-            var vault: VaultCSO?
-            
-            do {
-                vault = try persistence.fetchFirst("id == %@", vaultId as NSString)
-            } catch {
-                promise(.failure(error))
-                return
-            }
-            
-            guard let vault else {
-                promise(.failure(LVaultError.notFound("vault with id \(vaultId)")))
+            guard let vault = vault as? VaultCSO else {
+                promise(.failure(LVaultError.invalidArguments("Expected VaultCSO")))
                 return
             }
             
@@ -69,12 +58,12 @@ class ChestRepositoryImpl: ChestRepository {
                     cso.name = name
                     cso.initialAmount = initialAmount
                     cso.currentAmount = initialAmount
-                    cso.vault = vault
+                    cso.rVault = vault
                 },
                 completion: { result in
                     switch result {
                     case .success(let cso):
-                        promise(.success(.fromCSO(cso)))
+                        promise(.success(cso))
                     case .failure(let error):
                         promise(.failure(error))
                     }
