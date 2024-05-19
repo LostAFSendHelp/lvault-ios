@@ -38,6 +38,7 @@ class TransactionInteractor: ObservableObject {
     }
     
     func createTransaction(amount: Double, date: Double, into binding: Binding<Loadable<Transaction>>) {
+        binding.wrappedValue = .loading
         repo.createTransaction(amount: amount, date: date, chest: chest)
             .sink(
                 receiveCompletion: { result in
@@ -46,6 +47,27 @@ class TransactionInteractor: ObservableObject {
                 }, receiveValue: { transaction in
                     binding.wrappedValue = .data(transaction)
                 }
+            ).store(in: &subscriptions)
+    }
+    
+    func deleteTransaction(
+        _ transaction: Transaction,
+        into binding: Binding<Loadable<Void>>? = nil,
+        completion: EmptyVoidHandler? = nil
+    ) {
+        binding?.wrappedValue = .loading
+        repo.deleteTransaction(transaction)
+            .sink(
+                receiveCompletion: { result in
+                    switch result {
+                    case .finished:
+                        binding?.wrappedValue = .data(())
+                    case .failure(let error):
+                        binding?.wrappedValue = .error(error)
+                    }
+                    completion?()
+                },
+                receiveValue: { _ in }
             ).store(in: &subscriptions)
     }
 }

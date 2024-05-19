@@ -21,7 +21,7 @@ enum V1 {
         @Field.Stored("name")
         var name: String = "New vault"
         
-        @Field.Relationship("chests")
+        @Field.Relationship("chests", deleteRule: .cascade)
         var rChests: [ChestCSO]
         
         @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
@@ -41,10 +41,10 @@ enum V1 {
         @Field.Stored("currentAmount")
         var currentAmount: Double = 0
         
-        @Field.Relationship("vault", inverse: \.$rChests)
+        @Field.Relationship("vault", inverse: \.$rChests, deleteRule: .nullify)
         var rVault: VaultCSO?
         
-        @Field.Relationship("transactions")
+        @Field.Relationship("transactions", deleteRule: .cascade)
         var rTransactions: [TransactionCSO]
         
         @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
@@ -64,7 +64,7 @@ enum V1 {
         @Field.Stored("note")
         var note: String?
         
-        @Field.Relationship("chest", inverse: \.$rTransactions)
+        @Field.Relationship("chest", inverse: \.$rTransactions, deleteRule: .nullify)
         var rChest: ChestCSO?
         
         @Field.Relationship("labels")

@@ -35,7 +35,10 @@ private extension ChestDetail {
     func buildStateView(_ state: LoadableList<Transaction>) -> some View {
         switch state {
         case .data(let transactions):
-            TransactionList(transactions: transactions)
+            TransactionList(
+                transactions: transactions,
+                parentChestName: transactionInteractor.parentChestName
+            )
         case .error(let error):
             Text(error.localizedDescription)
         case .loading:

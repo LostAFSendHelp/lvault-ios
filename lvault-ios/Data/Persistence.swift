@@ -76,4 +76,19 @@ extension PersistenceController {
             }
         )
     }
+    
+    func delete<T: CoreStoreObject>(
+        _ object: T,
+        willDelete: VoidHandler2Throws<T, AsynchronousDataTransaction>? = nil,
+        completion: VoidHandler<AsynchronousDataTransaction.Result<Void>>? = nil
+    ) {
+        store.perform(
+            asynchronous: { transaction in
+                let object = transaction.edit(object)!
+                try willDelete?(object, transaction)
+                transaction.delete(object)
+            },
+            completion: completion ?? { _ in }
+        )
+    }
 }

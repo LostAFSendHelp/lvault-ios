@@ -12,6 +12,7 @@ import CoreStore
 protocol TransactionRepository: AnyObject {
     func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error>
     func createTransaction(amount: Double, date: Double, chest: Chest) -> AnyPublisher<Transaction, Error>
+    func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error>
 }
 
 class TransactionRepositoryStub: TransactionRepository {
@@ -27,6 +28,10 @@ class TransactionRepositoryStub: TransactionRepository {
     
     func createTransaction(amount: Double, date: Double, chest: Chest) -> AnyPublisher<Transaction, Error> {
         return Fail(error: LVaultError.custom("Fake error")).eraseToAnyPublisher()
+    }
+    
+    func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error> {
+        return Just<Void>(()).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }
 
@@ -66,6 +71,32 @@ class TransactionRepositoryImpl: TransactionRepository {
                     switch result {
                     case .success(let cso):
                         promise(.success(cso))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                }
+            )
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error> {
+        Future { [unowned self] promise in
+            guard let transaction = transaction as? TransactionCSO else {
+                promise(.failure(LVaultError.invalidArguments("Expected TransactionCSO")))
+                return
+            }
+            
+            persistence.delete(
+                transaction,
+                willDelete: { transaction, persistenceTrn in
+                    let chest = transaction.rChest
+                    chest?.currentAmount -= transaction.amount
+                },
+                completion: { result in
+                    switch result {
+                    case .success:
+                        promise(.success(()))
                     case .failure(let error):
                         promise(.failure(error))
                     }
