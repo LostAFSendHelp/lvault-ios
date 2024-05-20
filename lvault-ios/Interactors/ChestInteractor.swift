@@ -49,4 +49,25 @@ class ChestInteractor: ObservableObject {
                 }
             ).store(in: &subscriptions)
     }
+    
+    func deleteChest(
+        _ chest: Chest,
+        into binding: Binding<Loadable<Void>>? = nil,
+        completion: EmptyVoidHandler? = nil
+    ) {
+        binding?.wrappedValue = .loading
+        repo.deleteChest(chest)
+            .sink(
+                receiveCompletion: { result in
+                    switch result {
+                    case .finished:
+                        binding?.wrappedValue = .data(())
+                    case .failure(let error):
+                        binding?.wrappedValue = .error(error)
+                    }
+                    completion?()
+                },
+                receiveValue: { _ in }
+            ).store(in: &subscriptions)
+    }
 }

@@ -35,10 +35,8 @@ struct TransactionList: View {
                 Text("Delete")
             }
         } message: { transaction in
-            Text("Delete transaction with value [\(transaction.amountText)] from chest [\(parentChestName)]? This action cannot be reverted. Current balance of the chest will be updated accordingly.")
+            Text("Delete transaction with value [\(transaction.amountText)] from chest [\(parentChestName)]? Current balance of the chest will be updated accordingly. This action cannot be reverted!")
         }
-        
-        
     }
 }
 

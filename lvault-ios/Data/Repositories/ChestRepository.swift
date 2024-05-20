@@ -12,6 +12,7 @@ import CoreStore
 protocol ChestRepository: AnyObject {
     func getChests(vault: Vault) -> AnyPublisher<[Chest], Error>
     func createChest(named name: String, initialAmount: Double, vault: Vault) -> AnyPublisher<Chest, Error>
+    func deleteChest(_ chest: Chest) -> AnyPublisher<Void, Error>
 }
 
 class ChestRepositoryStub: ChestRepository {
@@ -25,6 +26,10 @@ class ChestRepositoryStub: ChestRepository {
         return Just(ChestDTO.create(vaultId: "", name: "example chest"))
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
+    }
+    
+    func deleteChest(_ chest: Chest) -> AnyPublisher<Void, Error> {
+        return Just<Void>(()).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }
 
@@ -64,6 +69,28 @@ class ChestRepositoryImpl: ChestRepository {
                     switch result {
                     case .success(let cso):
                         promise(.success(cso))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                }
+            )
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func deleteChest(_ chest: Chest) -> AnyPublisher<Void, Error> {
+        Future { [unowned self] promise in
+            guard let chest = chest as? ChestCSO else {
+                promise(.failure(LVaultError.invalidArguments("Expected ChestCSO")))
+                return
+            }
+            
+            persistence.delete(
+                chest,
+                completion: { result in
+                    switch result {
+                    case .success:
+                        promise(.success(()))
                     case .failure(let error):
                         promise(.failure(error))
                     }
