@@ -11,6 +11,7 @@ import Combine
 protocol VaultRepository: AnyObject {
     func getVaults() -> AnyPublisher<[Vault], Error>
     func createVault(named name: String) -> AnyPublisher<Vault, Error>
+    func deleteVault(_ vault: Vault) -> AnyPublisher<Void, Error>
 }
 
 class VaultRepositoryStub: VaultRepository {
@@ -33,6 +34,10 @@ class VaultRepositoryStub: VaultRepository {
     
     func createVault(named name: String) -> AnyPublisher<Vault, Error> {
         return Just(VaultDTO.create(name: name)).setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
+    
+    func deleteVault(_ vault: Vault) -> AnyPublisher<Void, Error> {
+        return Just<Void>(()).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }
 
@@ -70,5 +75,27 @@ class VaultRepositoryImpl: VaultRepository {
                 }
             )
         }.eraseToAnyPublisher()
+    }
+    
+    func deleteVault(_ vault: Vault) -> AnyPublisher<Void, Error> {
+        Future { [unowned self] promise in
+            guard let vault = vault as? VaultCSO else {
+                promise(.failure(LVaultError.invalidArguments("Expected VaultCSO")))
+                return
+            }
+            
+            persistence.delete(
+                vault,
+                completion: { result in
+                    switch result {
+                    case .success:
+                        promise(.success(()))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                }
+            )
+        }
+        .eraseToAnyPublisher()
     }
 }

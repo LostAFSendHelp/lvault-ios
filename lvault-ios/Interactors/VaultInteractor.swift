@@ -45,4 +45,25 @@ class VaultInteractor: ObservableObject {
                 }
             ).store(in: &subscriptions)
     }
+    
+    func deleteVault(
+        _ vault: Vault,
+        into binding: Binding<Loadable<Void>>? = nil,
+        completion: EmptyVoidHandler? = nil
+    ) {
+        binding?.wrappedValue = .loading
+        repo.deleteVault(vault)
+            .sink(
+                receiveCompletion: { result in
+                    switch result {
+                    case .finished:
+                        binding?.wrappedValue = .data(())
+                    case .failure(let error):
+                        binding?.wrappedValue = .error(error)
+                    }
+                    completion?()
+                },
+                receiveValue: { _ in }
+            ).store(in: &subscriptions)
+    }
 }
