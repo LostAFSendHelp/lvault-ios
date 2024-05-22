@@ -37,7 +37,8 @@ private extension ChestDetail {
         case .data(let transactions):
             TransactionList(
                 transactions: transactions,
-                parentChestName: transactionInteractor.parentChestName
+                parentChestName: transactionInteractor.parentChestName,
+                onDeleteTransaction: deleteTransaction(_:)
             )
         case .error(let error):
             Text(error.localizedDescription)
@@ -46,6 +47,13 @@ private extension ChestDetail {
         default:
             EmptyView()
         }
+    }
+    
+    func deleteTransaction(_ transaction: Transaction) {
+        transactionInteractor.deleteTransaction(
+            transaction,
+            completion: { transactionInteractor.loadTransactions() }
+        )
     }
 }
 

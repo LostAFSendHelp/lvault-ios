@@ -10,9 +10,9 @@ import SwiftUI
 struct TransactionList: View {
     var transactions: [Transaction]
     var parentChestName: String
+    var onDeleteTransaction: VoidHandler<Transaction>
     @State private var showDeleteAlert: Bool = false
     @State private var deletedTransaction: Transaction?
-    @EnvironmentObject private var transactionInteractor: TransactionInteractor
     
     var body: some View {
         List {
@@ -30,7 +30,7 @@ struct TransactionList: View {
             presenting: deletedTransaction
         ) { transaction in
             Button(role: .destructive) {
-                deleteTransaction(transaction)
+                onDeleteTransaction(transaction)
             } label: {
                 Text("Delete")
             }
@@ -40,18 +40,10 @@ struct TransactionList: View {
     }
 }
 
-private extension TransactionList {
-    func deleteTransaction(_ transaction: Transaction) {
-        transactionInteractor.deleteTransaction(
-            transaction,
-            completion: { transactionInteractor.loadTransactions() }
-        )
-    }
-}
-
 #Preview {
     TransactionList(
         transactions: TransactionRepositoryStub.data,
-        parentChestName: "Example chest"
+        parentChestName: "Example chest",
+        onDeleteTransaction: { _ in }
     )
 }

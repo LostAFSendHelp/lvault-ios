@@ -40,3 +40,9 @@ extension Date {
         DateFormatter.HHmmGMT.string(from: self)
     }
 }
+
+extension Date {
+    var startOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
+    }
+}

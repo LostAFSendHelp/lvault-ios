@@ -11,6 +11,11 @@ import SwiftUI
 class TransactionInteractor: ObservableObject {
     @Published var transactions: LoadableList<Transaction> = .loading
     
+    var transactionsByDate: [Date: [Transaction]] {
+        guard let data = transactions.currentData else { return [:] }
+        return Dictionary(grouping: data, by: \.transactionDate.millisecondToDate.startOfDay)
+    }
+    
     private let chest: Chest
     private let repo: TransactionRepository
     private var subscriptions: DisposeBag = []
