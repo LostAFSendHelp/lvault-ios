@@ -23,7 +23,7 @@ extension Transaction {
     }
     
     var timeText: String {
-        return transactionDate.millisecondToDate.HHmmGMT
+        return transactionDate.millisecondToDate.HHmm
     }
 }
 

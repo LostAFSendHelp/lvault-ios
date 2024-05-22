@@ -8,21 +8,31 @@
 import SwiftUI
 
 struct TransactionList: View {
-    var transactions: [Transaction]
+    var transactions: [Date: [Transaction]]
     var parentChestName: String
     var onDeleteTransaction: VoidHandler<Transaction>
     @State private var showDeleteAlert: Bool = false
     @State private var deletedTransaction: Transaction?
     
+    init(transactions: [Transaction], parentChestName: String, onDeleteTransaction: @escaping VoidHandler<Transaction>) {
+        self.transactions = Dictionary(grouping: transactions, by: \.transactionDate.millisecondToDate.startOfDay)
+        self.parentChestName = parentChestName
+        self.onDeleteTransaction = onDeleteTransaction
+    }
+    
     var body: some View {
         List {
-            ForEach(transactions, id: \.id) { transaction in
-                TransactionRow(transaction: transaction)
-            }.onDelete { indexSet in
-                assert(indexSet.count == 1, "Only delete 1 item at a time")
-                let transaction = transactions[indexSet.first!]
-                deletedTransaction = transaction
-                showDeleteAlert = true
+            ForEach(transactions.keys.sorted(), id: \.millisecondsSince1970) { date in
+                Section(date.ddMMyyyyGMT) {
+                    ForEach(transactions[date]!, id: \.id) { transaction in
+                        TransactionRow(transaction: transaction)
+                    }.onDelete { indexSet in
+                        assert(indexSet.count == 1, "Only delete 1 item at a time")
+                        let transaction = transactions[date]![indexSet.first!]
+                        deletedTransaction = transaction
+                        showDeleteAlert = true
+                    }
+                }
             }
         }.alert(
             "Delete transaction?",

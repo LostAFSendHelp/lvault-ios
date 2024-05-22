@@ -12,7 +12,7 @@ class TransactionRepositoryStub: TransactionRepository {
     static let data: [TransactionDTO] = [
         .init(id: "1", amount: 1000000, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
         .init(id: "2", amount: -200000.155, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "3", amount: -150000.89, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
+        .init(id: "3", amount: -150000.89, transactionDate: Date.now.addingTimeInterval(24 * 60 * 60).millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
     ]
     
     private var data: [TransactionDTO]
@@ -32,7 +32,6 @@ class TransactionRepositoryStub: TransactionRepository {
         let new = TransactionDTO(id: UUID().uuidString, amount: amount, transactionDate: date, labels: [], createdAt: date)
         data.append(new)
         return Just(new)
-            .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
@@ -45,7 +44,6 @@ class TransactionRepositoryStub: TransactionRepository {
         
         data.removeAll(where: { $0.id == transaction.id })
         return Just<Void>(())
-            .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
