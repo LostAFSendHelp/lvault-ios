@@ -15,7 +15,7 @@ protocol Transaction {
 
 extension Transaction {
     var amountText: String {
-        return (amount > 0 ? "+" : "") + "%.2f".formatted(with: amount)
+        return (amount > 0 ? "+" : "") + amount.decimalText
     }
     
     var dateText: String {

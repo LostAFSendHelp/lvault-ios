@@ -11,8 +11,8 @@ import Combine
 class TransactionRepositoryStub: TransactionRepository {
     static let data: [TransactionDTO] = [
         .init(id: "1", amount: 1000000, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "2", amount: -200000, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "3", amount: -150000, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
+        .init(id: "2", amount: -200000.155, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
+        .init(id: "3", amount: -150000.89, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
     ]
     
     private var data: [TransactionDTO]
