@@ -96,4 +96,10 @@ private extension CreateTransactionSheet {
 
 #Preview {
     CreateTransactionSheet(isPresented: .constant(true))
+        .environmentObject(
+            TransactionInteractor(
+                chest: ChestRepositoryStub.data.first!,
+                repo: TransactionRepositoryStub()
+            )
+        )
 }

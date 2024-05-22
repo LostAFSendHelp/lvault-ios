@@ -91,4 +91,10 @@ private extension CreateChestSheet {
 
 #Preview {
     CreateChestSheet(isPresented: .constant(true))
+        .environmentObject(
+            ChestInteractor(
+                vault: VaultRepositoryStub.data.first!,
+                repo: ChestRepositoryStub()
+            )
+        )
 }

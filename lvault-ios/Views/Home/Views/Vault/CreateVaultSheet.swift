@@ -73,4 +73,5 @@ private extension CreateVaultSheet {
 
 #Preview {
     CreateVaultSheet(isPresented: .constant(true))
+        .environmentObject(VaultInteractor(repo: VaultRepositoryStub()))
 }

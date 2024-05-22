@@ -51,7 +51,7 @@ private extension TransactionList {
 
 #Preview {
     TransactionList(
-        transactions: TransactionRepositoryStub.transactions,
+        transactions: TransactionRepositoryStub.data,
         parentChestName: "Example chest"
     )
 }

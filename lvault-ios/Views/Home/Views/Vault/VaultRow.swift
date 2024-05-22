@@ -19,6 +19,6 @@ struct VaultRow: View {
 }
 
 #Preview {
-    let vault = VaultDTO(id: "id", name: "vault", chests: [], createdAt: 0)
-    return VaultRow(vault: vault)
+    let vault = VaultRepositoryStub.data.first!
+    return List { VaultRow(vault: vault) }
 }

@@ -20,12 +20,7 @@ struct ChestRow: View {
 }
 
 #Preview {
-    ChestRow(chest: ChestDTO.init(
-        id: "",
-        name: "example chest",
-        initialAmount: 300,
-        currentAmount: 300,
-        transactions: [],
-        createdAt: 0
-    ))
+    List {
+        ChestRow(chest: ChestRepositoryStub.data.first!)
+    }
 }

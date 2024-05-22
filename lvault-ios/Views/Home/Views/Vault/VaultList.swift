@@ -59,5 +59,9 @@ private extension VaultList {
 }
 
 #Preview {
-    VaultList(vaults: VaultRepositoryStub.data)
+    let stub = VaultRepositoryStub()
+    return NavigationStack {
+        VaultList(vaults: stub.data)
+            .environmentObject(VaultInteractor(repo: stub))
+    }
 }

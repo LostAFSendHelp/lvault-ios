@@ -15,26 +15,6 @@ protocol TransactionRepository: AnyObject {
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error>
 }
 
-class TransactionRepositoryStub: TransactionRepository {
-    static let transactions: [TransactionDTO] = [
-        .init(id: "1", amount: 1000000, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "2", amount: -200000, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "3", amount: -150000, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
-    ]
-    
-    func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error> {
-        return Just<[Transaction]>(Self.transactions).setFailureType(to: Error.self).eraseToAnyPublisher()
-    }
-    
-    func createTransaction(amount: Double, date: Double, chest: Chest) -> AnyPublisher<Transaction, Error> {
-        return Fail(error: LVaultError.custom("Fake error")).eraseToAnyPublisher()
-    }
-    
-    func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error> {
-        return Just<Void>(()).setFailureType(to: Error.self).eraseToAnyPublisher()
-    }
-}
-
 class TransactionRepositoryImpl: TransactionRepository {
     private let persistence: PersistenceController
     

@@ -50,14 +50,13 @@ private extension VaultDetail {
 }
 
 #Preview {
-    let vault = VaultDTO.create(name: "Example vault")
-        .withChest(name: "Chest 1", amount: 2000)
-        .withChest(name: "Chest 2", amount: 3000)
-        .withChest(name: "Chest 3", amount: 4000)
-        .withChest(name: "Chest 4", amount: 5000)
+    let vault = VaultRepositoryStub.data.first!
     let chestInteractor = ChestInteractor(
         vault: vault,
-        repo: ChestRepositoryImpl(persistence: .preview)
+        repo: ChestRepositoryStub()
     )
-    return VaultDetail().environmentObject(chestInteractor)
+    
+    return NavigationStack {
+        VaultDetail().environmentObject(chestInteractor)
+    }
 }

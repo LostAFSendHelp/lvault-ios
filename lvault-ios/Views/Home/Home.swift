@@ -59,5 +59,5 @@ private extension Home {
 }
 
 #Preview {
-    Home().environmentObject(VaultInteractor(repo: VaultRepositoryImpl(persistence: .preview)))
+    Home().environmentObject(VaultInteractor(repo: VaultRepositoryStub()))
 }

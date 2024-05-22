@@ -21,11 +21,5 @@ struct TransactionRow: View {
 }
 
 #Preview {
-    TransactionRow(transaction: TransactionDTO(
-        id: "",
-        amount: 1000000,
-        transactionDate: Date.now.millisecondsSince1970,
-        labels: [], // TODO: implement transaction labels
-        createdAt: Date.now.millisecondsSince1970
-    ))
+    List { TransactionRow(transaction: TransactionRepositoryStub.data.first!) }
 }

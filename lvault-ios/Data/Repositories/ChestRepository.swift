@@ -15,24 +15,6 @@ protocol ChestRepository: AnyObject {
     func deleteChest(_ chest: Chest) -> AnyPublisher<Void, Error>
 }
 
-class ChestRepositoryStub: ChestRepository {
-    func getChests(vault: Vault) -> AnyPublisher<[Chest], Error> {
-        return Just([])
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-    }
-    
-    func createChest(named name: String, initialAmount: Double, vault: Vault) -> AnyPublisher<Chest, Error> {
-        return Just(ChestDTO.create(vaultId: "", name: "example chest"))
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-    }
-    
-    func deleteChest(_ chest: Chest) -> AnyPublisher<Void, Error> {
-        return Just<Void>(()).setFailureType(to: Error.self).eraseToAnyPublisher()
-    }
-}
-
 class ChestRepositoryImpl: ChestRepository {
     private let persistence: PersistenceController
     

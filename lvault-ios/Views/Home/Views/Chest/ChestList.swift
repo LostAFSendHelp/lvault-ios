@@ -57,5 +57,15 @@ private extension ChestList {
 }
 
 #Preview {
-    ChestList(chests: [])
+    let stub = ChestRepositoryStub()
+    
+    return NavigationStack {
+        ChestList(chests: stub.data)
+            .environmentObject(
+                ChestInteractor(
+                    vault: VaultRepositoryStub.data.first!,
+                    repo: stub
+                )
+            )
+    }
 }
