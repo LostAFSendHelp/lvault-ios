@@ -38,7 +38,11 @@ private extension VaultDetail {
     func buildStateView(_ state: LoadableList<Chest>) -> some View {
         switch state {
         case .data(let chests):
-            ChestList(chests: chests)
+            ChestList(
+                chests: chests,
+                parentVaultName: chestInteractor.parentVaultName,
+                onDeleteChest: deleteChest(_:)
+            )
         case .error(let error):
             Text(error.localizedDescription)
         case .loading:
@@ -46,6 +50,13 @@ private extension VaultDetail {
         default:
             EmptyView()
         }
+    }
+    
+    func deleteChest(_ chest: Chest) {
+        chestInteractor.deleteChest(
+            chest,
+            completion: { chestInteractor.loadChests() }
+        )
     }
 }
 

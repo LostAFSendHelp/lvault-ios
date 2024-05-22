@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TransactionList: View {
-    var transactions: [Date: [Transaction]]
-    var parentChestName: String
-    var onDeleteTransaction: VoidHandler<Transaction>
+    let transactions: [Date: [Transaction]]
+    let parentChestName: String
+    let onDeleteTransaction: VoidHandler<Transaction>
     @State private var showDeleteAlert: Bool = false
     @State private var deletedTransaction: Transaction?
     

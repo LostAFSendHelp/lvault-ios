@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ChestList: View {
     let chests: [Chest]
+    let parentVaultName: String
+    let onDeleteChest: VoidHandler<Chest>
     @State private var showDeleteAlert: Bool = false
     @State private var deletedChest: Chest?
-    @EnvironmentObject private var chestInteractor: ChestInteractor
     
     var body: some View {
         List {
@@ -37,22 +38,13 @@ struct ChestList: View {
             presenting: deletedChest
         ) { chest in
             Button(role: .destructive) {
-                deleteChest(chest)
+                onDeleteChest(chest)
             } label: {
                 Text("Delete")
             }
         } message: { chest in
-            Text("Delete chest [\(chest.name)] from vault [\(chestInteractor.parentVaultName)]? All transaction data within this chest will be wiped out. This action cannot be reverted!")
+            Text("Delete chest [\(chest.name)] from vault [\(parentVaultName)]? All transaction data within this chest will be wiped out. This action cannot be reverted!")
         }
-    }
-}
-
-private extension ChestList {
-    func deleteChest(_ chest: Chest) {
-        chestInteractor.deleteChest(
-            chest,
-            completion: { chestInteractor.loadChests() }
-        )
     }
 }
 
@@ -60,12 +52,10 @@ private extension ChestList {
     let stub = ChestRepositoryStub()
     
     return NavigationStack {
-        ChestList(chests: stub.data)
-            .environmentObject(
-                ChestInteractor(
-                    vault: VaultRepositoryStub.data.first!,
-                    repo: stub
-                )
-            )
+        ChestList(
+            chests: stub.data,
+            parentVaultName: "Example vault",
+            onDeleteChest: { _ in }
+        )
     }
 }
