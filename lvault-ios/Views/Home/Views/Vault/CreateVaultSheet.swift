@@ -35,14 +35,14 @@ struct CreateVaultSheet: View {
                         into: $vaultLoadable
                     )
                 }) {
-                    Text("Confirm")
-                }
+                    Text("Confirm").frame(maxWidth: .infinity).padding(.vertical, 6)
+                }.buttonStyle(.borderedProminent)
                 
                 Button(action: {
                     isPresented = false
                 }) {
-                    Text("Cancel")
-                }
+                    Text("Cancel").frame(maxWidth: .infinity).padding(.vertical, 6)
+                }.buttonStyle(.bordered)
             }
         ).padding()
     }

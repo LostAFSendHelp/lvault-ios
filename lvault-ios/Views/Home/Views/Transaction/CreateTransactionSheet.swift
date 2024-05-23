@@ -59,14 +59,14 @@ struct CreateTransactionSheet: View {
                     into: $transactionLoadable
                 )
             }, label: {
-                Text("Confirm")
-            })
+                Text("Confirm").frame(maxWidth: .infinity).padding(.vertical, 6)
+            }).buttonStyle(.borderedProminent)
             
             Button(action: {
                 isPresented = false
             }, label: {
-                Text("Cancel")
-            })
+                Text("Cancel").frame(maxWidth: .infinity).padding(.vertical, 6)
+            }).buttonStyle(.bordered)
         }.padding()
     }
 }
