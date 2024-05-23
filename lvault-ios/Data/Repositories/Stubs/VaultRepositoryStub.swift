@@ -24,7 +24,7 @@ class VaultRepositoryStub: VaultRepository {
     }
     
     func getVaults() -> AnyPublisher<[Vault], Error> {
-        return Just(Self.data)
+        return Just(data)
             .delay(for: 0.5, scheduler: DispatchQueue.main)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()

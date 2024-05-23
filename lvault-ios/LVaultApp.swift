@@ -13,15 +13,19 @@ struct LVaultApp: App {
     
     var body: some Scene {
         WindowGroup {
+            MainView()
+                .dependency(.shared)
         }
     }
 }
 
 struct MainView: View {
+    @EnvironmentObject private var di: DI
+    
     var body: some View {
         TabView {
             Home()
-                .environmentObject(VaultInteractor(repo: VaultRepositoryImpl(persistence: .shared)))
+                .environmentObject(di.container.getVaultInteractor())
             
             Manage()
             
@@ -32,4 +36,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .dependency(.preview)
 }

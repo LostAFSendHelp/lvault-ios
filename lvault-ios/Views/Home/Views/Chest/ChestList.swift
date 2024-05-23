@@ -13,16 +13,14 @@ struct ChestList: View {
     let onDeleteChest: VoidHandler<Chest>
     @State private var showDeleteAlert: Bool = false
     @State private var deletedChest: Chest?
+    @EnvironmentObject private var di: DI
     
     var body: some View {
         List {
             ForEach(chests, id: \.id) { chest in
                 NavigationLink {
                     ChestDetail()
-                        .environmentObject(TransactionInteractor(
-                            chest: chest,
-                            repo: TransactionRepositoryImpl(persistence: .shared)
-                        ))
+                        .environmentObject(di.container.getTransactionInteractor(parentChest: chest))
                 } label: {
                     ChestRow(chest: chest)
                 }
@@ -57,5 +55,5 @@ struct ChestList: View {
             parentVaultName: "Example vault",
             onDeleteChest: { _ in }
         )
-    }
+    }.dependency(.preview)
 }

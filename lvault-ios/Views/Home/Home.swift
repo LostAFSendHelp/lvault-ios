@@ -43,21 +43,33 @@ private extension Home {
                     Text("Create")
                 }
             } else {
-                VaultList(vaults: vaults)
-                    .toolbar {
-                        Button(action: {
-                            showCreateVaultSheet = true
-                        }) {
-                            Image(systemName: "plus")
-                        }
+                VaultList(
+                    vaults: vaults,
+                    onDeleteVault: deleteVault(_:)
+                )
+                .toolbar {
+                    Button(action: {
+                        showCreateVaultSheet = true
+                    }) {
+                        Image(systemName: "plus")
                     }
+                }
             }
         default:
             EmptyView()
         }
     }
+    
+    func deleteVault(_ vault: Vault) {
+        vaultInteractor.deleteVault(
+            vault,
+            completion: { vaultInteractor.loadVaults() }
+        )
+    }
 }
 
 #Preview {
-    Home().environmentObject(VaultInteractor(repo: VaultRepositoryStub()))
+    Home()
+        .environmentObject(VaultInteractor(repo: VaultRepositoryStub()))
+        .dependency(.preview)
 }

@@ -27,7 +27,6 @@ struct VaultDetail: View {
                 isPresented: $showCreateChestSheet,
                 content: {
                     CreateChestSheet(isPresented: $showCreateChestSheet)
-                        .environmentObject(chestInteractor)
                 }
             )
     }
@@ -69,5 +68,6 @@ private extension VaultDetail {
     
     return NavigationStack {
         VaultDetail().environmentObject(chestInteractor)
+            .dependency(.preview)
     }
 }

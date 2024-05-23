@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9B03EF5B2BFF991F00ABDD64 /* Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF5A2BFF991F00ABDD64 /* Manage.swift */; };
 		9B03EF5E2BFF998400ABDD64 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF5D2BFF998400ABDD64 /* Settings.swift */; };
+		9B03EF612BFF9CE200ABDD64 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF602BFF9CE200ABDD64 /* DIContainer.swift */; };
+		9B03EF642BFFA48900ABDD64 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF632BFFA48900ABDD64 /* Dependency.swift */; };
 		9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */; };
 		9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3359832BD4AF720010221C /* EnvironmentKeys.swift */; };
 		9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */; };
@@ -79,6 +81,8 @@
 /* Begin PBXFileReference section */
 		9B03EF5A2BFF991F00ABDD64 /* Manage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manage.swift; sourceTree = "<group>"; };
 		9B03EF5D2BFF998400ABDD64 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9B03EF602BFF9CE200ABDD64 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		9B03EF632BFFA48900ABDD64 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultError.swift; sourceTree = "<group>"; };
 		9B3359832BD4AF720010221C /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepositoryStub.swift; sourceTree = "<group>"; };
@@ -174,6 +178,22 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		9B03EF5F2BFF9CA600ABDD64 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				9B03EF602BFF9CE200ABDD64 /* DIContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		9B03EF622BFFA43900ABDD64 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				9B03EF632BFFA48900ABDD64 /* Dependency.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		9B4BC95C2BFE47BF0060BD82 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +225,7 @@
 		9B57A9572BD4331100096CC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9B03EF622BFFA43900ABDD64 /* Modifiers */,
 				9B03EF5C2BFF997C00ABDD64 /* Settings */,
 				9B03EF592BFF991300ABDD64 /* Manage */,
 				9B57A9562BD4324700096CC5 /* Home */,
@@ -336,6 +357,7 @@
 		9B8EC77E2BD26560005BDBA3 /* lvault-ios */ = {
 			isa = PBXGroup;
 			children = (
+				9B03EF5F2BFF9CA600ABDD64 /* DI */,
 				9B57A9622BD437F100096CC5 /* Utils */,
 				9B57A9592BD4333300096CC5 /* Data */,
 				9B57A9692BD4387800096CC5 /* Domain */,
@@ -566,6 +588,7 @@
 				9B4BC9642BFE59B10060BD82 /* NumberFormatterExtensions.swift in Sources */,
 				9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */,
 				9B57A95F2BD4354200096CC5 /* VaultRow.swift in Sources */,
+				9B03EF612BFF9CE200ABDD64 /* DIContainer.swift in Sources */,
 				9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */,
 				9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */,
 				9B57A9712BD444C300096CC5 /* Types.swift in Sources */,
@@ -574,6 +597,7 @@
 				9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */,
 				9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */,
 				9B75B1D02BDEC7390053B845 /* V1.swift in Sources */,
+				9B03EF642BFFA48900ABDD64 /* Dependency.swift in Sources */,
 				9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */,
 				9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */,
 				9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */,

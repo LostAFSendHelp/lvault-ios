@@ -9,21 +9,17 @@ import SwiftUI
 
 struct VaultList: View {
     let vaults: [Vault]
+    var onDeleteVault: VoidHandler<Vault>
     @State private var showDeleteAlert: Bool = false
     @State private var deletedVault: Vault?
-    @EnvironmentObject private var vaultInteractor: VaultInteractor
+    @EnvironmentObject private var di: DI
     
     var body: some View {
         List {
             ForEach(vaults, id: \.id) { vault in
                 NavigationLink {
                     VaultDetail()
-                        .environmentObject(
-                            ChestInteractor(
-                                vault: vault,
-                                repo: ChestRepositoryImpl(persistence: .shared)
-                            )
-                        )
+                        .environmentObject(di.container.getChestInteractor(parentVault: vault))
                 } label: {
                     VaultRow(vault: vault)
                 }
@@ -39,7 +35,7 @@ struct VaultList: View {
             presenting: deletedVault
         ) { vault in
             Button(role: .destructive) {
-                deleteVault(vault)
+                onDeleteVault(vault)
             } label: {
                 Text("Delete")
             }
@@ -49,19 +45,10 @@ struct VaultList: View {
     }
 }
 
-private extension VaultList {
-    func deleteVault(_ vault: Vault) {
-        vaultInteractor.deleteVault(
-            vault,
-            completion: { vaultInteractor.loadVaults() }
-        )
-    }
-}
-
 #Preview {
     let stub = VaultRepositoryStub()
     return NavigationStack {
-        VaultList(vaults: stub.data)
-            .environmentObject(VaultInteractor(repo: stub))
+        VaultList(vaults: stub.data, onDeleteVault: { _ in })
+            .dependency(.preview)
     }
 }
