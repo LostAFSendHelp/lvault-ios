@@ -22,7 +22,7 @@ struct Home: View {
                 .sheet(isPresented: $showCreateVaultSheet) {
                     CreateVaultSheet(isPresented: $showCreateVaultSheet)
                 }
-        }
+        }.tabItem { Label("Home", systemImage: "house.fill") }
     }
 }
 

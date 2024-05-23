@@ -10,11 +10,26 @@ import SwiftUI
 @main
 struct LVaultApp: App {
     let persistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
-            Home()
-                .environmentObject(VaultInteractor(repo: VaultRepositoryImpl(persistence: .shared)))
         }
     }
+}
+
+struct MainView: View {
+    var body: some View {
+        TabView {
+            Home()
+                .environmentObject(VaultInteractor(repo: VaultRepositoryImpl(persistence: .shared)))
+            
+            Manage()
+            
+            Settings()
+        }
+    }
+}
+
+#Preview {
+    MainView()
 }

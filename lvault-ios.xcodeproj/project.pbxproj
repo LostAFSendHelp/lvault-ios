@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B03EF5B2BFF991F00ABDD64 /* Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF5A2BFF991F00ABDD64 /* Manage.swift */; };
+		9B03EF5E2BFF998400ABDD64 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF5D2BFF998400ABDD64 /* Settings.swift */; };
 		9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */; };
 		9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3359832BD4AF720010221C /* EnvironmentKeys.swift */; };
 		9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */; };
@@ -75,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B03EF5A2BFF991F00ABDD64 /* Manage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manage.swift; sourceTree = "<group>"; };
+		9B03EF5D2BFF998400ABDD64 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultError.swift; sourceTree = "<group>"; };
 		9B3359832BD4AF720010221C /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepositoryStub.swift; sourceTree = "<group>"; };
@@ -154,6 +158,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B03EF592BFF991300ABDD64 /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				9B03EF5A2BFF991F00ABDD64 /* Manage.swift */,
+			);
+			path = Manage;
+			sourceTree = "<group>";
+		};
+		9B03EF5C2BFF997C00ABDD64 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9B03EF5D2BFF998400ABDD64 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		9B4BC95C2BFE47BF0060BD82 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +205,8 @@
 		9B57A9572BD4331100096CC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9B03EF5C2BFF997C00ABDD64 /* Settings */,
+				9B03EF592BFF991300ABDD64 /* Manage */,
 				9B57A9562BD4324700096CC5 /* Home */,
 			);
 			path = Views;
@@ -536,6 +558,7 @@
 				9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */,
 				9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */,
 				9BA020C62BD5538D00BAA43C /* VaultDetail.swift in Sources */,
+				9B03EF5E2BFF998400ABDD64 /* Settings.swift in Sources */,
 				9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */,
 				9BA020CA2BD5575100BAA43C /* Chest.swift in Sources */,
 				9B4BC9622BFE47EE0060BD82 /* TransactionRepositoryStub.swift in Sources */,
@@ -570,6 +593,7 @@
 				9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */,
 				9BA7420F2BF8FB3A009C771F /* TransactionRepository.swift in Sources */,
 				9BA742162BF907E9009C771F /* TransactionList.swift in Sources */,
+				9B03EF5B2BFF991F00ABDD64 /* Manage.swift in Sources */,
 				9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */,
 				9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */,
 				9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */,
