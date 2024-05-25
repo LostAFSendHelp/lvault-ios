@@ -23,11 +23,13 @@ protocol DIContainer: AnyObject {
     func getVaultInteractor() -> VaultInteractor
     func getChestInteractor(parentVault: Vault) -> ChestInteractor
     func getTransactionInteractor(parentChest: Chest) -> TransactionInteractor
+    func getTransactionLabelInteractor() -> TransactionLabelInteractor
 }
 
 class DIContainerImpl: DIContainer {
     private let persistence: PersistenceController = .shared
     private lazy var vaultInteractor: VaultInteractor = .init(repo: VaultRepositoryImpl(persistence: persistence))
+    private lazy var transactionLabelInteractor: TransactionLabelInteractor = .init(repo: TransactionLabelRepositoryImpl(persistence: persistence))
     
     func getVaultInteractor() -> VaultInteractor {
         return vaultInteractor
@@ -42,10 +44,15 @@ class DIContainerImpl: DIContainer {
         assert(parentChest is ChestCSO, "Run-time object must be a CSO instance")
         return TransactionInteractor(chest: parentChest, repo: TransactionRepositoryImpl(persistence: persistence))
     }
+    
+    func getTransactionLabelInteractor() -> TransactionLabelInteractor {
+        return transactionLabelInteractor
+    }
 }
 
 class DIContainerPreview: DIContainer {
     private let vaultInteractor: VaultInteractor = .init(repo: VaultRepositoryStub())
+    private let transactionLabelInteractor: TransactionLabelInteractor = .init(repo: TransactionLabelRepositoryStub())
     
     func getVaultInteractor() -> VaultInteractor {
         return vaultInteractor
@@ -57,5 +64,9 @@ class DIContainerPreview: DIContainer {
     
     func getTransactionInteractor(parentChest: Chest) -> TransactionInteractor {
         return TransactionInteractor(chest: parentChest, repo: TransactionRepositoryStub())
+    }
+    
+    func getTransactionLabelInteractor() -> TransactionLabelInteractor {
+        return transactionLabelInteractor
     }
 }

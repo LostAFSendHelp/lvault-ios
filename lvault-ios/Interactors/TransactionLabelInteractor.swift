@@ -1,63 +1,59 @@
 //
-//  TransactionInteractor.swift
+//  TransactionLabelInteractor.swift
 //  lvault-ios
 //
-//  Created by Chuong Nguyen on 5/18/24.
+//  Created by Chuong Nguyen on 5/25/24.
 //
 
 import Foundation
 import SwiftUI
 
-class TransactionInteractor: ObservableObject {
-    @Published var transactions: LoadableList<Transaction> = .loading
+class TransactionLabelInteractor: ObservableObject {
+    @Published private(set) var transactionLabels: LoadableList<TransactionLabel> = .loading
     
-    private let chest: Chest
-    private let repo: TransactionRepository
+    private let repo: TransactionLabelRepository
     private var subscriptions: DisposeBag = []
     
-    var parentChestName: String { chest.name }
-    var parentChestBalance: String { chest.currentAmount.decimalText }
-    
-    init(chest: Chest, repo: TransactionRepository) {
-        self.chest = chest
+    init(repo: TransactionLabelRepository) {
         self.repo = repo
     }
     
-    func loadTransactions() {
-        transactions = .loading
-        repo.getTransactions(chest: chest)
+    func loadTransactionLabels() {
+        transactionLabels = .loading
+        repo.getTransactionLabels()
             .sink(
                 receiveCompletion: { [weak self] result in
                     guard let self, case .failure(let error) = result else { return }
-                    transactions = .error(error)
+                    transactionLabels = .error(error)
                 },
                 receiveValue: { [weak self] data in
                     guard let self else { return }
-                    transactions = .data(data.sorted(by: { left, right in left.transactionDate < right.transactionDate }))
+                    transactionLabels = .data(data.sorted(by: { left, right in left.name < right.name }))
                 }
             ).store(in: &subscriptions)
     }
     
-    func createTransaction(amount: Double, date: Double, into binding: Binding<Loadable<Transaction>>) {
+    func createTransactionLabel(name: String, color: String, into binding: Binding<Loadable<TransactionLabel>>) {
         binding.wrappedValue = .loading
-        repo.createTransaction(amount: amount, date: date, chest: chest)
+        repo.createTransactionLabel(name: name, color: color)
             .sink(
                 receiveCompletion: { result in
                     guard case .failure(let error) = result else { return }
                     binding.wrappedValue = .error(error)
-                }, receiveValue: { transaction in
-                    binding.wrappedValue = .data(transaction)
+                },
+                receiveValue: { transactionLabel in
+                    binding.wrappedValue = .data(transactionLabel)
                 }
             ).store(in: &subscriptions)
     }
     
-    func deleteTransaction(
-        _ transaction: Transaction,
+    func deleteTransactionLabel(
+        _ transactionLabel: TransactionLabel,
         into binding: Binding<Loadable<Void>>? = nil,
         completion: EmptyVoidHandler? = nil
     ) {
         binding?.wrappedValue = .loading
-        repo.deleteTransaction(transaction)
+        repo.deleteTransactionLabel(transactionLabel)
             .sink(
                 receiveCompletion: { result in
                     switch result {
