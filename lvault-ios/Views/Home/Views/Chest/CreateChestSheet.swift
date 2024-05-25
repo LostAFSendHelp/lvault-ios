@@ -17,16 +17,14 @@ struct CreateChestSheet: View {
     var body: some View {
         VStack(
             alignment: .center,
-            spacing: 16,
+            spacing: UIConfigs.verticalSpacing,
             content: {
                 TextField(
                     text: $chestName,
                     prompt: Text("Chest name...").italic()
                 ) {
                     Text("")
-                }.textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(1)
+                }.applyBasicInputStyle()
                 
                 TextField(
                     value: $chestInitialAmount,
@@ -34,10 +32,7 @@ struct CreateChestSheet: View {
                     prompt: Text("Initial amount...").italic()
                 ) {
                     Text("")
-                }.textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(1)
-                    .keyboardType(.numberPad)
+                }.applyBasicInputStyle().keyboardType(.numberPad)
                 
                 buildStateView(chestLoadable)
                 
@@ -53,13 +48,13 @@ struct CreateChestSheet: View {
                         into: $chestLoadable
                     )
                 }) {
-                    Text("Confirm").frame(maxWidth: .infinity).padding(.vertical, 6)
+                    Text("Confirm").applySheetButtonStyle()
                 }.buttonStyle(.borderedProminent)
                 
                 Button(action: {
                     isPresented = false
                 }) {
-                    Text("Cancel").frame(maxWidth: .infinity).padding(.vertical, 6)
+                    Text("Cancel").applySheetButtonStyle()
                 }.buttonStyle(.bordered)
             }
         ).padding()

@@ -18,17 +18,14 @@ struct CreateTransactionSheet: View {
     var body: some View {
         VStack(
             alignment: .center,
-            spacing: 16
+            spacing: UIConfigs.verticalSpacing
         ) {
             TextField(
                 value: $amount,
                 format: .number
             ) {
                 Text("transaction amount...").italic()
-            }.textFieldStyle(.roundedBorder)
-                .multilineTextAlignment(.center)
-                .lineLimit(1)
-                .keyboardType(.decimalPad)
+            }.applyBasicInputStyle().keyboardType(.decimalPad)
             
             Button(action: {
                 isExpense.toggle()
@@ -59,13 +56,13 @@ struct CreateTransactionSheet: View {
                     into: $transactionLoadable
                 )
             }, label: {
-                Text("Confirm").frame(maxWidth: .infinity).padding(.vertical, 6)
+                Text("Confirm").applySheetButtonStyle()
             }).buttonStyle(.borderedProminent)
             
             Button(action: {
                 isPresented = false
             }, label: {
-                Text("Cancel").frame(maxWidth: .infinity).padding(.vertical, 6)
+                Text("Cancel").applySheetButtonStyle()
             }).buttonStyle(.bordered)
         }.padding()
     }

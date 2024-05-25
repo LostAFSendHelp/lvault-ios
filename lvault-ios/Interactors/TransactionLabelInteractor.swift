@@ -47,6 +47,25 @@ class TransactionLabelInteractor: ObservableObject {
             ).store(in: &subscriptions)
     }
     
+    func updateTransactionLabel(
+        _ transactionLabel: TransactionLabel,
+        name: String,
+        color: String,
+        into binding: Binding<Loadable<TransactionLabel>>
+    ) {
+        binding.wrappedValue = .loading
+        repo.updateTransactionLabel(transactionLabel, name: name, color: color)
+            .sink(
+                receiveCompletion: { result in
+                    guard case .failure(let error) = result else { return }
+                    binding.wrappedValue = .error(error)
+                },
+                receiveValue: { transactionLabel in
+                    binding.wrappedValue = .data(transactionLabel)
+                }
+            ).store(in: &subscriptions)
+    }
+    
     func deleteTransactionLabel(
         _ transactionLabel: TransactionLabel,
         into binding: Binding<Loadable<Void>>? = nil,

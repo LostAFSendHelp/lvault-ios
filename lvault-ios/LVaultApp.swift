@@ -28,6 +28,7 @@ struct MainView: View {
                 .environmentObject(di.container.getVaultInteractor())
             
             Manage()
+                .environmentObject(di.container.getTransactionLabelInteractor())
             
             Settings()
         }

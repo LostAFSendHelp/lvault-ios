@@ -16,16 +16,14 @@ struct CreateVaultSheet: View {
     var body: some View {
         VStack(
             alignment: .center,
-            spacing: 16,
+            spacing: UIConfigs.verticalSpacing,
             content: {
                 TextField(
                     text: $vaultName,
                     prompt: Text("Vault name...").italic()
                 ) {
                     Text("")
-                }.textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(1)
+                }.applyBasicInputStyle()
                 
                 buildStateView(vaultLoadable)
                 
@@ -35,13 +33,13 @@ struct CreateVaultSheet: View {
                         into: $vaultLoadable
                     )
                 }) {
-                    Text("Confirm").frame(maxWidth: .infinity).padding(.vertical, 6)
+                    Text("Confirm").applySheetButtonStyle()
                 }.buttonStyle(.borderedProminent)
                 
                 Button(action: {
                     isPresented = false
                 }) {
-                    Text("Cancel").frame(maxWidth: .infinity).padding(.vertical, 6)
+                    Text("Cancel").applySheetButtonStyle()
                 }.buttonStyle(.bordered)
             }
         ).padding()
