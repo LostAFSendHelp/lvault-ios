@@ -23,6 +23,8 @@
 		9B27C4AF2C025AA000EA96EF /* SheetButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4AE2C025AA000EA96EF /* SheetButtonStyle.swift */; };
 		9B27C4B12C025C4D00EA96EF /* BasicInputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4B02C025C4D00EA96EF /* BasicInputStyle.swift */; };
 		9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3359832BD4AF720010221C /* EnvironmentKeys.swift */; };
+		9B3EB8122C04DD73008F704B /* EditTransactionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8112C04DD73008F704B /* EditTransactionSheet.swift */; };
+		9B3EB8152C04E62C008F704B /* TransactionLabelSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */; };
 		9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */; };
 		9B4BC9602BFE47DE0060BD82 /* ChestRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */; };
 		9B4BC9622BFE47EE0060BD82 /* TransactionRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */; };
@@ -105,6 +107,8 @@
 		9B27C4AE2C025AA000EA96EF /* SheetButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetButtonStyle.swift; sourceTree = "<group>"; };
 		9B27C4B02C025C4D00EA96EF /* BasicInputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInputStyle.swift; sourceTree = "<group>"; };
 		9B3359832BD4AF720010221C /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
+		9B3EB8112C04DD73008F704B /* EditTransactionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionSheet.swift; sourceTree = "<group>"; };
+		9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelSelectionRow.swift; sourceTree = "<group>"; };
 		9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepositoryStub.swift; sourceTree = "<group>"; };
 		9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepositoryStub.swift; sourceTree = "<group>"; };
 		9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryStub.swift; sourceTree = "<group>"; };
@@ -225,6 +229,15 @@
 				9B27C4AA2C0254A600EA96EF /* TransactionLabelSheet.swift */,
 			);
 			path = "Transaction Labels";
+			sourceTree = "<group>";
+		};
+		9B3EB8132C04E60C008F704B /* EditTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				9B3EB8112C04DD73008F704B /* EditTransactionSheet.swift */,
+				9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */,
+			);
+			path = EditTransaction;
 			sourceTree = "<group>";
 		};
 		9B4BC95C2BFE47BF0060BD82 /* Stubs */ = {
@@ -459,6 +472,7 @@
 		9BA742102BF907C6009C771F /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				9B3EB8132C04E60C008F704B /* EditTransaction */,
 				9BA742132BF907DF009C771F /* TransactionRow.swift */,
 				9BA742152BF907E9009C771F /* TransactionList.swift */,
 				9BA742112BF907D8009C771F /* CreateTransactionSheet.swift */,
@@ -644,6 +658,7 @@
 				9B03EF642BFFA48900ABDD64 /* Dependency.swift in Sources */,
 				9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */,
 				9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */,
+				9B3EB8152C04E62C008F704B /* TransactionLabelSelectionRow.swift in Sources */,
 				9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */,
 				9BA7420B2BF8F827009C771F /* ChestDetail.swift in Sources */,
 				9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */,
@@ -656,6 +671,7 @@
 				9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */,
 				9B6C79C32BE53D29004B8649 /* ChestRepository.swift in Sources */,
 				9BDD52FE2BDFA08F002B9939 /* Transaction+CSO.swift in Sources */,
+				9B3EB8122C04DD73008F704B /* EditTransactionSheet.swift in Sources */,
 				9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */,
 				9BA7421A2BF9176A009C771F /* DoubleExtensions.swift in Sources */,
 				9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */,

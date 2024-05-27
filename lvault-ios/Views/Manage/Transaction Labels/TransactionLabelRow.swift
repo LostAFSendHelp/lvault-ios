@@ -33,10 +33,10 @@ struct TransactionLabelRow: View {
     var body: some View {
         HStack {
             LabelView(text: transactionLabel.name, color: transactionLabel.color.color)
-            Spacer()
-            Button(action: { editingLabel = transactionLabel }, label: {
-                Image(systemName: "square.and.pencil")
-            })
+        }.contextMenu {
+            Button(action: { editingLabel = transactionLabel }) {
+                Label("Edit", systemImage: "square.and.pencil")
+            }
         }
     }
 }

@@ -36,6 +36,26 @@ class TransactionRepositoryStub: TransactionRepository {
             .eraseToAnyPublisher()
     }
     
+    func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error> {
+        guard let transaction = transaction as? TransactionDTO else {
+            return Fail(error: LVaultError.invalidArguments("Expected TransactionDTO"))
+                .eraseToAnyPublisher()
+        }
+        
+        guard let index = data.firstIndex(where: { $0.id == transaction.id }) else {
+            return Fail(error: LVaultError.notFound("TransactionDTO with id \(transaction.id)"))
+                .eraseToAnyPublisher()
+        }
+        
+        var target = data[index]
+        target = target.withLabels(labels)
+        data[index] = target
+        
+        return Just(target)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error> {
         guard let transaction = transaction as? TransactionDTO else {
             return Fail(error: LVaultError.invalidArguments("Expected TransactionDTO"))

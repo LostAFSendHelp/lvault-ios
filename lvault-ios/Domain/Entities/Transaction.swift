@@ -5,6 +5,8 @@
 //  Created by Chuong Nguyen on 4/29/24.
 //
 
+import Foundation
+
 protocol Transaction {
     var id: String { get }
     var amount: Double { get }
@@ -14,6 +16,10 @@ protocol Transaction {
 }
 
 extension Transaction {
+    var identifier: String {
+        return id + labels.map(\.identifier).joined()
+    }
+    
     var amountText: String {
         return (amount > 0 ? "+" : "") + amount.decimalText
     }
@@ -33,4 +39,30 @@ struct TransactionDTO: Transaction {
     let transactionDate: Double
     let labels: [TransactionLabel]
     let createdAt: Double
+    
+    func withLabels(_ count: Int) -> TransactionDTO {
+        var labels: [TransactionLabelDTO] = []
+        
+        for index in 1...count {
+            labels.append(.init(id: String(index), name: "Label \(index)", color: "#229933", createdAt: Date().millisecondsSince1970))
+        }
+        
+        return .init(
+            id: id,
+            amount: amount,
+            transactionDate: transactionDate,
+            labels: labels,
+            createdAt: createdAt
+        )
+    }
+    
+    func withLabels(_ labels: [TransactionLabel]) -> TransactionDTO {
+        return .init(
+            id: id,
+            amount: amount,
+            transactionDate: transactionDate,
+            labels: labels,
+            createdAt: createdAt
+        )
+    }
 }

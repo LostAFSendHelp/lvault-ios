@@ -13,6 +13,7 @@ protocol TransactionRepository: AnyObject {
     func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error>
     func createTransaction(amount: Double, date: Double, chest: Chest) -> AnyPublisher<Transaction, Error>
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error>
+    func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error>
 }
 
 class TransactionRepositoryImpl: TransactionRepository {
@@ -58,6 +59,34 @@ class TransactionRepositoryImpl: TransactionRepository {
             )
         }
         .eraseToAnyPublisher()
+    }
+    
+    func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error> {
+        Future { [unowned self] promise in
+            guard
+                let transaction = transaction as? TransactionCSO,
+                let labels = labels as? [TransactionLabelCSO]
+            else {
+                promise(.failure(LVaultError.invalidArguments("Expected TransactionCSO and TransactionLabelCSOs")))
+                return
+            }
+            
+            persistence.update(
+                object: transaction,
+                updates: { transaction, persistenceTrn in
+                    let labels = labels.map({ persistenceTrn.edit($0)! })
+                    transaction.rLabels = Set(labels)
+                },
+                completion: { result in
+                    switch result {
+                    case .success(let cso):
+                        promise(.success(cso))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                }
+            )
+        }.eraseToAnyPublisher()
     }
     
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error> {

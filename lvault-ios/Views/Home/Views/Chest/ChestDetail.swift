@@ -9,7 +9,16 @@ import SwiftUI
 
 struct ChestDetail: View {
     @State private var showCreateTransactionSheet = false
+    @State private var editingTransaction: Transaction?
     @EnvironmentObject private var transactionInteractor: TransactionInteractor
+    @EnvironmentObject private var di: DI
+    
+    private var showEditSheet: Binding<Bool> {
+        .init(
+            get: { editingTransaction != nil },
+            set: { _ in editingTransaction = nil }
+        )
+    }
     
     var body: some View {
         buildStateView(transactionInteractor.transactions)
@@ -25,7 +34,9 @@ struct ChestDetail: View {
                 }
             }.sheet(isPresented: $showCreateTransactionSheet) {
                 CreateTransactionSheet(isPresented: $showCreateTransactionSheet)
-                    .environmentObject(transactionInteractor)
+            }.sheet(isPresented: showEditSheet) {
+                EditTransactionSheet(isPresented: showEditSheet, transaction: editingTransaction!)
+                    .environmentObject(di.container.getTransactionLabelInteractor())
             }
     }
 }
@@ -38,6 +49,7 @@ private extension ChestDetail {
             TransactionList(
                 transactions: transactions,
                 parentChestName: transactionInteractor.parentChestName,
+                editingTransaction: $editingTransaction,
                 onDeleteTransaction: deleteTransaction(_:)
             )
         case .error(let error):
@@ -63,5 +75,7 @@ private extension ChestDetail {
         repo: TransactionRepositoryStub()
     )
     
-    return ChestDetail().environmentObject(interactor)
+    return ChestDetail()
+        .environmentObject(interactor)
+        .environmentObject(DI.preview)
 }

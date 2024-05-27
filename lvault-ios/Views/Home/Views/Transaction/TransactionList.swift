@@ -11,12 +11,19 @@ struct TransactionList: View {
     let transactions: [Date: [Transaction]]
     let parentChestName: String
     let onDeleteTransaction: VoidHandler<Transaction>
+    @Binding var editingTransaction: Transaction?
     @State private var showDeleteAlert: Bool = false
     @State private var deletedTransaction: Transaction?
     
-    init(transactions: [Transaction], parentChestName: String, onDeleteTransaction: @escaping VoidHandler<Transaction>) {
+    init(
+        transactions: [Transaction],
+        parentChestName: String,
+        editingTransaction: Binding<Transaction?>,
+        onDeleteTransaction: @escaping VoidHandler<Transaction>
+    ) {
         self.transactions = Dictionary(grouping: transactions, by: \.transactionDate.millisecondToDate.startOfDay)
         self.parentChestName = parentChestName
+        self._editingTransaction = editingTransaction
         self.onDeleteTransaction = onDeleteTransaction
     }
     
@@ -24,8 +31,13 @@ struct TransactionList: View {
         List {
             ForEach(transactions.keys.sorted(), id: \.millisecondsSince1970) { date in
                 Section(date.ddMMyyyyGMT) {
-                    ForEach(transactions[date]!, id: \.id) { transaction in
+                    ForEach(transactions[date]!, id: \.identifier) { transaction in
                         TransactionRow(transaction: transaction)
+                            .contextMenu {
+                                Button(action: { editingTransaction = transaction }) {
+                                    Label("Edit Labels", systemImage: "square.and.pencil")
+                                }
+                            }
                     }.onDelete { indexSet in
                         assert(indexSet.count == 1, "Only delete 1 item at a time")
                         let transaction = transactions[date]![indexSet.first!]
@@ -54,6 +66,7 @@ struct TransactionList: View {
     TransactionList(
         transactions: TransactionRepositoryStub.data,
         parentChestName: "Example chest",
+        editingTransaction: .constant(nil),
         onDeleteTransaction: { _ in }
     )
 }

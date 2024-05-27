@@ -14,6 +14,12 @@ protocol TransactionLabel {
     var createdAt: Double { get }
 }
 
+extension TransactionLabel {
+    var identifier: String {
+        return id + name + color
+    }
+}
+
 struct TransactionLabelDTO: TransactionLabel {
     let id: String
     let name: String
