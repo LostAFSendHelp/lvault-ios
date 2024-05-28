@@ -11,27 +11,50 @@ struct TransactionList: View {
     let transactions: [Date: [Transaction]]
     let parentChestName: String
     let onDeleteTransaction: VoidHandler<Transaction>
+    @Binding var ascendingByDate: Bool
     @Binding var editingTransaction: Transaction?
     @State private var showDeleteAlert: Bool = false
     @State private var deletedTransaction: Transaction?
     
+    private var sortedTransactionDates: [Date] {
+        return transactions.keys.sorted(by: { left, right in ascendingByDate ? left < right : left > right })
+    }
+    
+    private func sortedTransactionsFor(date: Date) -> [Transaction] {
+        return transactions[date]!.sorted(by: { left, right in
+            if ascendingByDate {
+                return left.transactionDate < right.transactionDate
+            } else {
+                return left.transactionDate > right.transactionDate
+            }
+        })
+    }
+    
     init(
         transactions: [Transaction],
         parentChestName: String,
+        ascendingByDate: Binding<Bool> = .constant(false),
         editingTransaction: Binding<Transaction?>,
         onDeleteTransaction: @escaping VoidHandler<Transaction>
     ) {
         self.transactions = Dictionary(grouping: transactions, by: \.transactionDate.millisecondToDate.startOfDay)
         self.parentChestName = parentChestName
+        self._ascendingByDate = ascendingByDate
         self._editingTransaction = editingTransaction
         self.onDeleteTransaction = onDeleteTransaction
     }
     
     var body: some View {
         List {
-            ForEach(transactions.keys.sorted(), id: \.millisecondsSince1970) { date in
+            ForEach(
+                sortedTransactionDates,
+                id: \.millisecondsSince1970
+            ) { date in
                 Section(date.ddMMyyyyGMT) {
-                    ForEach(transactions[date]!, id: \.identifier) { transaction in
+                    ForEach(
+                        sortedTransactionsFor(date: date),
+                        id: \.identifier
+                    ) { transaction in
                         TransactionRow(transaction: transaction)
                             .contextMenu {
                                 Button(action: { editingTransaction = transaction }) {
