@@ -16,7 +16,7 @@ class TransactionInteractor: ObservableObject {
     private var subscriptions: DisposeBag = []
     
     var parentChestName: String { chest.name }
-    var parentChestBalance: String { chest.currentAmount.decimalText }
+    var parentChestBalance: String { chest.currentAmountText }
     
     init(chest: Chest, repo: TransactionRepository) {
         self.chest = chest

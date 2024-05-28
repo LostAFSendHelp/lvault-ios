@@ -16,6 +16,12 @@ protocol Chest {
     var createdAt: Double { get }
 }
 
+extension Chest {
+    var currentAmountText: String {
+        return currentAmount.decimalText
+    }
+}
+
 struct ChestDTO: Chest {
     let id: String
     let name: String
