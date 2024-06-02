@@ -38,9 +38,14 @@ class TransactionInteractor: ObservableObject {
             ).store(in: &subscriptions)
     }
     
-    func createTransaction(amount: Double, date: Double, into binding: Binding<Loadable<Transaction>>) {
+    func createTransaction(
+        amount: Double,
+        date: Double,
+        labels: [TransactionLabel],
+        into binding: Binding<Loadable<Transaction>>
+    ) {
         binding.wrappedValue = .loading
-        repo.createTransaction(amount: amount, date: date, chest: chest)
+        repo.createTransaction(amount: amount, date: date, labels: labels, chest: chest)
             .sink(
                 receiveCompletion: { result in
                     guard case .failure(let error) = result else { return }

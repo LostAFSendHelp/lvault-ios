@@ -23,7 +23,7 @@
 		9B27C4AF2C025AA000EA96EF /* SheetButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4AE2C025AA000EA96EF /* SheetButtonStyle.swift */; };
 		9B27C4B12C025C4D00EA96EF /* BasicInputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4B02C025C4D00EA96EF /* BasicInputStyle.swift */; };
 		9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3359832BD4AF720010221C /* EnvironmentKeys.swift */; };
-		9B3EB8122C04DD73008F704B /* EditTransactionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8112C04DD73008F704B /* EditTransactionSheet.swift */; };
+		9B3EB8122C04DD73008F704B /* SelectTransactionLabelsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8112C04DD73008F704B /* SelectTransactionLabelsSheet.swift */; };
 		9B3EB8152C04E62C008F704B /* TransactionLabelSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */; };
 		9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */; };
 		9B4BC9602BFE47DE0060BD82 /* ChestRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */; };
@@ -42,6 +42,7 @@
 		9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B75B1C42BDD2F5F0053B845 /* CoreStore */; };
 		9B75B1D02BDEC7390053B845 /* V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B75B1CF2BDEC7390053B845 /* V1.swift */; };
 		9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */; };
+		9B7E5F7D2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E5F7C2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift */; };
 		9B8ABC8D2BE23B2500314C72 /* CreateChestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */; };
 		9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */; };
 		9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7812BD26560005BDBA3 /* Persistence.swift */; };
@@ -107,7 +108,7 @@
 		9B27C4AE2C025AA000EA96EF /* SheetButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetButtonStyle.swift; sourceTree = "<group>"; };
 		9B27C4B02C025C4D00EA96EF /* BasicInputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInputStyle.swift; sourceTree = "<group>"; };
 		9B3359832BD4AF720010221C /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
-		9B3EB8112C04DD73008F704B /* EditTransactionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionSheet.swift; sourceTree = "<group>"; };
+		9B3EB8112C04DD73008F704B /* SelectTransactionLabelsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTransactionLabelsSheet.swift; sourceTree = "<group>"; };
 		9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelSelectionRow.swift; sourceTree = "<group>"; };
 		9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepositoryStub.swift; sourceTree = "<group>"; };
 		9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepositoryStub.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		9B6C79C22BE53D29004B8649 /* ChestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepository.swift; sourceTree = "<group>"; };
 		9B75B1CF2BDEC7390053B845 /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
 		9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVaultSheet.swift; sourceTree = "<group>"; };
+		9B7E5F7C2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelSelectionList.swift; sourceTree = "<group>"; };
 		9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChestSheet.swift; sourceTree = "<group>"; };
 		9B8EC77C2BD26560005BDBA3 /* lvault-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lvault-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultApp.swift; sourceTree = "<group>"; };
@@ -234,7 +236,8 @@
 		9B3EB8132C04E60C008F704B /* EditTransaction */ = {
 			isa = PBXGroup;
 			children = (
-				9B3EB8112C04DD73008F704B /* EditTransactionSheet.swift */,
+				9B3EB8112C04DD73008F704B /* SelectTransactionLabelsSheet.swift */,
+				9B7E5F7C2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift */,
 				9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */,
 			);
 			path = EditTransaction;
@@ -655,6 +658,7 @@
 				9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */,
 				9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */,
 				9B75B1D02BDEC7390053B845 /* V1.swift in Sources */,
+				9B7E5F7D2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift in Sources */,
 				9B03EF642BFFA48900ABDD64 /* Dependency.swift in Sources */,
 				9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */,
 				9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */,
@@ -671,7 +675,7 @@
 				9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */,
 				9B6C79C32BE53D29004B8649 /* ChestRepository.swift in Sources */,
 				9BDD52FE2BDFA08F002B9939 /* Transaction+CSO.swift in Sources */,
-				9B3EB8122C04DD73008F704B /* EditTransactionSheet.swift in Sources */,
+				9B3EB8122C04DD73008F704B /* SelectTransactionLabelsSheet.swift in Sources */,
 				9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */,
 				9BA7421A2BF9176A009C771F /* DoubleExtensions.swift in Sources */,
 				9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */,

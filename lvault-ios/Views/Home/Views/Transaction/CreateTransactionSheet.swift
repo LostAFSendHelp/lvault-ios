@@ -13,7 +13,10 @@ struct CreateTransactionSheet: View {
     @State private var amount: Double?
     @State private var date: Date = .now
     @State private var isExpense: Bool = false
+    @State private var selectedLabels: [TransactionLabel] = []
+    @State private var showTransactionLabelsSheet: Bool = false
     @EnvironmentObject private var interactor: TransactionInteractor
+    @EnvironmentObject private var di: DI
     
     var body: some View {
         VStack(
@@ -42,6 +45,25 @@ struct CreateTransactionSheet: View {
                 displayedComponents: [.date, .hourAndMinute]
             )
             
+            HStack {
+                Button(action: { showTransactionLabelsSheet = true }) {
+                    Text("Select labels")
+                }.fixedSize()
+                
+                Spacer(minLength: 16)
+                
+                if !selectedLabels.isEmpty {
+                    ScrollView(.horizontal) {
+                        LazyHStack(alignment: .center) {
+                            ForEach(selectedLabels, id: \.id) { label in
+                                LabelView(text: label.name, color: label.color.color)
+                            }
+                        }.frame(maxHeight: 40)
+                    }.scrollIndicators(.never)
+                }
+            }
+            .padding(.bottom)
+            
             buildStateView(transactionLoadable)
             
             Button(action: {
@@ -53,6 +75,7 @@ struct CreateTransactionSheet: View {
                 interactor.createTransaction(
                     amount: amount * (isExpense ? -1 : 1),
                     date: date.millisecondsSince1970,
+                    labels: selectedLabels,
                     into: $transactionLoadable
                 )
             }, label: {
@@ -64,7 +87,18 @@ struct CreateTransactionSheet: View {
             }, label: {
                 Text("Cancel").applySheetButtonStyle()
             }).buttonStyle(.bordered)
-        }.padding()
+        }
+        .padding()
+        .sheet(isPresented: $showTransactionLabelsSheet) {
+            SelectTransactionLabelsSheet(
+                isPresented: $showTransactionLabelsSheet,
+                selectedLabels: selectedLabels,
+                onConfirm: { labels in
+                    selectedLabels = labels
+                    showTransactionLabelsSheet = false
+                }
+            ).environmentObject(di.container.getTransactionLabelInteractor())
+        }
     }
 }
 
@@ -93,6 +127,7 @@ private extension CreateTransactionSheet {
 
 #Preview {
     CreateTransactionSheet(isPresented: .constant(true))
+        .environmentObject(DI.preview)
         .environmentObject(
             TransactionInteractor(
                 chest: ChestRepositoryStub.data.first!,

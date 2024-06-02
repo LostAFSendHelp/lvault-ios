@@ -41,8 +41,14 @@ struct ChestDetail: View {
             }.sheet(isPresented: $showCreateTransactionSheet) {
                 CreateTransactionSheet(isPresented: $showCreateTransactionSheet)
             }.sheet(isPresented: showEditSheet) {
-                EditTransactionSheet(isPresented: showEditSheet, transaction: editingTransaction!)
-                    .environmentObject(di.container.getTransactionLabelInteractor())
+                SelectTransactionLabelsSheet(
+                    isPresented: showEditSheet,
+                    selectedLabels: editingTransaction!.labels,
+                    onConfirm: { labels in
+                        updateTransaction(editingTransaction!, setTransactionLabels: labels)
+                    }
+                )
+                .environmentObject(di.container.getTransactionLabelInteractor())
             }
     }
 }
@@ -75,6 +81,20 @@ private extension ChestDetail {
         }
     }
     
+    func updateTransaction(
+        _ transaction: Transaction,
+        setTransactionLabels labels: [TransactionLabel]
+    ) {
+        transactionInteractor.updateTransaction(
+            editingTransaction!,
+            setTransactionLabels: labels,
+            completion: {
+                transactionInteractor.loadTransactions()
+                editingTransaction = nil
+            }
+        )
+    }
+    
     func deleteTransaction(_ transaction: Transaction) {
         transactionInteractor.deleteTransaction(
             transaction,
@@ -89,7 +109,9 @@ private extension ChestDetail {
         repo: TransactionRepositoryStub()
     )
     
-    return ChestDetail()
-        .environmentObject(interactor)
-        .environmentObject(DI.preview)
+    return NavigationStack {
+        ChestDetail()
+            .environmentObject(interactor)
+            .environmentObject(DI.preview)
+    }
 }

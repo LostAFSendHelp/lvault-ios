@@ -28,9 +28,20 @@ class TransactionRepositoryStub: TransactionRepository {
             .eraseToAnyPublisher()
     }
     
-    func createTransaction(amount: Double, date: Double, chest: Chest) -> AnyPublisher<Transaction, Error> {
-        let new = TransactionDTO(id: UUID().uuidString, amount: amount, transactionDate: date, labels: [], createdAt: date)
+    func createTransaction(
+        amount: Double,
+        date: Double,
+        labels: [TransactionLabel],
+        chest: Chest
+    ) -> AnyPublisher<Transaction, Error> {
+        guard let labels = labels as? [TransactionLabelDTO] else {
+            return Fail(error: LVaultError.invalidArguments("Expected TransactionLabelDTOs"))
+                .eraseToAnyPublisher()
+        }
+        
+        let new = TransactionDTO(id: UUID().uuidString, amount: amount, transactionDate: date, labels: labels, createdAt: date)
         data.append(new)
+        
         return Just(new)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()

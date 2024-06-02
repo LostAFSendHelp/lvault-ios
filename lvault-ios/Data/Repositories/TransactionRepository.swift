@@ -11,7 +11,7 @@ import CoreStore
 
 protocol TransactionRepository: AnyObject {
     func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error>
-    func createTransaction(amount: Double, date: Double, chest: Chest) -> AnyPublisher<Transaction, Error>
+    func createTransaction(amount: Double, date: Double, labels: [TransactionLabel], chest: Chest) -> AnyPublisher<Transaction, Error>
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error>
     func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error>
 }
@@ -33,18 +33,25 @@ class TransactionRepositoryImpl: TransactionRepository {
         }.eraseToAnyPublisher()
     }
     
-    func createTransaction(amount: Double, date: Double, chest: Chest) -> AnyPublisher<Transaction, Error> {
+    func createTransaction(
+        amount: Double,
+        date: Double,
+        labels: [TransactionLabel],
+        chest: Chest
+    ) -> AnyPublisher<Transaction, Error> {
         Future { [unowned self] promise in
-            guard let chest = chest as? ChestCSO else {
-                promise(.failure(LVaultError.invalidArguments("Expected ChestCSO")))
+            guard let chest = chest as? ChestCSO, let labels = labels as? [TransactionLabelCSO] else {
+                promise(.failure(LVaultError.invalidArguments("Expected ChestCSO and TransactionLabelCSOs")))
                 return
             }
             
             persistence.create(
                 { (cso: TransactionCSO, transaction: AsynchronousDataTransaction) -> Void in
                     let chest = transaction.edit(chest)!
+                    let labels = labels.map({ transaction.edit($0)! })
                     cso.amount = amount
                     cso.transactionDate = date
+                    cso.rLabels = Set(labels)
                     cso.rChest = chest
                     chest.currentAmount += amount
                 },
