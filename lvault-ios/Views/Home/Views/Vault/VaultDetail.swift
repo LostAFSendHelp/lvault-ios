@@ -37,11 +37,18 @@ private extension VaultDetail {
     func buildStateView(_ state: LoadableList<Chest>) -> some View {
         switch state {
         case .data(let chests):
-            ChestList(
-                chests: chests,
-                parentVaultName: chestInteractor.parentVaultName,
-                onDeleteChest: deleteChest(_:)
-            )
+            ZStack(alignment: .bottomTrailing) {
+                ChestList(
+                    chests: chests,
+                    parentVaultName: chestInteractor.parentVaultName,
+                    onDeleteChest: deleteChest(_:)
+                )
+                Text("Balance: \(chestInteractor.parentVaultBalance)")
+                    .padding(.vertical, 8)
+                    .padding(.horizontal)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
+                    .padding()
+            }
         case .error(let error):
             Text(error.localizedDescription)
         case .loading:

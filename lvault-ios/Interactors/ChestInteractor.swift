@@ -17,6 +17,17 @@ class ChestInteractor: ObservableObject {
     
     var parentVaultName: String { vault.name }
     
+    private var vaultBalance: Double {
+        guard let data = chests.currentData else { return 0 }
+        return data.reduce(into: 0, { current, nextChest in
+            current += nextChest.currentAmount
+        })
+    }
+    
+    var parentVaultBalance: String {
+        vaultBalance.decimalText
+    }
+    
     init(vault: Vault, repo: ChestRepository) {
         self.vault = vault
         self.repo = repo
