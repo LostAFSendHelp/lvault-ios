@@ -10,9 +10,9 @@ import Combine
 
 class TransactionRepositoryStub: TransactionRepository {
     static let data: [TransactionDTO] = [
-        .init(id: "1", amount: 1000000, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "2", amount: -200000.155, transactionDate: Date.now.millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "3", amount: -150000.89, transactionDate: Date.now.addingTimeInterval(24 * 60 * 60).millisecondsSince1970, labels: [], createdAt: Date.now.millisecondsSince1970),
+        .init(id: "1", amount: 1000000, transactionDate: Date.now.millisecondsSince1970, note: "picked up on way home", labels: [], createdAt: Date.now.millisecondsSince1970),
+        .init(id: "2", amount: -200000.155, transactionDate: Date.now.millisecondsSince1970, note: nil, labels: [], createdAt: Date.now.millisecondsSince1970),
+        .init(id: "3", amount: -150000.89, transactionDate: Date.now.addingTimeInterval(24 * 60 * 60).millisecondsSince1970, note: nil, labels: [], createdAt: Date.now.millisecondsSince1970),
     ]
     
     private var data: [TransactionDTO]
@@ -31,6 +31,7 @@ class TransactionRepositoryStub: TransactionRepository {
     func createTransaction(
         amount: Double,
         date: Double,
+        note: String?,
         labels: [TransactionLabel],
         chest: Chest
     ) -> AnyPublisher<Transaction, Error> {
@@ -39,7 +40,7 @@ class TransactionRepositoryStub: TransactionRepository {
                 .eraseToAnyPublisher()
         }
         
-        let new = TransactionDTO(id: UUID().uuidString, amount: amount, transactionDate: date, labels: labels, createdAt: date)
+        let new = TransactionDTO(id: UUID().uuidString, amount: amount, transactionDate: date, note: note, labels: labels, createdAt: date)
         data.append(new)
         
         return Just(new)
@@ -48,8 +49,11 @@ class TransactionRepositoryStub: TransactionRepository {
     }
     
     func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error> {
-        guard let transaction = transaction as? TransactionDTO else {
-            return Fail(error: LVaultError.invalidArguments("Expected TransactionDTO"))
+        guard 
+            let transaction = transaction as? TransactionDTO,
+            let labels = labels as? [TransactionLabelDTO]
+        else {
+            return Fail(error: LVaultError.invalidArguments("Expected TransactionDTO and TransactionLabelDTOs"))
                 .eraseToAnyPublisher()
         }
         
@@ -61,6 +65,25 @@ class TransactionRepositoryStub: TransactionRepository {
         var target = data[index]
         target = target.withLabels(labels)
         data[index] = target
+        
+        return Just(target)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func updateTransaction(_ transaction: Transaction, setNote note: String?) -> AnyPublisher<Transaction, Error> {
+        guard let transaction = transaction as? TransactionDTO else {
+            return Fail(error: LVaultError.invalidArguments("Expected TransactionDTO"))
+                .eraseToAnyPublisher()
+        }
+        
+        guard let index = data.firstIndex(where: { $0.id == transaction.id }) else {
+            return Fail(error: LVaultError.notFound("TransactionDTO with id \(transaction.id)"))
+                .eraseToAnyPublisher()
+        }
+        
+        var target = data[index]
+        target = target.withNote(note)
         
         return Just(target)
             .setFailureType(to: Error.self)

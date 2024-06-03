@@ -41,11 +41,12 @@ class TransactionInteractor: ObservableObject {
     func createTransaction(
         amount: Double,
         date: Double,
+        note: String?,
         labels: [TransactionLabel],
         into binding: Binding<Loadable<Transaction>>
     ) {
         binding.wrappedValue = .loading
-        repo.createTransaction(amount: amount, date: date, labels: labels, chest: chest)
+        repo.createTransaction(amount: amount, date: date, note: note, labels: labels, chest: chest)
             .sink(
                 receiveCompletion: { result in
                     guard case .failure(let error) = result else { return }

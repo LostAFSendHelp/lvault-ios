@@ -13,16 +13,14 @@ struct LabelView: View {
     
     var body: some View {
         Text(text)
-            .padding(.vertical, 8)
-            .padding(.horizontal, 16)
+            .padding(.vertical, 5)
+            .padding(.horizontal, 14)
             .foregroundStyle(color)
             .background(color.opacity(0.2))
             .background(.white)
             .cornerRadius(16)
-            .overlay {
-                RoundedRectangle(cornerRadius: 16)
-                    .strokeBorder(color)
-            }
+            .roundedBorder(cornerRadius: 16, color: color)
+            .padding(.vertical, 3)
     }
 }
 

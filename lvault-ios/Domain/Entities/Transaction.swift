@@ -11,6 +11,7 @@ protocol Transaction {
     var id: String { get }
     var amount: Double { get }
     var transactionDate: Double { get }
+    var note: String? { get }
     var labels: [TransactionLabel] { get }
     var createdAt: Double { get }
 }
@@ -37,6 +38,7 @@ struct TransactionDTO: Transaction {
     let id: String
     let amount: Double
     let transactionDate: Double
+    let note: String?
     let labels: [TransactionLabel]
     let createdAt: Double
     
@@ -51,6 +53,18 @@ struct TransactionDTO: Transaction {
             id: id,
             amount: amount,
             transactionDate: transactionDate,
+            note: note,
+            labels: labels,
+            createdAt: createdAt
+        )
+    }
+    
+    func withNote(_ note: String?) -> TransactionDTO {
+        return .init(
+            id: id,
+            amount: amount,
+            transactionDate: transactionDate,
+            note: note,
             labels: labels,
             createdAt: createdAt
         )
@@ -61,6 +75,7 @@ struct TransactionDTO: Transaction {
             id: id,
             amount: amount,
             transactionDate: transactionDate,
+            note: note,
             labels: labels,
             createdAt: createdAt
         )

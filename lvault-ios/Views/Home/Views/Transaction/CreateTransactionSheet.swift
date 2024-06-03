@@ -13,6 +13,7 @@ struct CreateTransactionSheet: View {
     @State private var amount: Double?
     @State private var date: Date = .now
     @State private var isExpense: Bool = false
+    @State private var note: String?
     @State private var selectedLabels: [TransactionLabel] = []
     @State private var showTransactionLabelsSheet: Bool = false
     @EnvironmentObject private var interactor: TransactionInteractor
@@ -62,7 +63,10 @@ struct CreateTransactionSheet: View {
                     }.scrollIndicators(.never)
                 }
             }
-            .padding(.bottom)
+            
+            TextView(title: "Add a note", text: $note)
+                .frame(height: 120)
+                .padding(.bottom)
             
             buildStateView(transactionLoadable)
             
@@ -75,6 +79,7 @@ struct CreateTransactionSheet: View {
                 interactor.createTransaction(
                     amount: amount * (isExpense ? -1 : 1),
                     date: date.millisecondsSince1970,
+                    note: note,
                     labels: selectedLabels,
                     into: $transactionLoadable
                 )

@@ -15,12 +15,12 @@ struct TransactionRow: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
-                Text(transaction.amountText)
+                Text(transaction.amountText).font(.system(size: 22, weight: .heavy))
                     .foregroundStyle(transaction.amount < 0 ? .red : .green)
                 Spacer()
-                Text(transaction.timeText)
+                Text(transaction.timeText).font(.system(size: 14)).foregroundStyle(.gray)
             }
             
             if transaction.labels.isEmpty {
@@ -41,6 +41,14 @@ struct TransactionRow: View {
                 .scrollIndicators(.hidden)
                 .clipShape(.rect)
                 .padding(.horizontal, -40) // cheat to prevent labels being clipped horizontally
+            }
+            
+            if let note = transaction.note {
+                Text("_**Note**: \(note)_")
+                    .font(.system(size: 14))
+                    .multilineTextAlignment(.leading)
+                    .foregroundStyle(.gray)
+                    .lineLimit(2)
             }
         }.padding(.vertical, increasedPaddings ? 8 : 0)
     }

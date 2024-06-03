@@ -11,9 +11,10 @@ import CoreStore
 
 protocol TransactionRepository: AnyObject {
     func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error>
-    func createTransaction(amount: Double, date: Double, labels: [TransactionLabel], chest: Chest) -> AnyPublisher<Transaction, Error>
+    func createTransaction(amount: Double, date: Double, note: String?, labels: [TransactionLabel], chest: Chest) -> AnyPublisher<Transaction, Error>
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error>
     func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error>
+    func updateTransaction(_ transaction: Transaction, setNote note: String?) -> AnyPublisher<Transaction, Error>
 }
 
 class TransactionRepositoryImpl: TransactionRepository {
@@ -36,6 +37,7 @@ class TransactionRepositoryImpl: TransactionRepository {
     func createTransaction(
         amount: Double,
         date: Double,
+        note: String?,
         labels: [TransactionLabel],
         chest: Chest
     ) -> AnyPublisher<Transaction, Error> {
@@ -51,6 +53,7 @@ class TransactionRepositoryImpl: TransactionRepository {
                     let labels = labels.map({ transaction.edit($0)! })
                     cso.amount = amount
                     cso.transactionDate = date
+                    cso.note = note
                     cso.rLabels = Set(labels)
                     cso.rChest = chest
                     chest.currentAmount += amount
@@ -83,6 +86,30 @@ class TransactionRepositoryImpl: TransactionRepository {
                 updates: { transaction, persistenceTrn in
                     let labels = labels.map({ persistenceTrn.edit($0)! })
                     transaction.rLabels = Set(labels)
+                },
+                completion: { result in
+                    switch result {
+                    case .success(let cso):
+                        promise(.success(cso))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                }
+            )
+        }.eraseToAnyPublisher()
+    }
+    
+    func updateTransaction(_ transaction: Transaction, setNote note: String?) -> AnyPublisher<Transaction, Error> {
+        Future { [unowned self] promise in
+            guard let transaction = transaction as? TransactionCSO else {
+                promise(.failure(LVaultError.invalidArguments("Expected TransactionCSO and TransactionLabelCSOs")))
+                return
+            }
+            
+            persistence.update(
+                object: transaction,
+                updates: { transaction, persistenceTrn in
+                    transaction.note = note
                 },
                 completion: { result in
                     switch result {
