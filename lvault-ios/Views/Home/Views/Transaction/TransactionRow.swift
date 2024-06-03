@@ -20,7 +20,7 @@ struct TransactionRow: View {
                 Text(transaction.amountText).font(.system(size: 22, weight: .heavy))
                     .foregroundStyle(transaction.amount < 0 ? .red : .green)
                 Spacer()
-                Text(transaction.timeText).font(.system(size: 14)).foregroundStyle(.gray)
+                Text(transaction.timeText).font(.system(size: 14)).foregroundStyle(.secondary)
             }
             
             if transaction.labels.isEmpty {
@@ -45,9 +45,9 @@ struct TransactionRow: View {
             
             if let note = transaction.note {
                 Text("_**Note**: \(note)_")
-                    .font(.system(size: 14))
+                    .font(.system(size: 12))
                     .multilineTextAlignment(.leading)
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(.secondary)
                     .lineLimit(2)
             }
         }.padding(.vertical, increasedPaddings ? 8 : 0)

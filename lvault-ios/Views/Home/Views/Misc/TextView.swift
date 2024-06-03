@@ -28,7 +28,7 @@ struct TextView: View {
             TextEditor(text: textBinding)
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
-                .roundedBorder(cornerRadius: 12, color: "#888888".color)
+                .roundedBorder(cornerRadius: 12, color: .gray.opacity(0.25))
         }
     }
 }

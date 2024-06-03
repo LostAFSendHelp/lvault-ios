@@ -13,6 +13,7 @@ struct TransactionList: View {
     let onDeleteTransaction: VoidHandler<Transaction>
     @Binding var ascendingByDate: Bool
     @Binding var editingTransaction: Transaction?
+    @Binding var editingTransactionNote: Transaction?
     @State private var showDeleteAlert: Bool = false
     @State private var deletedTransaction: Transaction?
     
@@ -35,12 +36,14 @@ struct TransactionList: View {
         parentChestName: String,
         ascendingByDate: Binding<Bool> = .constant(false),
         editingTransaction: Binding<Transaction?>,
+        editingTransactionNote: Binding<Transaction?>,
         onDeleteTransaction: @escaping VoidHandler<Transaction>
     ) {
         self.transactions = Dictionary(grouping: transactions, by: \.transactionDate.millisecondToDate.startOfDay)
         self.parentChestName = parentChestName
         self._ascendingByDate = ascendingByDate
         self._editingTransaction = editingTransaction
+        self._editingTransactionNote = editingTransactionNote
         self.onDeleteTransaction = onDeleteTransaction
     }
     
@@ -59,6 +62,9 @@ struct TransactionList: View {
                             .contextMenu {
                                 Button(action: { editingTransaction = transaction }) {
                                     Label("Edit Labels", systemImage: "square.and.pencil")
+                                }
+                                Button(action: { editingTransactionNote = transaction }) {
+                                    Label("Edit Note", systemImage: "pencil.and.list.clipboard")
                                 }
                             }
                     }.onDelete { indexSet in
@@ -90,6 +96,7 @@ struct TransactionList: View {
         transactions: TransactionRepositoryStub.data,
         parentChestName: "Example chest",
         editingTransaction: .constant(nil),
+        editingTransactionNote: .constant(nil),
         onDeleteTransaction: { _ in }
     )
 }

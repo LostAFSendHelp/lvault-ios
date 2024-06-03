@@ -18,7 +18,7 @@ protocol Transaction {
 
 extension Transaction {
     var identifier: String {
-        return id + labels.map(\.identifier).joined()
+        return id + labels.map(\.identifier).joined() + (note ?? "")
     }
     
     var amountText: String {

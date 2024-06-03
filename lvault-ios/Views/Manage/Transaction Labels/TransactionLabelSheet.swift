@@ -57,7 +57,7 @@ struct TransactionLabelSheet: View {
             spacing: UIConfigs.verticalSpacing
         ) {
             Text(isCreatingLabel ? "Create a new label" : "Edit your label")
-                .font(.largeTitle)
+                .font(.largeTitle.bold())
                 .padding(.bottom, 20)
             Text("Preview:")
             

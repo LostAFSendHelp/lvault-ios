@@ -79,6 +79,28 @@ class TransactionInteractor: ObservableObject {
             ).store(in: &subscriptions)
     }
     
+    func updateTransaction(
+        _ transaction: Transaction,
+        setNote note: String?,
+        into binding: Binding<Loadable<Void>>? = nil,
+        completion: EmptyVoidHandler? = nil
+    ) {
+        binding?.wrappedValue = .loading
+        repo.updateTransaction(transaction, setNote: note)
+            .sink(
+                receiveCompletion: { result in
+                    switch result {
+                    case .finished:
+                        binding?.wrappedValue = .data(())
+                    case .failure(let error):
+                        binding?.wrappedValue = .error(error)
+                    }
+                    completion?()
+                },
+                receiveValue: { _ in }
+            ).store(in: &subscriptions)
+    }
+    
     func deleteTransaction(
         _ transaction: Transaction,
         into binding: Binding<Loadable<Void>>? = nil,

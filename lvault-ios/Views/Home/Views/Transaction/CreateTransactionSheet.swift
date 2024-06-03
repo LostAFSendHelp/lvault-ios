@@ -24,6 +24,10 @@ struct CreateTransactionSheet: View {
             alignment: .center,
             spacing: UIConfigs.verticalSpacing
         ) {
+            Text("Create transaction")
+                .font(.largeTitle.bold())
+                .padding(.bottom, 20)
+            
             TextField(
                 value: $amount,
                 format: .number
@@ -59,7 +63,9 @@ struct CreateTransactionSheet: View {
                             ForEach(selectedLabels, id: \.id) { label in
                                 LabelView(text: label.name, color: label.color.color)
                             }
-                        }.frame(maxHeight: 40)
+                        }
+                        .frame(maxHeight: 40)
+                        .fixedSize()
                     }.scrollIndicators(.never)
                 }
             }

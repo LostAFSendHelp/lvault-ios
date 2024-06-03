@@ -10,14 +10,22 @@ import SwiftUI
 struct ChestDetail: View {
     @State private var showCreateTransactionSheet = false
     @State private var editingTransaction: Transaction?
+    @State private var editingTransactionNote: Transaction?
     @State private var transactionAscendingByDate: Bool = false
     @EnvironmentObject private var transactionInteractor: TransactionInteractor
     @EnvironmentObject private var di: DI
     
-    private var showEditSheet: Binding<Bool> {
+    private var showEditLabelsSheet: Binding<Bool> {
         .init(
             get: { editingTransaction != nil },
             set: { _ in editingTransaction = nil }
+        )
+    }
+    
+    private var showEditNoteSheet: Binding<Bool> {
+        .init(
+            get: { editingTransactionNote != nil },
+            set: { _ in editingTransactionNote = nil }
         )
     }
     
@@ -40,15 +48,23 @@ struct ChestDetail: View {
                 }
             }.sheet(isPresented: $showCreateTransactionSheet) {
                 CreateTransactionSheet(isPresented: $showCreateTransactionSheet)
-            }.sheet(isPresented: showEditSheet) {
+            }.sheet(isPresented: showEditLabelsSheet) {
                 SelectTransactionLabelsSheet(
-                    isPresented: showEditSheet,
+                    isPresented: showEditLabelsSheet,
                     selectedLabels: editingTransaction!.labels,
                     onConfirm: { labels in
                         updateTransaction(editingTransaction!, setTransactionLabels: labels)
                     }
                 )
                 .environmentObject(di.container.getTransactionLabelInteractor())
+            }.sheet(isPresented: showEditNoteSheet) {
+                EditNoteSheet(
+                    isPresented: showEditNoteSheet,
+                    note: editingTransactionNote!.note,
+                    onConfirm: { note in
+                        updateTransaction(editingTransactionNote!, setNote: note)
+                    }
+                )
             }
     }
 }
@@ -64,6 +80,7 @@ private extension ChestDetail {
                     parentChestName: transactionInteractor.parentChestName,
                     ascendingByDate: $transactionAscendingByDate,
                     editingTransaction: $editingTransaction,
+                    editingTransactionNote: $editingTransactionNote,
                     onDeleteTransaction: deleteTransaction(_:)
                 )
                 Text("Balance: \(transactionInteractor.parentChestBalance)")
@@ -91,6 +108,20 @@ private extension ChestDetail {
             completion: {
                 transactionInteractor.loadTransactions()
                 editingTransaction = nil
+            }
+        )
+    }
+    
+    func updateTransaction(
+        _ transaction: Transaction,
+        setNote note: String?
+    ) {
+        transactionInteractor.updateTransaction(
+            editingTransactionNote!,
+            setNote: note,
+            completion: {
+                transactionInteractor.loadTransactions()
+                editingTransactionNote = nil
             }
         )
     }

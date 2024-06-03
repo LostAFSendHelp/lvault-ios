@@ -84,6 +84,7 @@ class TransactionRepositoryStub: TransactionRepository {
         
         var target = data[index]
         target = target.withNote(note)
+        data[index] = target
         
         return Just(target)
             .setFailureType(to: Error.self)
