@@ -18,6 +18,8 @@ extension DateFormatter {
     
     static let ddMMyyyyGMT: DateFormatter = .create(format: "dd/MM/yyyy z")
     
+    static let eeeddMMyyyyGMT: DateFormatter = .create(format: "eee, dd/MM/yyyy z")
+    
     static let HHmm: DateFormatter = .create(format: "HH:mm")
     
     static let HHmmGMT: DateFormatter = .create(format: "HH:mm z")
@@ -30,6 +32,10 @@ extension Date {
     
     var ddMMyyyyGMT: String {
         DateFormatter.ddMMyyyyGMT.string(from: self)
+    }
+    
+    var eeeddMMyyyyGMT: String {
+        DateFormatter.eeeddMMyyyyGMT.string(from: self)
     }
     
     var HHmm: String {

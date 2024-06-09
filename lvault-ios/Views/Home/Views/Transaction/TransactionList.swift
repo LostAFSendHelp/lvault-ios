@@ -53,7 +53,7 @@ struct TransactionList: View {
                 sortedTransactionDates,
                 id: \.millisecondsSince1970
             ) { date in
-                Section(date.ddMMyyyyGMT) {
+                Section(date.eeeddMMyyyyGMT) {
                     ForEach(
                         sortedTransactionsFor(date: date),
                         id: \.identifier
