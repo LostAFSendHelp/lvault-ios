@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct LVaultApp: App {
-    let persistenceController = PersistenceController.shared
-    
     var body: some Scene {
         WindowGroup {
             MainView()
@@ -21,16 +19,24 @@ struct LVaultApp: App {
 
 struct MainView: View {
     @EnvironmentObject private var di: DI
+    @State private var isAppInitialized = false
     
     var body: some View {
-        TabView {
-            Home()
-                .environmentObject(di.container.getVaultInteractor())
-            
-            Manage()
-                .environmentObject(di.container.getTransactionLabelInteractor())
-            
-            Settings()
+        if isAppInitialized {
+            TabView {
+                Home()
+                    .environmentObject(di.container.getVaultInteractor())
+                
+                Manage()
+                    .environmentObject(di.container.getTransactionLabelInteractor())
+                
+                Settings()
+            }
+        } else {
+            SplashScreen(
+                isAppInitialized: $isAppInitialized,
+                interactor: .init(persistenceController: di.container.persistence)
+            )
         }
     }
 }

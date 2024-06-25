@@ -14,3 +14,6 @@ typealias VoidHandler2<T1, T2> = (T1, T2) -> Void
 typealias VoidHandler2Throws<T1, T2> = (T1, T2) throws -> Void
 typealias EmptyVoidHandler = () -> Void
 typealias DisposeBag = Set<AnyCancellable>
+
+typealias VoidPublisher = AnyPublisher<Void, Never>
+typealias DataPublisher<T> = AnyPublisher<T, Never>

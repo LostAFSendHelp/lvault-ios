@@ -29,6 +29,8 @@
 		9B4BC9602BFE47DE0060BD82 /* ChestRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */; };
 		9B4BC9622BFE47EE0060BD82 /* TransactionRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */; };
 		9B4BC9642BFE59B10060BD82 /* NumberFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC9632BFE59B10060BD82 /* NumberFormatterExtensions.swift */; };
+		9B56A31C2C308BF600E1B9D2 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56A31B2C308BF600E1B9D2 /* SplashScreen.swift */; };
+		9B56A31E2C3095E600E1B9D2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56A31D2C3095E600E1B9D2 /* SplashInteractor.swift */; };
 		9B57A95F2BD4354200096CC5 /* VaultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A95E2BD4354200096CC5 /* VaultRow.swift */; };
 		9B57A9612BD437D200096CC5 /* VaultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9602BD437D200096CC5 /* VaultInteractor.swift */; };
 		9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9642BD4380300096CC5 /* Loadable.swift */; };
@@ -37,6 +39,8 @@
 		9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */; };
 		9B57A9712BD444C300096CC5 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9702BD444C300096CC5 /* Types.swift */; };
 		9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9722BD446EB00096CC5 /* VaultList.swift */; };
+		9B5C3F3B2C2B24BD00C94913 /* V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C3F3A2C2B24BD00C94913 /* V2.swift */; };
+		9B5C3F3D2C2B255A00C94913 /* CSO+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C3F3C2C2B255A00C94913 /* CSO+Aliases.swift */; };
 		9B6C79C12BE538AF004B8649 /* ChestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */; };
 		9B6C79C32BE53D29004B8649 /* ChestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C79C22BE53D29004B8649 /* ChestRepository.swift */; };
 		9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B75B1C42BDD2F5F0053B845 /* CoreStore */; };
@@ -117,6 +121,8 @@
 		9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepositoryStub.swift; sourceTree = "<group>"; };
 		9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryStub.swift; sourceTree = "<group>"; };
 		9B4BC9632BFE59B10060BD82 /* NumberFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtensions.swift; sourceTree = "<group>"; };
+		9B56A31B2C308BF600E1B9D2 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		9B56A31D2C3095E600E1B9D2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		9B57A95E2BD4354200096CC5 /* VaultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRow.swift; sourceTree = "<group>"; };
 		9B57A9602BD437D200096CC5 /* VaultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultInteractor.swift; sourceTree = "<group>"; };
 		9B57A9642BD4380300096CC5 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
@@ -125,6 +131,8 @@
 		9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtensions.swift; sourceTree = "<group>"; };
 		9B57A9702BD444C300096CC5 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		9B57A9722BD446EB00096CC5 /* VaultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultList.swift; sourceTree = "<group>"; };
+		9B5C3F3A2C2B24BD00C94913 /* V2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2.swift; sourceTree = "<group>"; };
+		9B5C3F3C2C2B255A00C94913 /* CSO+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CSO+Aliases.swift"; sourceTree = "<group>"; };
 		9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestInteractor.swift; sourceTree = "<group>"; };
 		9B6C79C22BE53D29004B8649 /* ChestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepository.swift; sourceTree = "<group>"; };
 		9B75B1CF2BDEC7390053B845 /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
@@ -271,6 +279,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9B56A31A2C308BEB00E1B9D2 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9B56A31B2C308BF600E1B9D2 /* SplashScreen.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		9B56A31F2C3095EC00E1B9D2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9B57A9602BD437D200096CC5 /* VaultInteractor.swift */,
+				9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */,
+				9BA7420C2BF8FA25009C771F /* TransactionInteractor.swift */,
+				9B27C4A12C020B9300EA96EF /* TransactionLabelInteractor.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		9B57A9562BD4324700096CC5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +310,7 @@
 		9B57A9572BD4331100096CC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9B56A31A2C308BEB00E1B9D2 /* Splash */,
 				9B03EF622BFFA43900ABDD64 /* Modifiers */,
 				9B03EF5C2BFF997C00ABDD64 /* Settings */,
 				9B03EF592BFF991300ABDD64 /* Manage */,
@@ -295,10 +323,8 @@
 		9B57A9582BD4332100096CC5 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				9B57A9602BD437D200096CC5 /* VaultInteractor.swift */,
-				9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */,
-				9BA7420C2BF8FA25009C771F /* TransactionInteractor.swift */,
-				9B27C4A12C020B9300EA96EF /* TransactionLabelInteractor.swift */,
+				9B56A31F2C3095EC00E1B9D2 /* Main */,
+				9B56A31D2C3095E600E1B9D2 /* SplashInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -391,7 +417,9 @@
 		9B75B1CE2BDEC61F0053B845 /* Schemas */ = {
 			isa = PBXGroup;
 			children = (
+				9B5C3F3C2C2B255A00C94913 /* CSO+Aliases.swift */,
 				9B75B1CF2BDEC7390053B845 /* V1.swift */,
+				9B5C3F3A2C2B24BD00C94913 /* V2.swift */,
 			);
 			path = Schemas;
 			sourceTree = "<group>";
@@ -653,6 +681,7 @@
 				9B27C4AD2C02597C00EA96EF /* UIConfigs.swift in Sources */,
 				9B87FFCA2C0E19140049412B /* RoundedBorder.swift in Sources */,
 				9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */,
+				9B5C3F3B2C2B24BD00C94913 /* V2.swift in Sources */,
 				9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */,
 				9BA020C62BD5538D00BAA43C /* VaultDetail.swift in Sources */,
 				9B27C49E2C02003900EA96EF /* TransactionLabelRepository.swift in Sources */,
@@ -703,9 +732,12 @@
 				9B27C4A02C02064200EA96EF /* TransactionLabelRepositoryStub.swift in Sources */,
 				9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */,
 				9BA7420F2BF8FB3A009C771F /* TransactionRepository.swift in Sources */,
+				9B56A31C2C308BF600E1B9D2 /* SplashScreen.swift in Sources */,
+				9B56A31E2C3095E600E1B9D2 /* SplashInteractor.swift in Sources */,
 				9BA742162BF907E9009C771F /* TransactionList.swift in Sources */,
 				9B03EF5B2BFF991F00ABDD64 /* Manage.swift in Sources */,
 				9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */,
+				9B5C3F3D2C2B255A00C94913 /* CSO+Aliases.swift in Sources */,
 				9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */,
 				9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */,
 				9B27C4A92C024B8100EA96EF /* ColorExtensions.swift in Sources */,

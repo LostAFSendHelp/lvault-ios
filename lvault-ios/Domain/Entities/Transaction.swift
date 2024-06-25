@@ -10,6 +10,7 @@ import Foundation
 protocol Transaction {
     var id: String { get }
     var amount: Double { get }
+    var isTransfer: Bool { get }
     var transactionDate: Double { get }
     var note: String? { get }
     var labels: [TransactionLabel] { get }
@@ -37,6 +38,7 @@ extension Transaction {
 struct TransactionDTO: Transaction {
     let id: String
     let amount: Double
+    let isTransfer: Bool
     let transactionDate: Double
     let note: String?
     let labels: [TransactionLabel]
@@ -52,6 +54,7 @@ struct TransactionDTO: Transaction {
         return .init(
             id: id,
             amount: amount,
+            isTransfer: isTransfer,
             transactionDate: transactionDate,
             note: note,
             labels: labels,
@@ -63,6 +66,7 @@ struct TransactionDTO: Transaction {
         return .init(
             id: id,
             amount: amount,
+            isTransfer: isTransfer,
             transactionDate: transactionDate,
             note: note,
             labels: labels,
@@ -74,6 +78,7 @@ struct TransactionDTO: Transaction {
         return .init(
             id: id,
             amount: amount,
+            isTransfer: isTransfer,
             transactionDate: transactionDate,
             note: note,
             labels: labels,

@@ -10,9 +10,33 @@ import Combine
 
 class TransactionRepositoryStub: TransactionRepository {
     static let data: [TransactionDTO] = [
-        .init(id: "1", amount: 1000000, transactionDate: Date.now.millisecondsSince1970, note: "picked up on way home", labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "2", amount: -200000.155, transactionDate: Date.now.millisecondsSince1970, note: nil, labels: [], createdAt: Date.now.millisecondsSince1970),
-        .init(id: "3", amount: -150000.89, transactionDate: Date.now.addingTimeInterval(24 * 60 * 60).millisecondsSince1970, note: nil, labels: [], createdAt: Date.now.millisecondsSince1970),
+        .init(
+            id: "1", 
+            amount: 1000000,
+            isTransfer: false,
+            transactionDate: Date.now.millisecondsSince1970,
+            note: "picked up on way home",
+            labels: [],
+            createdAt: Date.now.millisecondsSince1970
+        ),
+        .init(
+            id: "2", 
+            amount: -200000.155,
+            isTransfer: true,
+            transactionDate: Date.now.millisecondsSince1970,
+            note: nil,
+            labels: [],
+            createdAt: Date.now.millisecondsSince1970
+        ),
+        .init(
+            id: "3", 
+            amount: -150000.89,
+            isTransfer: false,
+            transactionDate: Date.now.addingTimeInterval(24 * 60 * 60).millisecondsSince1970,
+            note: nil,
+            labels: [],
+            createdAt: Date.now.millisecondsSince1970
+        ),
     ]
     
     private var data: [TransactionDTO]
@@ -40,7 +64,16 @@ class TransactionRepositoryStub: TransactionRepository {
                 .eraseToAnyPublisher()
         }
         
-        let new = TransactionDTO(id: UUID().uuidString, amount: amount, transactionDate: date, note: note, labels: labels, createdAt: date)
+        let new = TransactionDTO(
+            id: UUID().uuidString,
+            amount: amount,
+            isTransfer: false,
+            transactionDate: date,
+            note: note,
+            labels: labels,
+            createdAt: date
+        )
+        
         data.append(new)
         
         return Just(new)

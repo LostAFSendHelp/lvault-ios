@@ -1,15 +1,16 @@
 //
-//  V1.swift
+//  V2.swift
 //  lvault-ios
 //
-//  Created by Chuong Nguyen on 4/29/24.
+//  Created by Chuong Nguyen on 6/25/24.
 //
 
 import Foundation
 import CoreStore
 
-enum V1 {
-    static var version: String = "V1"
+/// Update: add TransactionCSO.isTransfer
+enum V2 {
+    static var version: String = "V2"
     
     class VaultCSO: CoreStoreObject {
         @Field.Stored("id", dynamicInitialValue: { UUID().uuidString })
@@ -55,6 +56,10 @@ enum V1 {
         @Field.Stored("amount")
         var amount: Double = 0
         
+        // new
+        @Field.Stored("isTransfer")
+        var isTransfer: Bool = false
+        
         @Field.Stored("transactionDate", dynamicInitialValue: { Date().millisecondsSince1970 })
         var transactionDate: Double
         
@@ -87,14 +92,14 @@ enum V1 {
         @Field.Stored("createdAt", dynamicInitialValue: { Date().millisecondsSince1970 })
         private(set) var createdAt: Double
     }
-
+    
     static var schema: CoreStoreSchema = .init(
         modelVersion: version,
         entities: [
-            Entity<V1.VaultCSO>("Vault"),
-            Entity<V1.ChestCSO>("Chest"),
-            Entity<V1.TransactionCSO>("Transaction"),
-            Entity<V1.TransactionLabelCSO>("TransactionLabel"),
+            Entity<V2.VaultCSO>("Vault"),
+            Entity<V2.ChestCSO>("Chest"),
+            Entity<V2.TransactionCSO>("Transaction"),
+            Entity<V2.TransactionLabelCSO>("TransactionLabel"),
         ]
     )
 }

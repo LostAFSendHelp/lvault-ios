@@ -9,29 +9,46 @@ import CoreStore
 
 class PersistenceController {
     static let shared = PersistenceController(inMemory: false) // TODO: update logic here
-
-    static var preview: PersistenceController = {
-        return .init(inMemory: true)
-    }()
-
+    static let preview: PersistenceController = .init(inMemory: true)
+    
+    let inMemory: Bool
+    
     private var store: DataStack {
         CoreStoreDefaults.dataStack
     }
     
     init(inMemory: Bool = false) {
-        CoreStoreDefaults.dataStack = DataStack(V1.schema)
+        self.inMemory = inMemory
+    }
+    
+    func initialize(completion: @escaping EmptyVoidHandler) {
+        CoreStoreDefaults.dataStack = DataStack(
+            V1.schema,
+            V2.schema,
+            migrationChain: [V1.version, V2.version]
+        )
         
-        do {
-            if inMemory {
+        if inMemory {
+            do {
                 try CoreStoreDefaults.dataStack.addStorageAndWait(InMemoryStore())
                 create({ (cso: VaultCSO, _) -> Void in
                     cso.name = "example vault"
                 })
-            } else {
-                try CoreStoreDefaults.dataStack.addStorageAndWait(SQLiteStore())
+                completion()
+            } catch {
+                fatalError(error.localizedDescription)
             }
-        } catch {
-            fatalError(error.localizedDescription)
+        } else {
+            let storage = SQLiteStore()
+            _ = CoreStoreDefaults.dataStack.addStorage(storage, completion: { result in
+                switch result {
+                case .success:
+                    completion()
+                case .failure(let error):
+                    // TODO: gracefully handle errors
+                    fatalError(error.localizedDescription)
+                }
+            })
         }
     }
 }
