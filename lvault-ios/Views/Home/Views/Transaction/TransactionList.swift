@@ -54,8 +54,9 @@ struct TransactionList: View {
                 id: \.millisecondsSince1970
             ) { date in
                 Section(date.eeeddMMyyyyGMT) {
+                    let sortedByDate = sortedTransactionsFor(date: date)
                     ForEach(
-                        sortedTransactionsFor(date: date),
+                        sortedByDate,
                         id: \.identifier
                     ) { transaction in
                         TransactionRow(transaction: transaction)
@@ -69,7 +70,7 @@ struct TransactionList: View {
                             }
                     }.onDelete { indexSet in
                         assert(indexSet.count == 1, "Only delete 1 item at a time")
-                        let transaction = transactions[date]![indexSet.first!]
+                        let transaction = sortedByDate[indexSet.first!]
                         deletedTransaction = transaction
                         showDeleteAlert = true
                     }
