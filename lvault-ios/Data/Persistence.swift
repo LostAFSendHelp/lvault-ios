@@ -131,4 +131,11 @@ extension PersistenceController {
             completion: completion ?? { _ in }
         )
     }
+    
+    func perform<T>(
+        asynchronous task: @escaping (AsynchronousDataTransaction) throws -> T,
+        completion: @escaping (AsynchronousDataTransaction.Result<T>) -> Void
+    ) {
+        store.perform(asynchronous: task, completion: completion)
+    }
 }

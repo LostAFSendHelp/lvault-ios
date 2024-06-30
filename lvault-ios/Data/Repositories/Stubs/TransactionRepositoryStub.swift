@@ -11,7 +11,7 @@ import Combine
 class TransactionRepositoryStub: TransactionRepository {
     static let data: [TransactionDTO] = [
         .init(
-            id: "1", 
+            id: "1",
             amount: 1000000,
             isTransfer: false,
             transactionDate: Date.now.millisecondsSince1970,
@@ -20,7 +20,7 @@ class TransactionRepositoryStub: TransactionRepository {
             createdAt: Date.now.millisecondsSince1970
         ),
         .init(
-            id: "2", 
+            id: "2",
             amount: -200000.155,
             isTransfer: true,
             transactionDate: Date.now.millisecondsSince1970,
@@ -29,7 +29,7 @@ class TransactionRepositoryStub: TransactionRepository {
             createdAt: Date.now.millisecondsSince1970
         ),
         .init(
-            id: "3", 
+            id: "3",
             amount: -150000.89,
             isTransfer: false,
             transactionDate: Date.now.addingTimeInterval(24 * 60 * 60).millisecondsSince1970,
@@ -82,7 +82,7 @@ class TransactionRepositoryStub: TransactionRepository {
     }
     
     func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error> {
-        guard 
+        guard
             let transaction = transaction as? TransactionDTO,
             let labels = labels as? [TransactionLabelDTO]
         else {

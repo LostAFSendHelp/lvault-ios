@@ -51,4 +51,73 @@ class ChestRepositoryStub: ChestRepository {
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
+    
+    func transfer(
+        from: Chest,
+        to: Chest,
+        amount: Double,
+        at: Double,
+        note: String?
+    ) -> AnyPublisher<Void, Error> {
+        Future { [unowned self] promise in
+            guard let from = from as? ChestDTO,
+                  let to = to as? ChestDTO
+            else {
+                promise(.failure(LVaultError.invalidArguments("Expected ChestDTO")))
+                return
+            }
+            
+            guard from.id != to.id else {
+                promise(.failure(LVaultError.invalidArguments("Cannot transfer to the same chest")))
+                return
+            }
+            
+            guard amount > 0 else {
+                promise(.failure(LVaultError.invalidArguments("Invalid transfer amount")))
+                return
+            }
+            
+            guard let fromIndex = data.firstIndex(where: { $0.id == from.id }),
+                  let toIndex = data.firstIndex(where: { $0.id == to.id })
+            else {
+                promise(.failure(LVaultError.notFound("Chest(s) not found")))
+                return
+            }
+            
+            let now = Date()
+            
+            var _from = data[fromIndex]
+            let send = TransactionDTO(
+                id: "\(now)",
+                amount: -amount,
+                isTransfer: true,
+                transactionDate: at,
+                note: "To [\(to.name)] (\(note ?? "NULL"))",
+                labels: [],
+                createdAt: now.millisecondsSince1970
+            )
+            _from.transactions.append(send)
+            _from.currentAmount -= amount
+            data[fromIndex] = _from
+            
+            var _to = data[toIndex]
+            let receive = TransactionDTO(
+                id: "\(now)",
+                amount: amount,
+                isTransfer: true,
+                transactionDate: at,
+                note: "From [\(from.name)] (\(note ?? "NULL"))",
+                labels: [],
+                createdAt: now.millisecondsSince1970
+            )
+            _to.transactions.append(receive)
+            _to.currentAmount += amount
+            data[toIndex] = _to
+            
+            Task {
+                try await Task.sleep(for: .seconds(1))
+                promise(.success(()))
+            }
+        }.eraseToAnyPublisher()
+    }
 }

@@ -26,8 +26,8 @@ struct ChestDTO: Chest {
     let id: String
     let name: String
     let initialAmount: Double
-    let currentAmount: Double
-    let transactions: [Transaction]
+    var currentAmount: Double
+    var transactions: [Transaction]
     let createdAt: Double
 }
 

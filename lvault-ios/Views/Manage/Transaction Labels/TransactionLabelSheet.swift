@@ -105,17 +105,17 @@ private extension TransactionLabelSheet {
             ProgressView()
         case .error(let error):
             Text("Error: \(error.localizedDescription)")
-                .foregroundStyle(.red)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 12))
+                .applyErrorTextStyle()
         case .idle:
             EmptyView()
         case .data:
-            Text("Transaction label successfully \(isCreatingLabel ? "created" : "updated")").task {
-                try? await Task.sleep(for: .seconds(0.75))
-                transactionLabelInteractor.loadTransactionLabels()
-                isPresented.wrappedValue = false
-            }
+            Text("Transaction label successfully \(isCreatingLabel ? "created" : "updated")")
+                .applyInfoTextStyle()
+                .task {
+                    try? await Task.sleep(for: .seconds(0.75))
+                    transactionLabelInteractor.loadTransactionLabels()
+                    isPresented.wrappedValue = false
+                }
         }
     }
     

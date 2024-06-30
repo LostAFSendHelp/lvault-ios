@@ -69,17 +69,17 @@ private extension CreateChestSheet {
             ProgressView()
         case .error(let error):
             Text("Error: \(error.localizedDescription)")
-                .foregroundStyle(.red)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 12))
+                .applyErrorTextStyle()
         case .idle:
             EmptyView()
         case .data:
-            Text("Chest successfully created").task {
-                try? await Task.sleep(for: .seconds(0.75))
-                chestInteractor.loadChests()
-                isPresented = false
-            }
+            Text("Chest successfully created")
+                .applyInfoTextStyle()
+                .task {
+                    try? await Task.sleep(for: .seconds(0.75))
+                    chestInteractor.loadChests()
+                    isPresented = false
+                }
         }
     }
 }

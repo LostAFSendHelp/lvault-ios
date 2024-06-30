@@ -81,4 +81,29 @@ class ChestInteractor: ObservableObject {
                 receiveValue: { _ in }
             ).store(in: &subscriptions)
     }
+    
+    func transfer(
+        from: Chest,
+        to: Chest,
+        amount: Double,
+        at: TimeInterval,
+        note: String?,
+        into binding: Binding<Loadable<Void>>? = nil,
+        completion: EmptyVoidHandler? = nil
+    ) {
+        binding?.wrappedValue = .loading
+        repo.transfer(from: from, to: to, amount: amount, at: at, note: note)
+            .sink(
+                receiveCompletion: { result in
+                    switch result {
+                    case .finished:
+                        binding?.wrappedValue = .data(())
+                    case .failure(let error):
+                        binding?.wrappedValue = .error(error)
+                    }
+                    completion?()
+                },
+                receiveValue: { _ in }
+            ).store(in: &subscriptions)
+    }
 }

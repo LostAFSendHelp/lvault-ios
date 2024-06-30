@@ -13,6 +13,7 @@ protocol ChestRepository: AnyObject {
     func getChests(vault: Vault) -> AnyPublisher<[Chest], Error>
     func createChest(named name: String, initialAmount: Double, vault: Vault) -> AnyPublisher<Chest, Error>
     func deleteChest(_ chest: Chest) -> AnyPublisher<Void, Error>
+    func transfer(from: Chest, to: Chest, amount: Double, at: Double, note: String?) -> AnyPublisher<Void, Error>
 }
 
 class ChestRepositoryImpl: ChestRepository {
@@ -80,5 +81,67 @@ class ChestRepositoryImpl: ChestRepository {
             )
         }
         .eraseToAnyPublisher()
+    }
+    
+    func transfer(
+        from: Chest,
+        to: Chest,
+        amount: Double,
+        at: TimeInterval,
+        note: String?
+    ) -> AnyPublisher<Void, Error> {
+        Future { [unowned self] promise in
+            guard let from = from as? ChestCSO,
+                  let to = to as? ChestCSO
+            else {
+                promise(.failure(LVaultError.invalidArguments("Expected ChestCSO")))
+                return
+            }
+            
+            guard from.id != to.id else {
+                promise(.failure(LVaultError.invalidArguments("Cannot transfer to the same chest")))
+                return
+            }
+            
+            guard amount > 0 else {
+                promise(.failure(LVaultError.invalidArguments("Invalid transfer amount")))
+                return
+            }
+            
+            persistence.perform(
+                asynchronous: { transaction in
+                    let from = transaction.edit(from)!
+                    let to = transaction.edit(to)!
+                    
+                    let send = transaction.create(Into<TransactionCSO>())
+                    send.rChest = from
+                    send.transactionDate = at
+                    send.amount = -amount
+                    var fullSendNote = "To chest [\(to.name)]"
+                    if let note { fullSendNote += " (\(note))" }
+                    send.note = fullSendNote
+                    send.isTransfer = true
+                    from.currentAmount -= amount
+                    
+                    let receive = transaction.create(Into<TransactionCSO>())
+                    receive.rChest = to
+                    receive.transactionDate = at
+                    receive.amount = amount
+                    var fullReceiveNote = "From chest [\(from.name)]"
+                    if let note { fullReceiveNote += " (\(note))" }
+                    receive.note = fullReceiveNote
+                    receive.isTransfer = true
+                    to.currentAmount += amount
+                },
+                completion: { result in
+                    switch result {
+                    case .success:
+                        promise(.success(()))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                }
+            )
+        }.eraseToAnyPublisher()
     }
 }

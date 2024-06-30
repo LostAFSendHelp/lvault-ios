@@ -121,17 +121,17 @@ private extension CreateTransactionSheet {
             ProgressView()
         case .error(let error):
             Text("Error: \(error.localizedDescription)")
-                .foregroundStyle(.red)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 12))
+                .applyErrorTextStyle()
         case .idle:
             EmptyView()
         case .data:
-            Text("Transaction successfully created").task {
-                try? await Task.sleep(for: .seconds(0.75))
-                interactor.loadTransactions()
-                isPresented = false
-            }
+            Text("Transaction successfully created")
+                .applyInfoTextStyle()
+                .task {
+                    try? await Task.sleep(for: .seconds(0.75))
+                    interactor.loadTransactions()
+                    isPresented = false
+                }
         }
     }
 }

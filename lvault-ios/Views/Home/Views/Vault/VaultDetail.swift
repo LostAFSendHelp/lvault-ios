@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VaultDetail: View {
     @State private var showCreateChestSheet = false
+    @State private var showCreateTransferSheet = false
     @EnvironmentObject private var chestInteractor: ChestInteractor
     
     var body: some View {
@@ -18,15 +19,30 @@ struct VaultDetail: View {
             }
             .navigationTitle(Text(chestInteractor.parentVaultName))
             .toolbar {
+                if chestInteractor.chests.currentData?.count ?? 0 > 1 {
+                    Button {
+                        showCreateTransferSheet = true
+                    } label: {
+                        Image(systemName: "arrow.left.arrow.right")
+                    }
+                }
+                
                 Button {
                     showCreateChestSheet = true
                 } label: {
                     Image(systemName: "plus")
                 }
-            }.sheet(
+            }
+            .sheet(
                 isPresented: $showCreateChestSheet,
                 content: {
                     CreateChestSheet(isPresented: $showCreateChestSheet)
+                }
+            )
+            .sheet(
+                isPresented: $showCreateTransferSheet,
+                content: {
+                    CreateTransferSheet(isPresented: $showCreateTransferSheet)
                 }
             )
     }

@@ -54,17 +54,17 @@ private extension CreateVaultSheet {
             ProgressView()
         case .error(let error):
             Text("Error: \(error.localizedDescription)")
-                .foregroundStyle(.red)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 12))
+                .applyErrorTextStyle()
         case .idle:
             EmptyView()
         case .data:
-            Text("Vault successfully created").task {
-                try? await Task.sleep(for: .seconds(0.75))
-                vaultInteractor.loadVaults()
-                isPresented = false
-            }
+            Text("Vault successfully created")
+                .applyInfoTextStyle()
+                .task {
+                    try? await Task.sleep(for: .seconds(0.75))
+                    vaultInteractor.loadVaults()
+                    isPresented = false
+                }
         }
     }
 }
