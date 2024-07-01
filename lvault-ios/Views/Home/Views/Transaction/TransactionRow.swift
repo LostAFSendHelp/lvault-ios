@@ -19,6 +19,15 @@ struct TransactionRow: View {
             HStack {
                 Text(transaction.amountText).font(.system(size: 22, weight: .heavy))
                     .foregroundStyle(transaction.amount < 0 ? .red : .green)
+                
+                if transaction.isTransfer {
+                    if transaction.amount < 0 {
+                        Image(systemName: "arrow.up.right.circle").foregroundStyle(.red)
+                    } else {
+                        Image(systemName: "arrow.down.left.circle").foregroundStyle(.green)
+                    }
+                }
+                
                 Spacer()
                 Text(transaction.timeText).font(.system(size: 14)).foregroundStyle(.secondary)
             }
@@ -49,6 +58,7 @@ struct TransactionRow: View {
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
+                    .padding(.top, transaction.labels.isEmpty ? 0.1 : 0) // 0.1: magic number to force the text out of amountText's bounds
             }
         }.padding(.vertical, increasedPaddings ? 8 : 0)
     }
