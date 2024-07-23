@@ -11,6 +11,7 @@ enum LVaultError: Error {
     case custom(String)
     case notFound(String?)
     case invalidArguments(String?)
+    case authenticationFailure
 }
 
 extension LVaultError: LocalizedError {
@@ -30,6 +31,8 @@ extension LVaultError: LocalizedError {
                 message += ": \(clause)"
             }
             return message
+        case .authenticationFailure:
+            return "Failed to authenticate user"
         }
     }
 }

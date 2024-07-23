@@ -21,7 +21,7 @@ class PersistenceController {
         self.inMemory = inMemory
     }
     
-    func initialize(completion: @escaping EmptyVoidHandler) {
+    func initialize(completion: @escaping ResultHandler<Void>) {
         CoreStoreDefaults.dataStack = DataStack(
             V1.schema,
             V2.schema,
@@ -34,7 +34,7 @@ class PersistenceController {
                 create({ (cso: VaultCSO, _) -> Void in
                     cso.name = "example vault"
                 })
-                completion()
+                completion(.success(()))
             } catch {
                 fatalError(error.localizedDescription)
             }
@@ -43,10 +43,9 @@ class PersistenceController {
             _ = CoreStoreDefaults.dataStack.addStorage(storage, completion: { result in
                 switch result {
                 case .success:
-                    completion()
+                    completion(.success(()))
                 case .failure(let error):
-                    // TODO: gracefully handle errors
-                    fatalError(error.localizedDescription)
+                    completion(.failure(error))
                 }
             })
         }

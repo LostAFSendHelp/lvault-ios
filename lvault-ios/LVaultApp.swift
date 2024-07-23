@@ -19,10 +19,19 @@ struct LVaultApp: App {
 
 struct MainView: View {
     @EnvironmentObject private var di: DI
-    @State private var isAppInitialized = false
+    @State private var startupLoadable: Loadable<Void> = .loading
     
     var body: some View {
-        if isAppInitialized {
+        switch startupLoadable {
+        case .loading:
+            SplashScreen(
+                startupLoadable: $startupLoadable,
+                interactor: .init(
+                    persistenceController: di.container.persistence,
+                    localAuthRepo: di.container.localAuthRepo
+                )
+            )
+        case .data:
             TabView {
                 Home()
                     .environmentObject(di.container.getVaultInteractor())
@@ -32,11 +41,22 @@ struct MainView: View {
                 
                 Settings()
             }
-        } else {
-            SplashScreen(
-                isAppInitialized: $isAppInitialized,
-                interactor: .init(persistenceController: di.container.persistence)
-            )
+        case .error(let error):
+            if let lvaultError = error as? LVaultError,
+               case .authenticationFailure = lvaultError {
+                AuthenticationErrorScreen(onRetry: {
+                    startupLoadable = .loading
+                }).environmentObject(AuthenticationErrorInteractor(repo: di.container.localAuthRepo))
+            } else {
+                StartupErrorScreen(
+                    error: error,
+                    onRetry: {
+                        startupLoadable = .loading
+                    }
+                )
+            }
+        case .idle:
+            EmptyView()
         }
     }
 }

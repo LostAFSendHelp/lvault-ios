@@ -12,6 +12,7 @@
 		9B03EF612BFF9CE200ABDD64 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF602BFF9CE200ABDD64 /* DIContainer.swift */; };
 		9B03EF642BFFA48900ABDD64 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF632BFFA48900ABDD64 /* Dependency.swift */; };
 		9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */; };
+		9B1946BC2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1946BB2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift */; };
 		9B27C49E2C02003900EA96EF /* TransactionLabelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C49D2C02003900EA96EF /* TransactionLabelRepository.swift */; };
 		9B27C4A02C02064200EA96EF /* TransactionLabelRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C49F2C02064200EA96EF /* TransactionLabelRepositoryStub.swift */; };
 		9B27C4A22C020B9300EA96EF /* TransactionLabelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4A12C020B9300EA96EF /* TransactionLabelInteractor.swift */; };
@@ -74,6 +75,11 @@
 		9BA742162BF907E9009C771F /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742152BF907E9009C771F /* TransactionList.swift */; };
 		9BA742182BF91702009C771F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742172BF91702009C771F /* StringExtensions.swift */; };
 		9BA7421A2BF9176A009C771F /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742192BF9176A009C771F /* DoubleExtensions.swift */; };
+		9BAFFCDF2C4F5E8900945A2F /* LocalAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCDE2C4F5E8900945A2F /* LocalAuthRepository.swift */; };
+		9BAFFCE22C4F684B00945A2F /* StartupErrorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE12C4F684B00945A2F /* StartupErrorScreen.swift */; };
+		9BAFFCE42C4F687E00945A2F /* AuthenticationErrorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE32C4F687E00945A2F /* AuthenticationErrorScreen.swift */; };
+		9BAFFCE62C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE52C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift */; };
+		9BAFFCE82C4F6CFB00945A2F /* StartupErrorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE72C4F6CFB00945A2F /* StartupErrorInteractor.swift */; };
 		9BCE42D42BD4BB8300D4F1A1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE42D32BD4BB8300D4F1A1 /* .gitignore */; };
 		9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */; };
 		9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */; };
@@ -107,6 +113,7 @@
 		9B03EF602BFF9CE200ABDD64 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		9B03EF632BFFA48900ABDD64 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultError.swift; sourceTree = "<group>"; };
+		9B1946BB2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthRepositoryStub.swift; sourceTree = "<group>"; };
 		9B27C49D2C02003900EA96EF /* TransactionLabelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelRepository.swift; sourceTree = "<group>"; };
 		9B27C49F2C02064200EA96EF /* TransactionLabelRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelRepositoryStub.swift; sourceTree = "<group>"; };
 		9B27C4A12C020B9300EA96EF /* TransactionLabelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelInteractor.swift; sourceTree = "<group>"; };
@@ -172,6 +179,11 @@
 		9BA742152BF907E9009C771F /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		9BA742172BF91702009C771F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		9BA742192BF9176A009C771F /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		9BAFFCDE2C4F5E8900945A2F /* LocalAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthRepository.swift; sourceTree = "<group>"; };
+		9BAFFCE12C4F684B00945A2F /* StartupErrorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupErrorScreen.swift; sourceTree = "<group>"; };
+		9BAFFCE32C4F687E00945A2F /* AuthenticationErrorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationErrorScreen.swift; sourceTree = "<group>"; };
+		9BAFFCE52C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationErrorInteractor.swift; sourceTree = "<group>"; };
+		9BAFFCE72C4F6CFB00945A2F /* StartupErrorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupErrorInteractor.swift; sourceTree = "<group>"; };
 		9BCE42D32BD4BB8300D4F1A1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vault+CSO.swift"; sourceTree = "<group>"; };
 		9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chest+CSO.swift"; sourceTree = "<group>"; };
@@ -273,6 +285,7 @@
 				9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */,
 				9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */,
 				9B27C49F2C02064200EA96EF /* TransactionLabelRepositoryStub.swift */,
+				9B1946BB2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -317,6 +330,7 @@
 		9B57A9572BD4331100096CC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9BAFFCE02C4F683200945A2F /* Error */,
 				9B56A31A2C308BEB00E1B9D2 /* Splash */,
 				9B03EF622BFFA43900ABDD64 /* Modifiers */,
 				9B03EF5C2BFF997C00ABDD64 /* Settings */,
@@ -332,6 +346,8 @@
 			children = (
 				9B56A31F2C3095EC00E1B9D2 /* Main */,
 				9B56A31D2C3095E600E1B9D2 /* SplashInteractor.swift */,
+				9BAFFCE52C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift */,
+				9BAFFCE72C4F6CFB00945A2F /* StartupErrorInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -384,6 +400,7 @@
 				9B6C79C22BE53D29004B8649 /* ChestRepository.swift */,
 				9BA7420E2BF8FB3A009C771F /* TransactionRepository.swift */,
 				9B27C49D2C02003900EA96EF /* TransactionLabelRepository.swift */,
+				9BAFFCDE2C4F5E8900945A2F /* LocalAuthRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -535,6 +552,15 @@
 				9BA742112BF907D8009C771F /* CreateTransactionSheet.swift */,
 			);
 			path = Transaction;
+			sourceTree = "<group>";
+		};
+		9BAFFCE02C4F683200945A2F /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				9BAFFCE12C4F684B00945A2F /* StartupErrorScreen.swift */,
+				9BAFFCE32C4F687E00945A2F /* AuthenticationErrorScreen.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		9BDD52F82BDF9FED002B9939 /* Extensions */ = {
@@ -689,6 +715,7 @@
 				9B27C4AF2C025AA000EA96EF /* SheetButtonStyle.swift in Sources */,
 				9B27C4AD2C02597C00EA96EF /* UIConfigs.swift in Sources */,
 				9B87FFCA2C0E19140049412B /* RoundedBorder.swift in Sources */,
+				9BAFFCE42C4F687E00945A2F /* AuthenticationErrorScreen.swift in Sources */,
 				9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */,
 				9B5C3F3B2C2B24BD00C94913 /* V2.swift in Sources */,
 				9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */,
@@ -712,6 +739,7 @@
 				9B95B2462C31BCB300DE81C3 /* ArrayExtensions.swift in Sources */,
 				9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */,
 				9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */,
+				9BAFFCDF2C4F5E8900945A2F /* LocalAuthRepository.swift in Sources */,
 				9B57A9712BD444C300096CC5 /* Types.swift in Sources */,
 				9BA7420D2BF8FA25009C771F /* TransactionInteractor.swift in Sources */,
 				9BA742182BF91702009C771F /* StringExtensions.swift in Sources */,
@@ -719,6 +747,7 @@
 				9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */,
 				9B75B1D02BDEC7390053B845 /* V1.swift in Sources */,
 				9B7E5F7D2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift in Sources */,
+				9BAFFCE82C4F6CFB00945A2F /* StartupErrorInteractor.swift in Sources */,
 				9B95B2442C31B16900DE81C3 /* CreateTransferSheet.swift in Sources */,
 				9B03EF642BFFA48900ABDD64 /* Dependency.swift in Sources */,
 				9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */,
@@ -726,6 +755,7 @@
 				9B3EB8152C04E62C008F704B /* TransactionLabelSelectionRow.swift in Sources */,
 				9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */,
 				9BA7420B2BF8F827009C771F /* ChestDetail.swift in Sources */,
+				9BAFFCE62C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift in Sources */,
 				9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */,
 				9B27C4A42C0242DD00EA96EF /* TransactionLabelList.swift in Sources */,
 				9B27C4A62C0242E900EA96EF /* TransactionLabelRow.swift in Sources */,
@@ -738,11 +768,13 @@
 				9BDD52FE2BDFA08F002B9939 /* Transaction+CSO.swift in Sources */,
 				9B3EB8122C04DD73008F704B /* SelectTransactionLabelsSheet.swift in Sources */,
 				9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */,
+				9BAFFCE22C4F684B00945A2F /* StartupErrorScreen.swift in Sources */,
 				9BA7421A2BF9176A009C771F /* DoubleExtensions.swift in Sources */,
 				9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */,
 				9B6C79C12BE538AF004B8649 /* ChestInteractor.swift in Sources */,
 				9B27C4A02C02064200EA96EF /* TransactionLabelRepositoryStub.swift in Sources */,
 				9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */,
+				9B1946BC2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift in Sources */,
 				9BA7420F2BF8FB3A009C771F /* TransactionRepository.swift in Sources */,
 				9B56A31C2C308BF600E1B9D2 /* SplashScreen.swift in Sources */,
 				9B56A31E2C3095E600E1B9D2 /* SplashInteractor.swift in Sources */,
@@ -916,7 +948,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = Vault;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "App needs Face ID to authorize user to access their secured vault data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -957,7 +991,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = Vault;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "App needs Face ID to authorize user to access their secured vault data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

@@ -21,6 +21,7 @@ class DI: ObservableObject {
 
 protocol DIContainer: AnyObject {
     var persistence: PersistenceController { get }
+    var localAuthRepo: LocalAuthRepository { get }
     func getVaultInteractor() -> VaultInteractor
     func getChestInteractor(parentVault: Vault) -> ChestInteractor
     func getTransactionInteractor(parentChest: Chest) -> TransactionInteractor
@@ -29,6 +30,8 @@ protocol DIContainer: AnyObject {
 
 class DIContainerImpl: DIContainer {
     let persistence: PersistenceController = .shared
+    let localAuthRepo: LocalAuthRepository = LocalAuthRepositoryImpl.shared
+    
     private lazy var vaultInteractor: VaultInteractor = .init(repo: VaultRepositoryImpl(persistence: persistence))
     private lazy var transactionLabelInteractor: TransactionLabelInteractor = .init(repo: TransactionLabelRepositoryImpl(persistence: persistence))
     
@@ -53,6 +56,8 @@ class DIContainerImpl: DIContainer {
 
 class DIContainerPreview: DIContainer {
     let persistence: PersistenceController = .preview
+    let localAuthRepo: LocalAuthRepository = LocalAuthRepositoryStub(fails: true)
+    
     private let vaultInteractor: VaultInteractor = .init(repo: VaultRepositoryStub())
     private let transactionLabelInteractor: TransactionLabelInteractor = .init(repo: TransactionLabelRepositoryStub())
     

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SplashScreen: View {
-    @Binding var isAppInitialized: Bool
+    @Binding var startupLoadable: Loadable<Void>
     let interactor: SplashInteractor
     
     var body: some View {
@@ -25,9 +25,14 @@ struct SplashScreen: View {
                 .italic()
                 .foregroundStyle(.secondary)
         }.onAppear(perform: {
-            interactor.initializeApp {
+            interactor.initializeApp { result in
                 withAnimation {
-                    isAppInitialized = true
+                    switch result {
+                    case .success:
+                        startupLoadable = .data(())
+                    case .failure(let error):
+                        startupLoadable = .error(error)
+                    }
                 }
             }
         })
@@ -36,7 +41,10 @@ struct SplashScreen: View {
 
 #Preview {
     SplashScreen(
-        isAppInitialized: .constant(false),
-        interactor: SplashInteractor(persistenceController: .preview)
+        startupLoadable: .constant(.data(())),
+        interactor: SplashInteractor(
+            persistenceController: .preview,
+            localAuthRepo: LocalAuthRepositoryStub(fails: false)
+        )
     )
 }
