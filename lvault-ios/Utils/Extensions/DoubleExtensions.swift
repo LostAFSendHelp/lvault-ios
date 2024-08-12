@@ -15,4 +15,8 @@ extension Double {
     var decimalText: String {
         return NumberFormatter.decimal.string(from: self as NSNumber) ?? "%.2f".formatted(with: self)
     }
+    
+    var signedDecimalText: String {
+        return (self > 0 ? "+" : "") + decimalText
+    }
 }

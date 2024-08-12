@@ -26,6 +26,7 @@ protocol DIContainer: AnyObject {
     func getChestInteractor(parentVault: Vault) -> ChestInteractor
     func getTransactionInteractor(parentChest: Chest) -> TransactionInteractor
     func getTransactionLabelInteractor() -> TransactionLabelInteractor
+    func getReportInteractor() -> ReportInteractor
 }
 
 class DIContainerImpl: DIContainer {
@@ -52,11 +53,15 @@ class DIContainerImpl: DIContainer {
     func getTransactionLabelInteractor() -> TransactionLabelInteractor {
         return transactionLabelInteractor
     }
+    
+    func getReportInteractor() -> ReportInteractor {
+        return ReportInteractor(transactionRepo: TransactionRepositoryImpl(persistence: persistence))
+    }
 }
 
 class DIContainerPreview: DIContainer {
     let persistence: PersistenceController = .preview
-    let localAuthRepo: LocalAuthRepository = LocalAuthRepositoryStub(fails: true)
+    let localAuthRepo: LocalAuthRepository = LocalAuthRepositoryStub(fails: false)
     
     private let vaultInteractor: VaultInteractor = .init(repo: VaultRepositoryStub())
     private let transactionLabelInteractor: TransactionLabelInteractor = .init(repo: TransactionLabelRepositoryStub())
@@ -75,5 +80,9 @@ class DIContainerPreview: DIContainer {
     
     func getTransactionLabelInteractor() -> TransactionLabelInteractor {
         return transactionLabelInteractor
+    }
+    
+    func getReportInteractor() -> ReportInteractor {
+        return ReportInteractor(transactionRepo: TransactionRepositoryStub())
     }
 }

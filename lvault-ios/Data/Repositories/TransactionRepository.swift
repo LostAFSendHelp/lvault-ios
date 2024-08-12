@@ -10,6 +10,7 @@ import Combine
 import CoreStore
 
 protocol TransactionRepository: AnyObject {
+    func getAllTransactions() -> AnyPublisher<[Transaction], Error>
     func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error>
     func createTransaction(amount: Double, date: Double, note: String?, labels: [TransactionLabel], chest: Chest) -> AnyPublisher<Transaction, Error>
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error>
@@ -22,6 +23,17 @@ class TransactionRepositoryImpl: TransactionRepository {
     
     init(persistence: PersistenceController) {
         self.persistence = persistence
+    }
+    
+    func getAllTransactions() -> AnyPublisher<[Transaction], Error> {
+        Future { [persistence] promise in
+            do {
+                let allTransactions: [TransactionCSO] = try persistence.fetchAll()
+                promise(.success(allTransactions))
+            } catch {
+                promise(.failure(error))
+            }
+        }.eraseToAnyPublisher()
     }
     
     func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error> {

@@ -45,6 +45,13 @@ class TransactionRepositoryStub: TransactionRepository {
         data = Self.data
     }
     
+    func getAllTransactions() -> AnyPublisher<[Transaction], Error> {
+        return Just<[Transaction]>(data)
+            .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
     func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error> {
         return Just<[Transaction]>(data)
             .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)

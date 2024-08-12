@@ -47,6 +47,8 @@
 		9B6C79C32BE53D29004B8649 /* ChestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C79C22BE53D29004B8649 /* ChestRepository.swift */; };
 		9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B75B1C42BDD2F5F0053B845 /* CoreStore */; };
 		9B75B1D02BDEC7390053B845 /* V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B75B1CF2BDEC7390053B845 /* V1.swift */; };
+		9B7A5F942C67DD51002266B4 /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A5F932C67DD51002266B4 /* Reports.swift */; };
+		9B7A5F962C67DEB2002266B4 /* ReportSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A5F952C67DEB2002266B4 /* ReportSectionView.swift */; };
 		9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */; };
 		9B7E5F7D2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E5F7C2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift */; };
 		9B87FFCA2C0E19140049412B /* RoundedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87FFC92C0E19140049412B /* RoundedBorder.swift */; };
@@ -87,6 +89,7 @@
 		9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */; };
 		9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD53012BDFA199002B9939 /* TransactionLabel.swift */; };
 		9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD53032BDFA1A2002B9939 /* Transaction.swift */; };
+		9BF0E0402C6A710B00E5DF6B /* ReportInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF0E03F2C6A710B00E5DF6B /* ReportInteractor.swift */; };
 		9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF8453A2BE2277A0039C826 /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +150,8 @@
 		9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestInteractor.swift; sourceTree = "<group>"; };
 		9B6C79C22BE53D29004B8649 /* ChestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepository.swift; sourceTree = "<group>"; };
 		9B75B1CF2BDEC7390053B845 /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
+		9B7A5F932C67DD51002266B4 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
+		9B7A5F952C67DEB2002266B4 /* ReportSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSectionView.swift; sourceTree = "<group>"; };
 		9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVaultSheet.swift; sourceTree = "<group>"; };
 		9B7E5F7C2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelSelectionList.swift; sourceTree = "<group>"; };
 		9B87FFC92C0E19140049412B /* RoundedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorder.swift; sourceTree = "<group>"; };
@@ -191,6 +196,7 @@
 		9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionLabel+CSO.swift"; sourceTree = "<group>"; };
 		9BDD53012BDFA199002B9939 /* TransactionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabel.swift; sourceTree = "<group>"; };
 		9BDD53032BDFA1A2002B9939 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		9BF0E03F2C6A710B00E5DF6B /* ReportInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInteractor.swift; sourceTree = "<group>"; };
 		9BF8453A2BE2277A0039C826 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -314,6 +320,7 @@
 				9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */,
 				9BA7420C2BF8FA25009C771F /* TransactionInteractor.swift */,
 				9B27C4A12C020B9300EA96EF /* TransactionLabelInteractor.swift */,
+				9BF0E03F2C6A710B00E5DF6B /* ReportInteractor.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -330,11 +337,12 @@
 		9B57A9572BD4331100096CC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9B03EF622BFFA43900ABDD64 /* Modifiers */,
 				9BAFFCE02C4F683200945A2F /* Error */,
 				9B56A31A2C308BEB00E1B9D2 /* Splash */,
-				9B03EF622BFFA43900ABDD64 /* Modifiers */,
 				9B03EF5C2BFF997C00ABDD64 /* Settings */,
 				9B03EF592BFF991300ABDD64 /* Manage */,
+				9B7A5F922C67DCFD002266B4 /* Reports */,
 				9B57A9562BD4324700096CC5 /* Home */,
 				9B27C4AC2C02597C00EA96EF /* UIConfigs.swift */,
 			);
@@ -447,6 +455,15 @@
 				9B5C3F3A2C2B24BD00C94913 /* V2.swift */,
 			);
 			path = Schemas;
+			sourceTree = "<group>";
+		};
+		9B7A5F922C67DCFD002266B4 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				9B7A5F932C67DD51002266B4 /* Reports.swift */,
+				9B7A5F952C67DEB2002266B4 /* ReportSectionView.swift */,
+			);
+			path = Reports;
 			sourceTree = "<group>";
 		};
 		9B87FFCB2C0E1D390049412B /* Misc */ = {
@@ -728,12 +745,15 @@
 				9BA020CA2BD5575100BAA43C /* Chest.swift in Sources */,
 				9B87FFCF2C0E259F0049412B /* EditNoteSheet.swift in Sources */,
 				9B27C4A22C020B9300EA96EF /* TransactionLabelInteractor.swift in Sources */,
+				9B7A5F962C67DEB2002266B4 /* ReportSectionView.swift in Sources */,
 				9B4BC9622BFE47EE0060BD82 /* TransactionRepositoryStub.swift in Sources */,
 				9BA742092BF8F7AA009C771F /* ChestList.swift in Sources */,
 				9B4BC9642BFE59B10060BD82 /* NumberFormatterExtensions.swift in Sources */,
 				9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */,
 				9B27C4B12C025C4D00EA96EF /* BasicInputStyle.swift in Sources */,
 				9B27C4AB2C0254A600EA96EF /* TransactionLabelSheet.swift in Sources */,
+				9BF0E0402C6A710B00E5DF6B /* ReportInteractor.swift in Sources */,
+				9B7A5F942C67DD51002266B4 /* Reports.swift in Sources */,
 				9B57A95F2BD4354200096CC5 /* VaultRow.swift in Sources */,
 				9B03EF612BFF9CE200ABDD64 /* DIContainer.swift in Sources */,
 				9B95B2462C31BCB300DE81C3 /* ArrayExtensions.swift in Sources */,

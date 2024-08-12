@@ -23,6 +23,8 @@ extension DateFormatter {
     static let HHmm: DateFormatter = .create(format: "HH:mm")
     
     static let HHmmGMT: DateFormatter = .create(format: "HH:mm z")
+    
+    static let MMMMyyyyGMT: DateFormatter = .create(format: "MMMM, yyyy z")
 }
 
 extension Date {
@@ -45,10 +47,18 @@ extension Date {
     var HHmmGMT: String {
         DateFormatter.HHmmGMT.string(from: self)
     }
+    
+    var MMMMyyyyGMT: String {
+        DateFormatter.MMMMyyyyGMT.string(from: self)
+    }
 }
 
 extension Date {
     var startOfDay: Date {
         return Calendar.current.startOfDay(for: self)
+    }
+    
+    var startOfMonth: Date {
+        return Calendar.current.dateInterval(of: .month, for: self)!.start
     }
 }

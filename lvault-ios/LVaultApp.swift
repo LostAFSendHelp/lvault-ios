@@ -39,6 +39,9 @@ struct MainView: View {
                 Manage()
                     .environmentObject(di.container.getTransactionLabelInteractor())
                 
+                Reports()
+                    .environmentObject(di.container.getReportInteractor())
+                
                 Settings()
             }
         case .error(let error):
@@ -61,7 +64,7 @@ struct MainView: View {
     }
 }
 
-#Preview {
-    MainView()
-        .dependency(.preview)
-}
+//#Preview {
+//    MainView()
+//        .dependency(.preview)
+//}

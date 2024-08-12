@@ -28,4 +28,8 @@ extension Array {
     func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
         return first(where: { $0[keyPath: keyPath] == value })
     }
+    
+    func firstIndex<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Int? {
+        return firstIndex(where: { $0[keyPath: keyPath] == value })
+    }
 }
