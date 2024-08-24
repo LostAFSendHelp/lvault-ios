@@ -26,6 +26,7 @@
 		9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3359832BD4AF720010221C /* EnvironmentKeys.swift */; };
 		9B3EB8122C04DD73008F704B /* SelectTransactionLabelsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8112C04DD73008F704B /* SelectTransactionLabelsSheet.swift */; };
 		9B3EB8152C04E62C008F704B /* TransactionLabelSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */; };
+		9B42C5F02C79E518002424F1 /* ReportItemDataGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42C5EF2C79E518002424F1 /* ReportItemDataGroupView.swift */; };
 		9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */; };
 		9B4BC9602BFE47DE0060BD82 /* ChestRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */; };
 		9B4BC9622BFE47EE0060BD82 /* TransactionRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */; };
@@ -130,6 +131,7 @@
 		9B3359832BD4AF720010221C /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		9B3EB8112C04DD73008F704B /* SelectTransactionLabelsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTransactionLabelsSheet.swift; sourceTree = "<group>"; };
 		9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelSelectionRow.swift; sourceTree = "<group>"; };
+		9B42C5EF2C79E518002424F1 /* ReportItemDataGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportItemDataGroupView.swift; sourceTree = "<group>"; };
 		9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepositoryStub.swift; sourceTree = "<group>"; };
 		9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepositoryStub.swift; sourceTree = "<group>"; };
 		9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryStub.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 			children = (
 				9B7A5F932C67DD51002266B4 /* Reports.swift */,
 				9B7A5F952C67DEB2002266B4 /* ReportSectionView.swift */,
+				9B42C5EF2C79E518002424F1 /* ReportItemDataGroupView.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				9B57A9712BD444C300096CC5 /* Types.swift in Sources */,
 				9BA7420D2BF8FA25009C771F /* TransactionInteractor.swift in Sources */,
 				9BA742182BF91702009C771F /* StringExtensions.swift in Sources */,
+				9B42C5F02C79E518002424F1 /* ReportItemDataGroupView.swift in Sources */,
 				9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */,
 				9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */,
 				9B75B1D02BDEC7390053B845 /* V1.swift in Sources */,

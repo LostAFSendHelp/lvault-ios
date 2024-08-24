@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-struct ReportItemData {
-    let labelId: String
-    let label: String
-    let amount: Double
-}
-
-struct ReportItemDataGroup {
-    let items: [ReportItemData]
-    let totalAmount: Double
-}
-
 struct ReportSectionData {
     let startOfMonth: TimeInterval
     let spendings: ReportItemDataGroup
@@ -25,33 +14,6 @@ struct ReportSectionData {
     
     var total: Double {
         return spendings.totalAmount + earnings.totalAmount
-    }
-}
-
-struct ReportItemDataGroupView: View {
-    let title: String
-    let group: ReportItemDataGroup
-    @State private var isExpanded: Bool = true
-    
-    var body: some View {
-        DisclosureGroup(isExpanded: $isExpanded) {
-            ForEach(group.items, id: \.labelId) { item in
-                HStack {
-                    Text(item.label)
-                    Spacer()
-                    Text(item.amount.signedDecimalText)
-                }.foregroundStyle(.secondary)
-            }
-        } label: {
-            HStack {
-                Text(title)
-                    .font(.system(size: 22, weight: .heavy))
-                Spacer()
-                Text(group.totalAmount.signedDecimalText)
-                    .font(.system(size: 22, weight: .heavy))
-                    .foregroundStyle(group.totalAmount < 0 ? .red : .green)
-            }
-        }
     }
 }
 
@@ -93,10 +55,13 @@ struct ReportSectionView: View {
         earnings: .init(items: earnings, totalAmount: 6150)
     )
     
-    return List() {
-        ReportSectionView(data: data)
-        ReportSectionView(data: data)
-        ReportSectionView(data: data)
-    }.listStyle(SidebarListStyle())
-    
+    return NavigationStack {
+        List() {
+            ReportSectionView(data: data)
+            ReportSectionView(data: data)
+            ReportSectionView(data: data)
+        }
+        .listStyle(SidebarListStyle())
+        .navigationTitle("Reports")
+    }
 }
