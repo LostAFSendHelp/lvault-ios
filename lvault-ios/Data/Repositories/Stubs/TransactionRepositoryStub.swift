@@ -59,6 +59,18 @@ class TransactionRepositoryStub: TransactionRepository {
             .eraseToAnyPublisher()
     }
     
+    func getTransactions(
+        containingLabelId: String?,
+        fromMillisecond: TimeInterval,
+        toMillisecond: TimeInterval,
+        excludeTransfers: Bool
+    ) -> AnyPublisher<[Transaction], Error> {
+        return Just<[Transaction]>(data)
+            .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
     func createTransaction(
         amount: Double,
         date: Double,

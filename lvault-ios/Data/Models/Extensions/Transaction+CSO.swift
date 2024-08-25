@@ -17,4 +17,8 @@ extension TransactionCSO: Transaction {
     var labels: [TransactionLabel] {
         return Array(rLabels)
     }
+    
+    var chestName: String {
+        return rChest?.name ?? "ERROR"
+    }
 }

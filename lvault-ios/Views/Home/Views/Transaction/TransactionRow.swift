@@ -17,8 +17,7 @@ struct TransactionRow: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(transaction.amountText).font(.system(size: 22, weight: .heavy))
-                    .foregroundStyle(transaction.amount < 0 ? .red : .green)
+                TransactionAmountText(amount: transaction.amount)
                 
                 if transaction.isTransfer {
                     if transaction.amount < 0 {

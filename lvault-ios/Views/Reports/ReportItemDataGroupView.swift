@@ -20,6 +20,7 @@ struct ReportItemDataGroup {
 
 struct ReportItemDataGroupView: View {
     let title: String
+    let startOfMonth: Double
     let group: ReportItemDataGroup
     @State private var isExpanded: Bool = true
     
@@ -27,7 +28,13 @@ struct ReportItemDataGroupView: View {
         DisclosureGroup(isExpanded: $isExpanded) {
             ForEach(group.items, id: \.labelId) { item in
                 NavigationLink(
-                    destination: { return Text(item.labelId) },
+                    destination: {
+                        return ReportItemDetailsView(
+                            reportItem: item,
+                            fromMilliseconds: startOfMonth,
+                            toMilliseconds: startOfMonth.millisecondToDate.endOfMonth.millisecondsSince1970
+                        )
+                    },
                     label: {
                         HStack {
                             Text(item.label)
@@ -42,9 +49,7 @@ struct ReportItemDataGroupView: View {
                 Text(title)
                     .font(.system(size: 22, weight: .heavy))
                 Spacer()
-                Text(group.totalAmount.signedDecimalText)
-                    .font(.system(size: 22, weight: .heavy))
-                    .foregroundStyle(group.totalAmount < 0 ? .red : .green)
+                TransactionAmountText(amount: group.totalAmount)
             }
         }
     }

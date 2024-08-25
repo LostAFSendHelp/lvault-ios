@@ -22,15 +22,21 @@ struct ReportSectionView: View {
     
     var body: some View {
         Section(data.startOfMonth.millisecondToDate.MMMMyyyyGMT) {
-            ReportItemDataGroupView(title: "Spent", group: data.spendings)
-            ReportItemDataGroupView(title: "Earned", group: data.earnings)
+            ReportItemDataGroupView(
+                title: "Spent",
+                startOfMonth: data.startOfMonth,
+                group: data.spendings
+            )
+            ReportItemDataGroupView(
+                title: "Earned",
+                startOfMonth: data.startOfMonth,
+                group: data.earnings
+            )
             HStack {
                 Text(data.total >= 0 ? "Net gain" : "Net loss")
                     .font(.system(size: 22, weight: .heavy))
                 Spacer()
-                Text(data.total.signedDecimalText)
-                    .foregroundStyle(data.total < 0 ? .red : .green)
-                    .font(.system(size: 22, weight: .heavy))
+                TransactionAmountText(amount: data.total)
             }
         }
     }

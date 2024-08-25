@@ -12,6 +12,12 @@ import CoreStore
 protocol TransactionRepository: AnyObject {
     func getAllTransactions() -> AnyPublisher<[Transaction], Error>
     func getTransactions(chest: Chest) -> AnyPublisher<[Transaction], Error>
+    func getTransactions(
+        containingLabelId: String?,
+        fromMillisecond: TimeInterval,
+        toMillisecond: TimeInterval,
+        excludeTransfers: Bool
+    ) -> AnyPublisher<[Transaction], Error>
     func createTransaction(amount: Double, date: Double, note: String?, labels: [TransactionLabel], chest: Chest) -> AnyPublisher<Transaction, Error>
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error>
     func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error>
@@ -44,6 +50,49 @@ class TransactionRepositoryImpl: TransactionRepository {
             }
             promise(.success(chest.rTransactions))
         }.eraseToAnyPublisher()
+    }
+    
+    func getTransactions(
+        containingLabelId labelId: String?,
+        fromMillisecond: TimeInterval,
+        toMillisecond: TimeInterval,
+        excludeTransfers: Bool
+    ) -> AnyPublisher<[Transaction], Error> {
+        return Future<[Transaction], Error> { [persistence] promise in
+            do {
+                let transactions: [TransactionCSO]
+                
+                if let labelId {
+                    transactions = try persistence.fetchAll(
+                        """
+                        SUBQUERY(labels, $label, $label.id == %@).@count > 0
+                        && transactionDate >= %d
+                        && transactionDate < %d
+                        \(excludeTransfers ? "&& isTransfer == FALSE" : "")
+                        """,
+                        labelId,
+                        fromMillisecond,
+                        toMillisecond
+                    )
+                } else {
+                    transactions = try persistence.fetchAll(
+                        """
+                        labels.@count == 0
+                        && transactionDate >= %d
+                        && transactionDate < %d
+                        \(excludeTransfers ? "&& isTransfer == FALSE" : "")
+                        """,
+                        fromMillisecond,
+                        toMillisecond
+                    )
+                }
+                
+                promise(.success(transactions))
+            } catch {
+                promise(.failure(error))
+            }
+        }
+        .eraseToAnyPublisher()
     }
     
     func createTransaction(

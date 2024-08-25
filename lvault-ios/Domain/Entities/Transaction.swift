@@ -15,6 +15,7 @@ protocol Transaction {
     var note: String? { get }
     var labels: [TransactionLabel] { get }
     var createdAt: Double { get }
+    var chestName: String { get }
 }
 
 extension Transaction {
@@ -43,6 +44,7 @@ struct TransactionDTO: Transaction {
     let note: String?
     let labels: [TransactionLabel]
     let createdAt: Double
+    let chestName: String = "DTO chest"
     
     func withLabels(_ count: Int) -> TransactionDTO {
         var labels: [TransactionLabelDTO] = []

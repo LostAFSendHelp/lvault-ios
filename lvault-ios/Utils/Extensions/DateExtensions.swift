@@ -20,6 +20,8 @@ extension DateFormatter {
     
     static let eeeddMMyyyyGMT: DateFormatter = .create(format: "eee, dd/MM/yyyy z")
     
+    static let eeeddMMyyyy: DateFormatter = .create(format: "eee, dd/MM/yyyy")
+    
     static let HHmm: DateFormatter = .create(format: "HH:mm")
     
     static let HHmmGMT: DateFormatter = .create(format: "HH:mm z")
@@ -38,6 +40,10 @@ extension Date {
     
     var eeeddMMyyyyGMT: String {
         DateFormatter.eeeddMMyyyyGMT.string(from: self)
+    }
+    
+    var eeeddMMyyyy: String {
+        DateFormatter.eeeddMMyyyy.string(from: self)
     }
     
     var HHmm: String {
@@ -60,5 +66,10 @@ extension Date {
     
     var startOfMonth: Date {
         return Calendar.current.dateInterval(of: .month, for: self)!.start
+    }
+    
+    var endOfMonth: Date {
+        let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: self)!
+        return nextMonth.startOfMonth
     }
 }
