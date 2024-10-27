@@ -19,3 +19,21 @@ extension String {
         return Color(hex: self)
     }
 }
+
+extension String {
+    var trimmed: String {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    var strippingDiacritics: String {
+        return folding(options: .diacriticInsensitive, locale: .current)
+            .replacingOccurrences(of: "đ", with: "d")
+            .replacingOccurrences(of: "Đ", with: "D")
+    }
+}
+
+extension Optional where Wrapped == String {
+    var orEmpty: String {
+        return self ?? ""
+    }
+}

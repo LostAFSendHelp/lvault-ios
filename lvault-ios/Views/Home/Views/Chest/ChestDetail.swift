@@ -12,6 +12,7 @@ struct ChestDetail: View {
     @State private var editingTransaction: Transaction?
     @State private var editingTransactionNote: Transaction?
     @State private var transactionAscendingByDate: Bool = false
+    @State private var searchText: String = ""
     @EnvironmentObject private var transactionInteractor: TransactionInteractor
     @EnvironmentObject private var di: DI
     
@@ -76,11 +77,22 @@ private extension ChestDetail {
         case .data(let transactions):
             ZStack(alignment: .bottomTrailing) {
                 TransactionList(
-                    transactions: transactions,
+                    transactions: transactions.filterByAttributesIgnoringDiacritics(
+                        keyPath: \.searchAttributes,
+                        text: searchText
+                    ),
                     parentChestName: transactionInteractor.parentChestName,
                     ascendingByDate: $transactionAscendingByDate,
                     editingTransaction: $editingTransaction,
                     editingTransactionNote: $editingTransactionNote,
+                    searchText: .init(
+                        get: { searchText },
+                        set: { text in
+                            guard text.trimmed != searchText.trimmed else { return }
+                            let newValue = text.count > 2 ? text : ""
+                            searchText = newValue
+                        }
+                    ),
                     onDeleteTransaction: deleteTransaction(_:)
                 )
                 Text("Balance: \(transactionInteractor.parentChestBalance)")

@@ -34,6 +34,10 @@ extension Transaction {
     var timeText: String {
         return transactionDate.millisecondToDate.HHmm
     }
+    
+    var searchAttributes: [String] {
+        return labels.map { $0.name } + [note.orEmpty]
+    }
 }
 
 struct TransactionDTO: Transaction {

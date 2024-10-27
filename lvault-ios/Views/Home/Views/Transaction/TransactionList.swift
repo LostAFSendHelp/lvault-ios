@@ -14,6 +14,7 @@ struct TransactionList: View {
     @Binding var ascendingByDate: Bool
     @Binding var editingTransaction: Transaction?
     @Binding var editingTransactionNote: Transaction?
+    @Binding var searchText: String
     @State private var showDeleteAlert: Bool = false
     @State private var deletedTransaction: Transaction?
     
@@ -37,6 +38,7 @@ struct TransactionList: View {
         ascendingByDate: Binding<Bool> = .constant(false),
         editingTransaction: Binding<Transaction?>,
         editingTransactionNote: Binding<Transaction?>,
+        searchText: Binding<String>,
         onDeleteTransaction: @escaping VoidHandler<Transaction>
     ) {
         self.transactions = Dictionary(grouping: transactions, by: \.transactionDate.millisecondToDate.startOfDay)
@@ -44,6 +46,7 @@ struct TransactionList: View {
         self._ascendingByDate = ascendingByDate
         self._editingTransaction = editingTransaction
         self._editingTransactionNote = editingTransactionNote
+        self._searchText = searchText
         self.onDeleteTransaction = onDeleteTransaction
     }
     
@@ -88,16 +91,19 @@ struct TransactionList: View {
             }
         } message: { transaction in
             Text("Delete transaction with value [\(transaction.amountText)] from chest [\(parentChestName)]? Current balance of the chest will be updated accordingly. This action cannot be reverted!")
-        }
+        }.searchable(text: $searchText, placement: .navigationBarDrawer)
     }
 }
 
 #Preview {
-    TransactionList(
-        transactions: TransactionRepositoryStub.data,
-        parentChestName: "Example chest",
-        editingTransaction: .constant(nil),
-        editingTransactionNote: .constant(nil),
-        onDeleteTransaction: { _ in }
-    )
+    NavigationStack {
+        TransactionList(
+            transactions: TransactionRepositoryStub.data,
+            parentChestName: "Example chest",
+            editingTransaction: .constant(nil),
+            editingTransactionNote: .constant(nil),
+            searchText: .constant(""),
+            onDeleteTransaction: { _ in }
+        ).navigationTitle("Test")
+    }
 }

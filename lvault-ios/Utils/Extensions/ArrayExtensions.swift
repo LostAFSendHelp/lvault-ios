@@ -32,4 +32,20 @@ extension Array {
     func firstIndex<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Int? {
         return firstIndex(where: { $0[keyPath: keyPath] == value })
     }
+    
+    func filterByTextIgnoringDiacritics(keyPath: KeyPath<Element, String>, text: String) -> [Element] {
+        let trimmed = text.trimmed
+        guard !trimmed.isEmpty else { return self }
+        
+        let searchText = trimmed.strippingDiacritics.lowercased()
+        return filter({ $0[keyPath: keyPath].trimmed.strippingDiacritics.lowercased().contains(searchText) })
+    }
+    
+    func filterByAttributesIgnoringDiacritics(keyPath: KeyPath<Element, [String]>, text: String) -> [Element] {
+        let trimmed = text.trimmed
+        guard !trimmed.isEmpty else { return self }
+        
+        let searchText = trimmed.strippingDiacritics.lowercased()
+        return filter({ $0[keyPath: keyPath].contains(where: { $0.trimmed.strippingDiacritics.lowercased().contains(searchText) }) })
+    }
 }
