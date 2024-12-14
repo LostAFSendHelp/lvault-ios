@@ -11,6 +11,7 @@ struct ChestDetail: View {
     @State private var showCreateTransactionSheet = false
     @State private var editingTransaction: Transaction?
     @State private var editingTransactionNote: Transaction?
+    @State private var isReconcilingBalance: Bool = false
     @State private var transactionAscendingByDate: Bool = false
     @State private var searchText: String = ""
     @EnvironmentObject private var transactionInteractor: TransactionInteractor
@@ -38,17 +39,28 @@ struct ChestDetail: View {
             .navigationTitle(Text(transactionInteractor.parentChestName))
             .toolbar {
                 Button {
-                    transactionAscendingByDate.toggle()
-                } label: {
-                    Image(systemName: "arrow.up.arrow.down")
-                }
-                Button {
                     showCreateTransactionSheet = true
                 } label: {
-                    Image(systemName: "plus")
+                    Label("Create new transaction", systemImage: "plus")
+                }
+                Menu {
+                    Button {
+                        transactionAscendingByDate.toggle()
+                    } label: {
+                        Label("Sort by date", systemImage: "arrow.up.arrow.down")
+                    }
+                    Button {
+                        isReconcilingBalance.toggle()
+                    } label: {
+                        Label("Reconcile balance", systemImage: "pencil.and.list.clipboard")
+                    }
+                } label: {
+                    Label("...", systemImage: "ellipsis")
                 }
             }.sheet(isPresented: $showCreateTransactionSheet) {
                 CreateTransactionSheet(isPresented: $showCreateTransactionSheet)
+            }.sheet(isPresented: $isReconcilingBalance) {
+                ReconcileBalanceSheet(isPresented: $isReconcilingBalance)
             }.sheet(isPresented: showEditLabelsSheet) {
                 SelectTransactionLabelsSheet(
                     isPresented: showEditLabelsSheet,
@@ -95,7 +107,7 @@ private extension ChestDetail {
                     ),
                     onDeleteTransaction: deleteTransaction(_:)
                 )
-                Text("Balance: \(transactionInteractor.parentChestBalance)")
+                Text("Balance: \(transactionInteractor.parentChestBalanceText)")
                     .padding(.vertical, 8)
                     .padding(.horizontal)
                     .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))

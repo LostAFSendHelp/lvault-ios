@@ -86,6 +86,7 @@
 		9BAFFCE82C4F6CFB00945A2F /* StartupErrorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE72C4F6CFB00945A2F /* StartupErrorInteractor.swift */; };
 		9BB418DA2C7B249100B74A84 /* TransactionReportItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB418D92C7B249100B74A84 /* TransactionReportItemRow.swift */; };
 		9BB418DD2C7B274000B74A84 /* TransactionAmountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB418DC2C7B274000B74A84 /* TransactionAmountText.swift */; };
+		9BBE757A2D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE75792D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift */; };
 		9BCE42D42BD4BB8300D4F1A1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE42D32BD4BB8300D4F1A1 /* .gitignore */; };
 		9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */; };
 		9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */; };
@@ -197,6 +198,7 @@
 		9BAFFCE72C4F6CFB00945A2F /* StartupErrorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupErrorInteractor.swift; sourceTree = "<group>"; };
 		9BB418D92C7B249100B74A84 /* TransactionReportItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportItemRow.swift; sourceTree = "<group>"; };
 		9BB418DC2C7B274000B74A84 /* TransactionAmountText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountText.swift; sourceTree = "<group>"; };
+		9BBE75792D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconcileBalanceSheet.swift; sourceTree = "<group>"; };
 		9BCE42D32BD4BB8300D4F1A1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vault+CSO.swift"; sourceTree = "<group>"; };
 		9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chest+CSO.swift"; sourceTree = "<group>"; };
@@ -576,6 +578,7 @@
 				9BA7420A2BF8F827009C771F /* ChestDetail.swift */,
 				9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */,
 				9B95B2432C31B16900DE81C3 /* CreateTransferSheet.swift */,
+				9BBE75792D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift */,
 			);
 			path = Chest;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				9B42C5F02C79E518002424F1 /* ReportItemDataGroupView.swift in Sources */,
 				9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */,
 				9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */,
+				9BBE757A2D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift in Sources */,
 				9B75B1D02BDEC7390053B845 /* V1.swift in Sources */,
 				9B7E5F7D2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift in Sources */,
 				9BAFFCE82C4F6CFB00945A2F /* StartupErrorInteractor.swift in Sources */,

@@ -31,7 +31,11 @@ protocol DIContainer: AnyObject {
 
 class DIContainerImpl: DIContainer {
     let persistence: PersistenceController = .shared
+    #if targetEnvironment(simulator)
+    let localAuthRepo: LocalAuthRepository = LocalAuthRepositoryStub(fails: false)
+    #else
     let localAuthRepo: LocalAuthRepository = LocalAuthRepositoryImpl.shared
+    #endif
     
     private lazy var vaultInteractor: VaultInteractor = .init(repo: VaultRepositoryImpl(persistence: persistence))
     private lazy var transactionLabelInteractor: TransactionLabelInteractor = .init(repo: TransactionLabelRepositoryImpl(persistence: persistence))
