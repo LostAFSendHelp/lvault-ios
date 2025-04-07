@@ -1,0 +1,12 @@
+//
+//  LVault-DEV.xcconfig
+//  lvault-ios
+//
+//  Created by Chuong Nguyen on 4/7/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BUNDLE_DISPLAY_NAME = Vault DEV
+PRODUCT_BUNDLE_IDENTIFIER = com.lostaf.lvault-ios.dev
