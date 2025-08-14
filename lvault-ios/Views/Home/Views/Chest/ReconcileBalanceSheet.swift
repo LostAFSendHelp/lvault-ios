@@ -123,7 +123,7 @@ private extension ReconcileBalanceSheet {
         .environmentObject(
             TransactionInteractor(
                 chest: ChestRepositoryStub.data.first!,
-                repo: TransactionRepositoryStub()
+                repo: TransactionRepositoryStub(), ocrService: OCRServiceStub()
             )
         )
 }

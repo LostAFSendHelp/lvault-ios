@@ -12,6 +12,7 @@ enum LVaultError: Error {
     case notFound(String?)
     case invalidArguments(String?)
     case authenticationFailure
+    case apiError(ApiError?)
 }
 
 extension LVaultError: LocalizedError {
@@ -33,6 +34,12 @@ extension LVaultError: LocalizedError {
             return message
         case .authenticationFailure:
             return "Failed to authenticate user"
+        case .apiError(let error):
+            var message = "Network or API error"
+            if let error {
+                message += ": \(error.localizedDescription)"
+            }
+            return message
         }
     }
 }

@@ -10,3 +10,5 @@
 
 BUNDLE_DISPLAY_NAME = Vault
 PRODUCT_BUNDLE_IDENTIFIER = com.lostaf.lvault-ios
+
+API_BASE_URL = https:/\/bat-accepted-nearly.ngrok-free.app

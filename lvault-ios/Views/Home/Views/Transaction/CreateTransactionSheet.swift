@@ -142,7 +142,7 @@ private extension CreateTransactionSheet {
         .environmentObject(
             TransactionInteractor(
                 chest: ChestRepositoryStub.data.first!,
-                repo: TransactionRepositoryStub()
+                repo: TransactionRepositoryStub(), ocrService: OCRServiceStub()
             )
         )
 }

@@ -3,99 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B03EF5B2BFF991F00ABDD64 /* Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF5A2BFF991F00ABDD64 /* Manage.swift */; };
-		9B03EF5E2BFF998400ABDD64 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF5D2BFF998400ABDD64 /* Settings.swift */; };
-		9B03EF612BFF9CE200ABDD64 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF602BFF9CE200ABDD64 /* DIContainer.swift */; };
-		9B03EF642BFFA48900ABDD64 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03EF632BFFA48900ABDD64 /* Dependency.swift */; };
-		9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */; };
-		9B1946BC2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1946BB2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift */; };
-		9B27C49E2C02003900EA96EF /* TransactionLabelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C49D2C02003900EA96EF /* TransactionLabelRepository.swift */; };
-		9B27C4A02C02064200EA96EF /* TransactionLabelRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C49F2C02064200EA96EF /* TransactionLabelRepositoryStub.swift */; };
-		9B27C4A22C020B9300EA96EF /* TransactionLabelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4A12C020B9300EA96EF /* TransactionLabelInteractor.swift */; };
-		9B27C4A42C0242DD00EA96EF /* TransactionLabelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4A32C0242DD00EA96EF /* TransactionLabelList.swift */; };
-		9B27C4A62C0242E900EA96EF /* TransactionLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4A52C0242E900EA96EF /* TransactionLabelRow.swift */; };
-		9B27C4A92C024B8100EA96EF /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4A82C024B8100EA96EF /* ColorExtensions.swift */; };
-		9B27C4AB2C0254A600EA96EF /* TransactionLabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4AA2C0254A600EA96EF /* TransactionLabelSheet.swift */; };
-		9B27C4AD2C02597C00EA96EF /* UIConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4AC2C02597C00EA96EF /* UIConfigs.swift */; };
-		9B27C4AF2C025AA000EA96EF /* SheetButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4AE2C025AA000EA96EF /* SheetButtonStyle.swift */; };
-		9B27C4B12C025C4D00EA96EF /* BasicInputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27C4B02C025C4D00EA96EF /* BasicInputStyle.swift */; };
-		9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3359832BD4AF720010221C /* EnvironmentKeys.swift */; };
-		9B3EB8122C04DD73008F704B /* SelectTransactionLabelsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8112C04DD73008F704B /* SelectTransactionLabelsSheet.swift */; };
-		9B3EB8152C04E62C008F704B /* TransactionLabelSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */; };
-		9B42C5F02C79E518002424F1 /* ReportItemDataGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42C5EF2C79E518002424F1 /* ReportItemDataGroupView.swift */; };
-		9B42C5F32C79E604002424F1 /* ReportItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42C5F22C79E604002424F1 /* ReportItemDetailsView.swift */; };
-		9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */; };
-		9B4BC9602BFE47DE0060BD82 /* ChestRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */; };
-		9B4BC9622BFE47EE0060BD82 /* TransactionRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */; };
-		9B4BC9642BFE59B10060BD82 /* NumberFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BC9632BFE59B10060BD82 /* NumberFormatterExtensions.swift */; };
-		9B56A31C2C308BF600E1B9D2 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56A31B2C308BF600E1B9D2 /* SplashScreen.swift */; };
-		9B56A31E2C3095E600E1B9D2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56A31D2C3095E600E1B9D2 /* SplashInteractor.swift */; };
-		9B57A95F2BD4354200096CC5 /* VaultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A95E2BD4354200096CC5 /* VaultRow.swift */; };
-		9B57A9612BD437D200096CC5 /* VaultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9602BD437D200096CC5 /* VaultInteractor.swift */; };
-		9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9642BD4380300096CC5 /* Loadable.swift */; };
-		9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9672BD4385700096CC5 /* VaultRepository.swift */; };
-		9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A96B2BD4394C00096CC5 /* Vault.swift */; };
-		9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */; };
-		9B57A9712BD444C300096CC5 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9702BD444C300096CC5 /* Types.swift */; };
-		9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A9722BD446EB00096CC5 /* VaultList.swift */; };
-		9B599F3E2C33106300F94B17 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B599F3D2C33106300F94B17 /* TextStyles.swift */; };
-		9B5C3F3B2C2B24BD00C94913 /* V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C3F3A2C2B24BD00C94913 /* V2.swift */; };
-		9B5C3F3D2C2B255A00C94913 /* CSO+Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C3F3C2C2B255A00C94913 /* CSO+Aliases.swift */; };
-		9B6C79C12BE538AF004B8649 /* ChestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */; };
-		9B6C79C32BE53D29004B8649 /* ChestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C79C22BE53D29004B8649 /* ChestRepository.swift */; };
+		9B1671622E4BA52900B21403 /* CLAUDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B1671612E4BA52900B21403 /* CLAUDE.md */; };
 		9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B75B1C42BDD2F5F0053B845 /* CoreStore */; };
-		9B75B1D02BDEC7390053B845 /* V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B75B1CF2BDEC7390053B845 /* V1.swift */; };
-		9B7A5F942C67DD51002266B4 /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A5F932C67DD51002266B4 /* Reports.swift */; };
-		9B7A5F962C67DEB2002266B4 /* ReportSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A5F952C67DEB2002266B4 /* ReportSectionView.swift */; };
-		9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */; };
-		9B7E5F7D2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E5F7C2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift */; };
-		9B87FFCA2C0E19140049412B /* RoundedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87FFC92C0E19140049412B /* RoundedBorder.swift */; };
-		9B87FFCD2C0E1D4D0049412B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87FFCC2C0E1D4D0049412B /* TextView.swift */; };
-		9B87FFCF2C0E259F0049412B /* EditNoteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87FFCE2C0E259F0049412B /* EditNoteSheet.swift */; };
-		9B8ABC8D2BE23B2500314C72 /* CreateChestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */; };
-		9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */; };
-		9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7812BD26560005BDBA3 /* Persistence.swift */; };
-		9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7862BD26560005BDBA3 /* Home.swift */; };
-		9B8EC7892BD26561005BDBA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8EC7882BD26561005BDBA3 /* Assets.xcassets */; };
-		9B8EC78D2BD26561005BDBA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8EC78C2BD26561005BDBA3 /* Preview Assets.xcassets */; };
-		9B8EC7972BD26561005BDBA3 /* lvault_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7962BD26561005BDBA3 /* lvault_iosTests.swift */; };
-		9B8EC7A12BD26561005BDBA3 /* lvault_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7A02BD26561005BDBA3 /* lvault_iosUITests.swift */; };
-		9B8EC7A32BD26561005BDBA3 /* lvault_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EC7A22BD26561005BDBA3 /* lvault_iosUITestsLaunchTests.swift */; };
-		9B95B2442C31B16900DE81C3 /* CreateTransferSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95B2432C31B16900DE81C3 /* CreateTransferSheet.swift */; };
-		9B95B2462C31BCB300DE81C3 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95B2452C31BCB300DE81C3 /* ArrayExtensions.swift */; };
-		9BA020C62BD5538D00BAA43C /* VaultDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA020C52BD5538D00BAA43C /* VaultDetail.swift */; };
-		9BA020CA2BD5575100BAA43C /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA020C92BD5575100BAA43C /* Chest.swift */; };
-		9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA020CD2BD55DFD00BAA43C /* ChestRow.swift */; };
-		9BA742092BF8F7AA009C771F /* ChestList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742082BF8F7AA009C771F /* ChestList.swift */; };
-		9BA7420B2BF8F827009C771F /* ChestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7420A2BF8F827009C771F /* ChestDetail.swift */; };
-		9BA7420D2BF8FA25009C771F /* TransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7420C2BF8FA25009C771F /* TransactionInteractor.swift */; };
-		9BA7420F2BF8FB3A009C771F /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7420E2BF8FB3A009C771F /* TransactionRepository.swift */; };
-		9BA742122BF907D8009C771F /* CreateTransactionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742112BF907D8009C771F /* CreateTransactionSheet.swift */; };
-		9BA742142BF907DF009C771F /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742132BF907DF009C771F /* TransactionRow.swift */; };
-		9BA742162BF907E9009C771F /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742152BF907E9009C771F /* TransactionList.swift */; };
-		9BA742182BF91702009C771F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742172BF91702009C771F /* StringExtensions.swift */; };
-		9BA7421A2BF9176A009C771F /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA742192BF9176A009C771F /* DoubleExtensions.swift */; };
-		9BAFFCDF2C4F5E8900945A2F /* LocalAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCDE2C4F5E8900945A2F /* LocalAuthRepository.swift */; };
-		9BAFFCE22C4F684B00945A2F /* StartupErrorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE12C4F684B00945A2F /* StartupErrorScreen.swift */; };
-		9BAFFCE42C4F687E00945A2F /* AuthenticationErrorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE32C4F687E00945A2F /* AuthenticationErrorScreen.swift */; };
-		9BAFFCE62C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE52C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift */; };
-		9BAFFCE82C4F6CFB00945A2F /* StartupErrorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFCE72C4F6CFB00945A2F /* StartupErrorInteractor.swift */; };
-		9BB418DA2C7B249100B74A84 /* TransactionReportItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB418D92C7B249100B74A84 /* TransactionReportItemRow.swift */; };
-		9BB418DD2C7B274000B74A84 /* TransactionAmountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB418DC2C7B274000B74A84 /* TransactionAmountText.swift */; };
-		9BBE757A2D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE75792D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift */; };
 		9BCE42D42BD4BB8300D4F1A1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE42D32BD4BB8300D4F1A1 /* .gitignore */; };
-		9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */; };
-		9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */; };
-		9BDD52FE2BDFA08F002B9939 /* Transaction+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FD2BDFA08F002B9939 /* Transaction+CSO.swift */; };
-		9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */; };
-		9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD53012BDFA199002B9939 /* TransactionLabel.swift */; };
-		9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDD53032BDFA1A2002B9939 /* Transaction.swift */; };
-		9BF0E0402C6A710B00E5DF6B /* ReportInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF0E03F2C6A710B00E5DF6B /* ReportInteractor.swift */; };
-		9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF8453A2BE2277A0039C826 /* DateExtensions.swift */; };
+		9BF392592E4E1AB7001A6D14 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9BF392582E4E1AB7001A6D14 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,101 +31,48 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9B03EF5A2BFF991F00ABDD64 /* Manage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manage.swift; sourceTree = "<group>"; };
-		9B03EF5D2BFF998400ABDD64 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		9B03EF602BFF9CE200ABDD64 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
-		9B03EF632BFFA48900ABDD64 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
-		9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultError.swift; sourceTree = "<group>"; };
-		9B1946BB2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthRepositoryStub.swift; sourceTree = "<group>"; };
-		9B27C49D2C02003900EA96EF /* TransactionLabelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelRepository.swift; sourceTree = "<group>"; };
-		9B27C49F2C02064200EA96EF /* TransactionLabelRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelRepositoryStub.swift; sourceTree = "<group>"; };
-		9B27C4A12C020B9300EA96EF /* TransactionLabelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelInteractor.swift; sourceTree = "<group>"; };
-		9B27C4A32C0242DD00EA96EF /* TransactionLabelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelList.swift; sourceTree = "<group>"; };
-		9B27C4A52C0242E900EA96EF /* TransactionLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelRow.swift; sourceTree = "<group>"; };
-		9B27C4A82C024B8100EA96EF /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
-		9B27C4AA2C0254A600EA96EF /* TransactionLabelSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelSheet.swift; sourceTree = "<group>"; };
-		9B27C4AC2C02597C00EA96EF /* UIConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfigs.swift; sourceTree = "<group>"; };
-		9B27C4AE2C025AA000EA96EF /* SheetButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetButtonStyle.swift; sourceTree = "<group>"; };
-		9B27C4B02C025C4D00EA96EF /* BasicInputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInputStyle.swift; sourceTree = "<group>"; };
-		9B3359832BD4AF720010221C /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
-		9B3EB8112C04DD73008F704B /* SelectTransactionLabelsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTransactionLabelsSheet.swift; sourceTree = "<group>"; };
-		9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelSelectionRow.swift; sourceTree = "<group>"; };
-		9B42C5EF2C79E518002424F1 /* ReportItemDataGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportItemDataGroupView.swift; sourceTree = "<group>"; };
-		9B42C5F22C79E604002424F1 /* ReportItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportItemDetailsView.swift; sourceTree = "<group>"; };
-		9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepositoryStub.swift; sourceTree = "<group>"; };
-		9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepositoryStub.swift; sourceTree = "<group>"; };
-		9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryStub.swift; sourceTree = "<group>"; };
-		9B4BC9632BFE59B10060BD82 /* NumberFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtensions.swift; sourceTree = "<group>"; };
-		9B56A31B2C308BF600E1B9D2 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-		9B56A31D2C3095E600E1B9D2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
-		9B57A95E2BD4354200096CC5 /* VaultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRow.swift; sourceTree = "<group>"; };
-		9B57A9602BD437D200096CC5 /* VaultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultInteractor.swift; sourceTree = "<group>"; };
-		9B57A9642BD4380300096CC5 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
-		9B57A9672BD4385700096CC5 /* VaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultRepository.swift; sourceTree = "<group>"; };
-		9B57A96B2BD4394C00096CC5 /* Vault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vault.swift; sourceTree = "<group>"; };
-		9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtensions.swift; sourceTree = "<group>"; };
-		9B57A9702BD444C300096CC5 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		9B57A9722BD446EB00096CC5 /* VaultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultList.swift; sourceTree = "<group>"; };
-		9B599F3D2C33106300F94B17 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
-		9B5C3F3A2C2B24BD00C94913 /* V2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2.swift; sourceTree = "<group>"; };
-		9B5C3F3C2C2B255A00C94913 /* CSO+Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CSO+Aliases.swift"; sourceTree = "<group>"; };
-		9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestInteractor.swift; sourceTree = "<group>"; };
-		9B6C79C22BE53D29004B8649 /* ChestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRepository.swift; sourceTree = "<group>"; };
-		9B75B1CF2BDEC7390053B845 /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
-		9B7A5F932C67DD51002266B4 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
-		9B7A5F952C67DEB2002266B4 /* ReportSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSectionView.swift; sourceTree = "<group>"; };
-		9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVaultSheet.swift; sourceTree = "<group>"; };
-		9B7E5F7C2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabelSelectionList.swift; sourceTree = "<group>"; };
-		9B87FFC92C0E19140049412B /* RoundedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorder.swift; sourceTree = "<group>"; };
-		9B87FFCC2C0E1D4D0049412B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		9B87FFCE2C0E259F0049412B /* EditNoteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteSheet.swift; sourceTree = "<group>"; };
-		9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChestSheet.swift; sourceTree = "<group>"; };
+		9B1671612E4BA52900B21403 /* CLAUDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CLAUDE.md; sourceTree = "<group>"; };
 		9B8EC77C2BD26560005BDBA3 /* lvault-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lvault-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVaultApp.swift; sourceTree = "<group>"; };
-		9B8EC7812BD26560005BDBA3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		9B8EC7862BD26560005BDBA3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		9B8EC7882BD26561005BDBA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9B8EC78A2BD26561005BDBA3 /* lvault_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lvault_ios.entitlements; sourceTree = "<group>"; };
-		9B8EC78C2BD26561005BDBA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B8EC7922BD26561005BDBA3 /* lvault-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "lvault-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B8EC7962BD26561005BDBA3 /* lvault_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvault_iosTests.swift; sourceTree = "<group>"; };
 		9B8EC79C2BD26561005BDBA3 /* lvault-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "lvault-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B8EC7A02BD26561005BDBA3 /* lvault_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvault_iosUITests.swift; sourceTree = "<group>"; };
-		9B8EC7A22BD26561005BDBA3 /* lvault_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvault_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9B95B2432C31B16900DE81C3 /* CreateTransferSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransferSheet.swift; sourceTree = "<group>"; };
-		9B95B2452C31BCB300DE81C3 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
-		9BA020C52BD5538D00BAA43C /* VaultDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultDetail.swift; sourceTree = "<group>"; };
-		9BA020C92BD5575100BAA43C /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
-		9BA020CD2BD55DFD00BAA43C /* ChestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestRow.swift; sourceTree = "<group>"; };
-		9BA742082BF8F7AA009C771F /* ChestList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestList.swift; sourceTree = "<group>"; };
-		9BA7420A2BF8F827009C771F /* ChestDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestDetail.swift; sourceTree = "<group>"; };
-		9BA7420C2BF8FA25009C771F /* TransactionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInteractor.swift; sourceTree = "<group>"; };
-		9BA7420E2BF8FB3A009C771F /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
-		9BA742112BF907D8009C771F /* CreateTransactionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionSheet.swift; sourceTree = "<group>"; };
-		9BA742132BF907DF009C771F /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
-		9BA742152BF907E9009C771F /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
-		9BA742172BF91702009C771F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		9BA742192BF9176A009C771F /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
-		9BAFFCDE2C4F5E8900945A2F /* LocalAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthRepository.swift; sourceTree = "<group>"; };
-		9BAFFCE12C4F684B00945A2F /* StartupErrorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupErrorScreen.swift; sourceTree = "<group>"; };
-		9BAFFCE32C4F687E00945A2F /* AuthenticationErrorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationErrorScreen.swift; sourceTree = "<group>"; };
-		9BAFFCE52C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationErrorInteractor.swift; sourceTree = "<group>"; };
-		9BAFFCE72C4F6CFB00945A2F /* StartupErrorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupErrorInteractor.swift; sourceTree = "<group>"; };
-		9BB418D92C7B249100B74A84 /* TransactionReportItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportItemRow.swift; sourceTree = "<group>"; };
-		9BB418DC2C7B274000B74A84 /* TransactionAmountText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountText.swift; sourceTree = "<group>"; };
-		9BBE75792D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconcileBalanceSheet.swift; sourceTree = "<group>"; };
 		9BCE42D32BD4BB8300D4F1A1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vault+CSO.swift"; sourceTree = "<group>"; };
-		9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chest+CSO.swift"; sourceTree = "<group>"; };
-		9BDD52FD2BDFA08F002B9939 /* Transaction+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CSO.swift"; sourceTree = "<group>"; };
-		9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionLabel+CSO.swift"; sourceTree = "<group>"; };
-		9BDD53012BDFA199002B9939 /* TransactionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLabel.swift; sourceTree = "<group>"; };
-		9BDD53032BDFA1A2002B9939 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		9BF0E03F2C6A710B00E5DF6B /* ReportInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInteractor.swift; sourceTree = "<group>"; };
-		9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "LVault-DEV.xcconfig"; sourceTree = "<group>"; };
-		9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LVault.xcconfig; sourceTree = "<group>"; };
-		9BF8453A2BE2277A0039C826 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9B758EFC2E50FA05000F1935 /* Exceptions for "lvault-ios" folder in "lvault-ios" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9B8EC77B2BD26560005BDBA3 /* lvault-ios */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9B1670872E4B9A8500B21403 /* configs */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = configs;
+			sourceTree = "<group>";
+		};
+		9B1670892E4B9A8C00B21403 /* lvault-iosTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "lvault-iosTests";
+			sourceTree = "<group>";
+		};
+		9B16708D2E4B9A8E00B21403 /* lvault-iosUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "lvault-iosUITests";
+			sourceTree = "<group>";
+		};
+		9B16710A2E4B9AD400B21403 /* lvault-ios */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9B758EFC2E50FA05000F1935 /* Exceptions for "lvault-ios" folder in "lvault-ios" target */,
+			);
+			path = "lvault-ios";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9B8EC7792BD26560005BDBA3 /* Frameworks */ = {
@@ -218,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B75B1C52BDD2F5F0053B845 /* CoreStore in Frameworks */,
+				9BF392592E4E1AB7001A6D14 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,274 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B03EF592BFF991300ABDD64 /* Manage */ = {
-			isa = PBXGroup;
-			children = (
-				9B27C4A72C0242ED00EA96EF /* Transaction Labels */,
-				9B03EF5A2BFF991F00ABDD64 /* Manage.swift */,
-			);
-			path = Manage;
-			sourceTree = "<group>";
-		};
-		9B03EF5C2BFF997C00ABDD64 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				9B03EF5D2BFF998400ABDD64 /* Settings.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		9B03EF5F2BFF9CA600ABDD64 /* DI */ = {
-			isa = PBXGroup;
-			children = (
-				9B03EF602BFF9CE200ABDD64 /* DIContainer.swift */,
-			);
-			path = DI;
-			sourceTree = "<group>";
-		};
-		9B03EF622BFFA43900ABDD64 /* Modifiers */ = {
-			isa = PBXGroup;
-			children = (
-				9B03EF632BFFA48900ABDD64 /* Dependency.swift */,
-				9B27C4AE2C025AA000EA96EF /* SheetButtonStyle.swift */,
-				9B27C4B02C025C4D00EA96EF /* BasicInputStyle.swift */,
-				9B87FFC92C0E19140049412B /* RoundedBorder.swift */,
-				9B599F3D2C33106300F94B17 /* TextStyles.swift */,
-			);
-			path = Modifiers;
-			sourceTree = "<group>";
-		};
-		9B27C4A72C0242ED00EA96EF /* Transaction Labels */ = {
-			isa = PBXGroup;
-			children = (
-				9B27C4A32C0242DD00EA96EF /* TransactionLabelList.swift */,
-				9B27C4A52C0242E900EA96EF /* TransactionLabelRow.swift */,
-				9B27C4AA2C0254A600EA96EF /* TransactionLabelSheet.swift */,
-			);
-			path = "Transaction Labels";
-			sourceTree = "<group>";
-		};
-		9B3EB8132C04E60C008F704B /* EditTransaction */ = {
-			isa = PBXGroup;
-			children = (
-				9B3EB8112C04DD73008F704B /* SelectTransactionLabelsSheet.swift */,
-				9B7E5F7C2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift */,
-				9B3EB8142C04E62C008F704B /* TransactionLabelSelectionRow.swift */,
-				9B87FFCE2C0E259F0049412B /* EditNoteSheet.swift */,
-			);
-			path = EditTransaction;
-			sourceTree = "<group>";
-		};
-		9B42C5F12C79E5D4002424F1 /* Report item details */ = {
-			isa = PBXGroup;
-			children = (
-				9B42C5F22C79E604002424F1 /* ReportItemDetailsView.swift */,
-				9BB418D92C7B249100B74A84 /* TransactionReportItemRow.swift */,
-			);
-			path = "Report item details";
-			sourceTree = "<group>";
-		};
-		9B4BC95C2BFE47BF0060BD82 /* Stubs */ = {
-			isa = PBXGroup;
-			children = (
-				9B4BC95D2BFE47D50060BD82 /* VaultRepositoryStub.swift */,
-				9B4BC95F2BFE47DE0060BD82 /* ChestRepositoryStub.swift */,
-				9B4BC9612BFE47EE0060BD82 /* TransactionRepositoryStub.swift */,
-				9B27C49F2C02064200EA96EF /* TransactionLabelRepositoryStub.swift */,
-				9B1946BB2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift */,
-			);
-			path = Stubs;
-			sourceTree = "<group>";
-		};
-		9B522FB12BD8339C00E20599 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9BDD52F82BDF9FED002B9939 /* Extensions */,
-				9B75B1CE2BDEC61F0053B845 /* Schemas */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		9B56A31A2C308BEB00E1B9D2 /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				9B56A31B2C308BF600E1B9D2 /* SplashScreen.swift */,
-			);
-			path = Splash;
-			sourceTree = "<group>";
-		};
-		9B56A31F2C3095EC00E1B9D2 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A9602BD437D200096CC5 /* VaultInteractor.swift */,
-				9B6C79C02BE538AF004B8649 /* ChestInteractor.swift */,
-				9BA7420C2BF8FA25009C771F /* TransactionInteractor.swift */,
-				9B27C4A12C020B9300EA96EF /* TransactionLabelInteractor.swift */,
-				9BF0E03F2C6A710B00E5DF6B /* ReportInteractor.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		9B57A9562BD4324700096CC5 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A95D2BD4352000096CC5 /* Views */,
-				9B8EC7862BD26560005BDBA3 /* Home.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		9B57A9572BD4331100096CC5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9BB418DB2C7B272C00B74A84 /* Common */,
-				9B03EF622BFFA43900ABDD64 /* Modifiers */,
-				9BAFFCE02C4F683200945A2F /* Error */,
-				9B56A31A2C308BEB00E1B9D2 /* Splash */,
-				9B03EF5C2BFF997C00ABDD64 /* Settings */,
-				9B03EF592BFF991300ABDD64 /* Manage */,
-				9B7A5F922C67DCFD002266B4 /* Reports */,
-				9B57A9562BD4324700096CC5 /* Home */,
-				9B27C4AC2C02597C00EA96EF /* UIConfigs.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9B57A9582BD4332100096CC5 /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				9B56A31F2C3095EC00E1B9D2 /* Main */,
-				9B56A31D2C3095E600E1B9D2 /* SplashInteractor.swift */,
-				9BAFFCE52C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift */,
-				9BAFFCE72C4F6CFB00945A2F /* StartupErrorInteractor.swift */,
-			);
-			path = Interactors;
-			sourceTree = "<group>";
-		};
-		9B57A9592BD4333300096CC5 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				9B522FB12BD8339C00E20599 /* Models */,
-				9B57A9662BD4382A00096CC5 /* Repositories */,
-				9B8EC7812BD26560005BDBA3 /* Persistence.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		9B57A95D2BD4352000096CC5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9B87FFCB2C0E1D390049412B /* Misc */,
-				9BA742102BF907C6009C771F /* Transaction */,
-				9BA020CC2BD55DEA00BAA43C /* Chest */,
-				9BA020CB2BD55DE300BAA43C /* Vault */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9B57A9622BD437F100096CC5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A96D2BD43DC900096CC5 /* Extensions */,
-				9B57A9632BD437F700096CC5 /* Models */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		9B57A9632BD437F700096CC5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A9642BD4380300096CC5 /* Loadable.swift */,
-				9B57A9702BD444C300096CC5 /* Types.swift */,
-				9B14BFAF2BE1574F00B97FC9 /* LVaultError.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		9B57A9662BD4382A00096CC5 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				9B4BC95C2BFE47BF0060BD82 /* Stubs */,
-				9B57A9672BD4385700096CC5 /* VaultRepository.swift */,
-				9B6C79C22BE53D29004B8649 /* ChestRepository.swift */,
-				9BA7420E2BF8FB3A009C771F /* TransactionRepository.swift */,
-				9B27C49D2C02003900EA96EF /* TransactionLabelRepository.swift */,
-				9BAFFCDE2C4F5E8900945A2F /* LocalAuthRepository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		9B57A9692BD4387800096CC5 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A96A2BD4393F00096CC5 /* Entities */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		9B57A96A2BD4393F00096CC5 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A96B2BD4394C00096CC5 /* Vault.swift */,
-				9BA020C92BD5575100BAA43C /* Chest.swift */,
-				9BDD53032BDFA1A2002B9939 /* Transaction.swift */,
-				9BDD53012BDFA199002B9939 /* TransactionLabel.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		9B57A96D2BD43DC900096CC5 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A96E2BD43DE000096CC5 /* PublisherExtensions.swift */,
-				9B3359832BD4AF720010221C /* EnvironmentKeys.swift */,
-				9BF8453A2BE2277A0039C826 /* DateExtensions.swift */,
-				9BA742172BF91702009C771F /* StringExtensions.swift */,
-				9BA742192BF9176A009C771F /* DoubleExtensions.swift */,
-				9B4BC9632BFE59B10060BD82 /* NumberFormatterExtensions.swift */,
-				9B27C4A82C024B8100EA96EF /* ColorExtensions.swift */,
-				9B95B2452C31BCB300DE81C3 /* ArrayExtensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9B75B1CE2BDEC61F0053B845 /* Schemas */ = {
-			isa = PBXGroup;
-			children = (
-				9B5C3F3C2C2B255A00C94913 /* CSO+Aliases.swift */,
-				9B75B1CF2BDEC7390053B845 /* V1.swift */,
-				9B5C3F3A2C2B24BD00C94913 /* V2.swift */,
-			);
-			path = Schemas;
-			sourceTree = "<group>";
-		};
-		9B7A5F922C67DCFD002266B4 /* Reports */ = {
-			isa = PBXGroup;
-			children = (
-				9B42C5F12C79E5D4002424F1 /* Report item details */,
-				9B7A5F932C67DD51002266B4 /* Reports.swift */,
-				9B7A5F952C67DEB2002266B4 /* ReportSectionView.swift */,
-				9B42C5EF2C79E518002424F1 /* ReportItemDataGroupView.swift */,
-			);
-			path = Reports;
-			sourceTree = "<group>";
-		};
-		9B87FFCB2C0E1D390049412B /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				9B87FFCC2C0E1D4D0049412B /* TextView.swift */,
-			);
-			path = Misc;
-			sourceTree = "<group>";
-		};
 		9B8EC7732BD26560005BDBA3 = {
 			isa = PBXGroup;
 			children = (
-				9BF2C7452DA3C395007625A0 /* configs */,
+				9B1671612E4BA52900B21403 /* CLAUDE.md */,
+				9B1670872E4B9A8500B21403 /* configs */,
 				9BCE42D32BD4BB8300D4F1A1 /* .gitignore */,
-				9B8EC77E2BD26560005BDBA3 /* lvault-ios */,
-				9B8EC7952BD26561005BDBA3 /* lvault-iosTests */,
-				9B8EC79F2BD26561005BDBA3 /* lvault-iosUITests */,
+				9B16710A2E4B9AD400B21403 /* lvault-ios */,
+				9B1670892E4B9A8C00B21403 /* lvault-iosTests */,
+				9B16708D2E4B9A8E00B21403 /* lvault-iosUITests */,
 				9B8EC77D2BD26560005BDBA3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -518,120 +122,6 @@
 				9B8EC79C2BD26561005BDBA3 /* lvault-iosUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		9B8EC77E2BD26560005BDBA3 /* lvault-ios */ = {
-			isa = PBXGroup;
-			children = (
-				9B03EF5F2BFF9CA600ABDD64 /* DI */,
-				9B57A9622BD437F100096CC5 /* Utils */,
-				9B57A9592BD4333300096CC5 /* Data */,
-				9B57A9692BD4387800096CC5 /* Domain */,
-				9B57A9582BD4332100096CC5 /* Interactors */,
-				9B57A9572BD4331100096CC5 /* Views */,
-				9B8EC77F2BD26560005BDBA3 /* LVaultApp.swift */,
-				9B8EC7882BD26561005BDBA3 /* Assets.xcassets */,
-				9B8EC78A2BD26561005BDBA3 /* lvault_ios.entitlements */,
-				9B8EC78B2BD26561005BDBA3 /* Preview Content */,
-			);
-			path = "lvault-ios";
-			sourceTree = "<group>";
-		};
-		9B8EC78B2BD26561005BDBA3 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				9B8EC78C2BD26561005BDBA3 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		9B8EC7952BD26561005BDBA3 /* lvault-iosTests */ = {
-			isa = PBXGroup;
-			children = (
-				9B8EC7962BD26561005BDBA3 /* lvault_iosTests.swift */,
-			);
-			path = "lvault-iosTests";
-			sourceTree = "<group>";
-		};
-		9B8EC79F2BD26561005BDBA3 /* lvault-iosUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9B8EC7A02BD26561005BDBA3 /* lvault_iosUITests.swift */,
-				9B8EC7A22BD26561005BDBA3 /* lvault_iosUITestsLaunchTests.swift */,
-			);
-			path = "lvault-iosUITests";
-			sourceTree = "<group>";
-		};
-		9BA020CB2BD55DE300BAA43C /* Vault */ = {
-			isa = PBXGroup;
-			children = (
-				9B57A95E2BD4354200096CC5 /* VaultRow.swift */,
-				9B57A9722BD446EB00096CC5 /* VaultList.swift */,
-				9BA020C52BD5538D00BAA43C /* VaultDetail.swift */,
-				9B7E4EEC2BE0EE3800EF1AFA /* CreateVaultSheet.swift */,
-			);
-			path = Vault;
-			sourceTree = "<group>";
-		};
-		9BA020CC2BD55DEA00BAA43C /* Chest */ = {
-			isa = PBXGroup;
-			children = (
-				9BA020CD2BD55DFD00BAA43C /* ChestRow.swift */,
-				9BA742082BF8F7AA009C771F /* ChestList.swift */,
-				9BA7420A2BF8F827009C771F /* ChestDetail.swift */,
-				9B8ABC8C2BE23B2500314C72 /* CreateChestSheet.swift */,
-				9B95B2432C31B16900DE81C3 /* CreateTransferSheet.swift */,
-				9BBE75792D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift */,
-			);
-			path = Chest;
-			sourceTree = "<group>";
-		};
-		9BA742102BF907C6009C771F /* Transaction */ = {
-			isa = PBXGroup;
-			children = (
-				9B3EB8132C04E60C008F704B /* EditTransaction */,
-				9BA742132BF907DF009C771F /* TransactionRow.swift */,
-				9BA742152BF907E9009C771F /* TransactionList.swift */,
-				9BA742112BF907D8009C771F /* CreateTransactionSheet.swift */,
-			);
-			path = Transaction;
-			sourceTree = "<group>";
-		};
-		9BAFFCE02C4F683200945A2F /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				9BAFFCE12C4F684B00945A2F /* StartupErrorScreen.swift */,
-				9BAFFCE32C4F687E00945A2F /* AuthenticationErrorScreen.swift */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
-		9BB418DB2C7B272C00B74A84 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				9BB418DC2C7B274000B74A84 /* TransactionAmountText.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		9BDD52F82BDF9FED002B9939 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9BDD52F92BDF9FFE002B9939 /* Vault+CSO.swift */,
-				9BDD52FB2BDFA082002B9939 /* Chest+CSO.swift */,
-				9BDD52FD2BDFA08F002B9939 /* Transaction+CSO.swift */,
-				9BDD52FF2BDFA09C002B9939 /* TransactionLabel+CSO.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9BF2C7452DA3C395007625A0 /* configs */ = {
-			isa = PBXGroup;
-			children = (
-				9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */,
-				9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */,
-			);
-			path = configs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,9 +139,13 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				9B16710A2E4B9AD400B21403 /* lvault-ios */,
+			);
 			name = "lvault-ios";
 			packageProductDependencies = (
 				9B75B1C42BDD2F5F0053B845 /* CoreStore */,
+				9BF392582E4E1AB7001A6D14 /* Alamofire */,
 			);
 			productName = "lvault-ios";
 			productReference = 9B8EC77C2BD26560005BDBA3 /* lvault-ios.app */;
@@ -669,6 +163,9 @@
 			);
 			dependencies = (
 				9B8EC7942BD26561005BDBA3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9B1670892E4B9A8C00B21403 /* lvault-iosTests */,
 			);
 			name = "lvault-iosTests";
 			productName = "lvault-iosTests";
@@ -688,6 +185,9 @@
 			dependencies = (
 				9B8EC79E2BD26561005BDBA3 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				9B16708D2E4B9A8E00B21403 /* lvault-iosUITests */,
+			);
 			name = "lvault-iosUITests";
 			productName = "lvault-iosUITests";
 			productReference = 9B8EC79C2BD26561005BDBA3 /* lvault-iosUITests.xctest */;
@@ -701,7 +201,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					9B8EC77B2BD26560005BDBA3 = {
 						CreatedOnToolsVersion = 15.2;
@@ -717,7 +217,6 @@
 				};
 			};
 			buildConfigurationList = 9B8EC7772BD26560005BDBA3 /* Build configuration list for PBXProject "lvault-ios" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -727,7 +226,9 @@
 			mainGroup = 9B8EC7732BD26560005BDBA3;
 			packageReferences = (
 				9B75B1C32BDD2F5F0053B845 /* XCRemoteSwiftPackageReference "CoreStore" */,
+				9BF392572E4E1AB7001A6D14 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 9B8EC77D2BD26560005BDBA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -744,9 +245,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B8EC78D2BD26561005BDBA3 /* Preview Assets.xcassets in Resources */,
+				9B1671622E4BA52900B21403 /* CLAUDE.md in Resources */,
 				9BCE42D42BD4BB8300D4F1A1 /* .gitignore in Resources */,
-				9B8EC7892BD26561005BDBA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,88 +271,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B4BC9602BFE47DE0060BD82 /* ChestRepositoryStub.swift in Sources */,
-				9B27C4AF2C025AA000EA96EF /* SheetButtonStyle.swift in Sources */,
-				9B27C4AD2C02597C00EA96EF /* UIConfigs.swift in Sources */,
-				9B87FFCA2C0E19140049412B /* RoundedBorder.swift in Sources */,
-				9BAFFCE42C4F687E00945A2F /* AuthenticationErrorScreen.swift in Sources */,
-				9B7E4EED2BE0EE3800EF1AFA /* CreateVaultSheet.swift in Sources */,
-				9B5C3F3B2C2B24BD00C94913 /* V2.swift in Sources */,
-				9BB418DD2C7B274000B74A84 /* TransactionAmountText.swift in Sources */,
-				9BDD53042BDFA1A2002B9939 /* Transaction.swift in Sources */,
-				9BA020C62BD5538D00BAA43C /* VaultDetail.swift in Sources */,
-				9B27C49E2C02003900EA96EF /* TransactionLabelRepository.swift in Sources */,
-				9B03EF5E2BFF998400ABDD64 /* Settings.swift in Sources */,
-				9B87FFCD2C0E1D4D0049412B /* TextView.swift in Sources */,
-				9B599F3E2C33106300F94B17 /* TextStyles.swift in Sources */,
-				9B8EC7802BD26560005BDBA3 /* LVaultApp.swift in Sources */,
-				9BA020CA2BD5575100BAA43C /* Chest.swift in Sources */,
-				9B87FFCF2C0E259F0049412B /* EditNoteSheet.swift in Sources */,
-				9B27C4A22C020B9300EA96EF /* TransactionLabelInteractor.swift in Sources */,
-				9B7A5F962C67DEB2002266B4 /* ReportSectionView.swift in Sources */,
-				9B4BC9622BFE47EE0060BD82 /* TransactionRepositoryStub.swift in Sources */,
-				9BA742092BF8F7AA009C771F /* ChestList.swift in Sources */,
-				9B4BC9642BFE59B10060BD82 /* NumberFormatterExtensions.swift in Sources */,
-				9B3359842BD4AF720010221C /* EnvironmentKeys.swift in Sources */,
-				9B27C4B12C025C4D00EA96EF /* BasicInputStyle.swift in Sources */,
-				9B27C4AB2C0254A600EA96EF /* TransactionLabelSheet.swift in Sources */,
-				9BF0E0402C6A710B00E5DF6B /* ReportInteractor.swift in Sources */,
-				9B7A5F942C67DD51002266B4 /* Reports.swift in Sources */,
-				9B57A95F2BD4354200096CC5 /* VaultRow.swift in Sources */,
-				9B03EF612BFF9CE200ABDD64 /* DIContainer.swift in Sources */,
-				9B95B2462C31BCB300DE81C3 /* ArrayExtensions.swift in Sources */,
-				9B57A9732BD446EB00096CC5 /* VaultList.swift in Sources */,
-				9B57A96F2BD43DE000096CC5 /* PublisherExtensions.swift in Sources */,
-				9BAFFCDF2C4F5E8900945A2F /* LocalAuthRepository.swift in Sources */,
-				9B57A9712BD444C300096CC5 /* Types.swift in Sources */,
-				9BA7420D2BF8FA25009C771F /* TransactionInteractor.swift in Sources */,
-				9BA742182BF91702009C771F /* StringExtensions.swift in Sources */,
-				9B42C5F02C79E518002424F1 /* ReportItemDataGroupView.swift in Sources */,
-				9BA020CE2BD55DFD00BAA43C /* ChestRow.swift in Sources */,
-				9BF8453B2BE2277A0039C826 /* DateExtensions.swift in Sources */,
-				9BBE757A2D0D7CB3007D7FB2 /* ReconcileBalanceSheet.swift in Sources */,
-				9B75B1D02BDEC7390053B845 /* V1.swift in Sources */,
-				9B7E5F7D2C0C74E600F91EB0 /* TransactionLabelSelectionList.swift in Sources */,
-				9BAFFCE82C4F6CFB00945A2F /* StartupErrorInteractor.swift in Sources */,
-				9B95B2442C31B16900DE81C3 /* CreateTransferSheet.swift in Sources */,
-				9B03EF642BFFA48900ABDD64 /* Dependency.swift in Sources */,
-				9B4BC95E2BFE47D50060BD82 /* VaultRepositoryStub.swift in Sources */,
-				9B8EC7822BD26560005BDBA3 /* Persistence.swift in Sources */,
-				9B3EB8152C04E62C008F704B /* TransactionLabelSelectionRow.swift in Sources */,
-				9B57A96C2BD4394C00096CC5 /* Vault.swift in Sources */,
-				9BA7420B2BF8F827009C771F /* ChestDetail.swift in Sources */,
-				9BAFFCE62C4F6ADA00945A2F /* AuthenticationErrorInteractor.swift in Sources */,
-				9BDD52FA2BDF9FFE002B9939 /* Vault+CSO.swift in Sources */,
-				9B27C4A42C0242DD00EA96EF /* TransactionLabelList.swift in Sources */,
-				9B27C4A62C0242E900EA96EF /* TransactionLabelRow.swift in Sources */,
-				9BA742142BF907DF009C771F /* TransactionRow.swift in Sources */,
-				9B57A9612BD437D200096CC5 /* VaultInteractor.swift in Sources */,
-				9B8ABC8D2BE23B2500314C72 /* CreateChestSheet.swift in Sources */,
-				9BA742122BF907D8009C771F /* CreateTransactionSheet.swift in Sources */,
-				9BDD53022BDFA199002B9939 /* TransactionLabel.swift in Sources */,
-				9B6C79C32BE53D29004B8649 /* ChestRepository.swift in Sources */,
-				9BDD52FE2BDFA08F002B9939 /* Transaction+CSO.swift in Sources */,
-				9B42C5F32C79E604002424F1 /* ReportItemDetailsView.swift in Sources */,
-				9B3EB8122C04DD73008F704B /* SelectTransactionLabelsSheet.swift in Sources */,
-				9B8EC7872BD26560005BDBA3 /* Home.swift in Sources */,
-				9BAFFCE22C4F684B00945A2F /* StartupErrorScreen.swift in Sources */,
-				9BA7421A2BF9176A009C771F /* DoubleExtensions.swift in Sources */,
-				9B57A9652BD4380300096CC5 /* Loadable.swift in Sources */,
-				9B6C79C12BE538AF004B8649 /* ChestInteractor.swift in Sources */,
-				9BB418DA2C7B249100B74A84 /* TransactionReportItemRow.swift in Sources */,
-				9B27C4A02C02064200EA96EF /* TransactionLabelRepositoryStub.swift in Sources */,
-				9B57A9682BD4385700096CC5 /* VaultRepository.swift in Sources */,
-				9B1946BC2C5005EB00B95E19 /* LocalAuthRepositoryStub.swift in Sources */,
-				9BA7420F2BF8FB3A009C771F /* TransactionRepository.swift in Sources */,
-				9B56A31C2C308BF600E1B9D2 /* SplashScreen.swift in Sources */,
-				9B56A31E2C3095E600E1B9D2 /* SplashInteractor.swift in Sources */,
-				9BA742162BF907E9009C771F /* TransactionList.swift in Sources */,
-				9B03EF5B2BFF991F00ABDD64 /* Manage.swift in Sources */,
-				9BDD52FC2BDFA082002B9939 /* Chest+CSO.swift in Sources */,
-				9B5C3F3D2C2B255A00C94913 /* CSO+Aliases.swift in Sources */,
-				9B14BFB02BE1574F00B97FC9 /* LVaultError.swift in Sources */,
-				9BDD53002BDFA09C002B9939 /* TransactionLabel+CSO.swift in Sources */,
-				9B27C4A92C024B8100EA96EF /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,7 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B8EC7972BD26561005BDBA3 /* lvault_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,8 +285,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B8EC7A32BD26561005BDBA3 /* lvault_iosUITestsLaunchTests.swift in Sources */,
-				9B8EC7A12BD26561005BDBA3 /* lvault_iosUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,7 +306,8 @@
 /* Begin XCBuildConfiguration section */
 		9B8EC7A42BD26561005BDBA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = LVault.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -924,7 +340,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 672GB3V3K6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -954,7 +372,8 @@
 		};
 		9B8EC7A52BD26561005BDBA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = LVault.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -987,7 +406,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 672GB3V3K6;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1009,20 +430,23 @@
 		};
 		9B8EC7A72BD26561005BDBA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = LVault.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "lvault-ios/lvault_ios.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"lvault-ios/Preview Content\"";
-				DEVELOPMENT_TEAM = 672GB3V3K6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "lvault-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "$(BUNDLE_DISPLAY_NAME)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App needs to use the camera to capture receipt photos for transaction imports";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "App needs Face ID to authorize user to access their secured vault data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -1041,6 +465,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lostaf.lvault-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1052,20 +477,22 @@
 		};
 		9B8EC7A82BD26561005BDBA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = LVault.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "lvault-ios/lvault_ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"lvault-ios/Preview Content\"";
-				DEVELOPMENT_TEAM = 672GB3V3K6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "lvault-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "$(BUNDLE_DISPLAY_NAME)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App needs to use the camera to capture receipt photos for transaction imports";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "App needs Face ID to authorize user to access their secured vault data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -1095,13 +522,13 @@
 		};
 		9B8EC7AA2BD26561005BDBA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = LVault.xcconfig;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 672GB3V3K6;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1120,13 +547,13 @@
 		};
 		9B8EC7AB2BD26561005BDBA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = LVault.xcconfig;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 672GB3V3K6;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1145,12 +572,12 @@
 		};
 		9B8EC7AD2BD26561005BDBA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = LVault.xcconfig;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 672GB3V3K6;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1169,12 +596,12 @@
 		};
 		9B8EC7AE2BD26561005BDBA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7472DA3C45E007625A0 /* LVault.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = LVault.xcconfig;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 672GB3V3K6;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1193,7 +620,8 @@
 		};
 		9BF2C7482DA3C4AD007625A0 /* Debug DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = "LVault-DEV.xcconfig";
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1226,7 +654,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 672GB3V3K6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1256,20 +686,22 @@
 		};
 		9BF2C7492DA3C4AD007625A0 /* Debug DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = "LVault-DEV.xcconfig";
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "lvault-ios/lvault_ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"lvault-ios/Preview Content\"";
-				DEVELOPMENT_TEAM = 672GB3V3K6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "lvault-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "$(BUNDLE_DISPLAY_NAME)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App needs to use the camera to capture receipt photos for transaction imports";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "App needs Face ID to authorize user to access their secured vault data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -1299,13 +731,13 @@
 		};
 		9BF2C74A2DA3C4AD007625A0 /* Debug DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = "LVault-DEV.xcconfig";
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 672GB3V3K6;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1324,12 +756,12 @@
 		};
 		9BF2C74B2DA3C4AD007625A0 /* Debug DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = "LVault-DEV.xcconfig";
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 672GB3V3K6;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1348,7 +780,8 @@
 		};
 		9BF2C74C2DA3C4BA007625A0 /* Release DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = "LVault-DEV.xcconfig";
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1381,7 +814,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 672GB3V3K6;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1403,20 +838,22 @@
 		};
 		9BF2C74D2DA3C4BA007625A0 /* Release DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = "LVault-DEV.xcconfig";
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "lvault-ios/lvault_ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"lvault-ios/Preview Content\"";
-				DEVELOPMENT_TEAM = 672GB3V3K6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "lvault-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "$(BUNDLE_DISPLAY_NAME)";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App needs to use the camera to capture receipt photos for transaction imports";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "App needs Face ID to authorize user to access their secured vault data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -1446,13 +883,13 @@
 		};
 		9BF2C74E2DA3C4BA007625A0 /* Release DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = "LVault-DEV.xcconfig";
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 672GB3V3K6;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1471,12 +908,12 @@
 		};
 		9BF2C74F2DA3C4BA007625A0 /* Release DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF2C7462DA3C3B4007625A0 /* LVault-DEV.xcconfig */;
+			baseConfigurationReferenceAnchor = 9B1670872E4B9A8500B21403 /* configs */;
+			baseConfigurationReferenceRelativePath = "LVault-DEV.xcconfig";
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 672GB3V3K6;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
@@ -1551,6 +988,14 @@
 				minimumVersion = 9.2.0;
 			};
 		};
+		9BF392572E4E1AB7001A6D14 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1558,6 +1003,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B75B1C32BDD2F5F0053B845 /* XCRemoteSwiftPackageReference "CoreStore" */;
 			productName = CoreStore;
+		};
+		9BF392582E4E1AB7001A6D14 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BF392572E4E1AB7001A6D14 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

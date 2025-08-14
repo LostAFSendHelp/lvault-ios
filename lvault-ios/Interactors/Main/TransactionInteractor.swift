@@ -7,21 +7,28 @@
 
 import Foundation
 import SwiftUI
+import UIKit
+import Combine
 
 class TransactionInteractor: ObservableObject {
     @Published var transactions: LoadableList<Transaction> = .loading
+    @Published var ocrSuggestions: Loadable<[TransactionSuggestion]> = .idle
     
     private let chest: Chest
     private let repo: TransactionRepository
+    private let ocrService: OCRService
+    private let scanService: ScanService
     private var subscriptions: DisposeBag = []
     
     var parentChestName: String { chest.name }
     var parentChestBalance: Double { chest.currentAmount }
     var parentChestBalanceText: String { chest.currentAmountText }
     
-    init(chest: Chest, repo: TransactionRepository) {
+    init(chest: Chest, repo: TransactionRepository, ocrService: OCRService, scanService: ScanService = ScanServiceImpl()) {
         self.chest = chest
         self.repo = repo
+        self.ocrService = ocrService
+        self.scanService = scanService
     }
     
     func loadTransactions() {
@@ -54,6 +61,25 @@ class TransactionInteractor: ObservableObject {
                     binding.wrappedValue = .error(error)
                 }, receiveValue: { transaction in
                     binding.wrappedValue = .data(transaction)
+                }
+            ).store(in: &subscriptions)
+    }
+    
+    func createTransactions(
+        suggestions: [TransactionSuggestion],
+        into binding: Binding<Loadable<Void>>? = nil,
+        completion: EmptyVoidHandler? = nil
+    ) {
+        binding?.wrappedValue = .loading
+        repo.createTransactions(suggestions: suggestions, chest: chest)
+            .sink(
+                receiveCompletion: { result in
+                    defer { completion?() }
+                    guard case .failure(let error) = result else { return }
+                    binding?.wrappedValue = .error(error)
+                },
+                receiveValue: { _ in
+                    binding?.wrappedValue = .data(())
                 }
             ).store(in: &subscriptions)
     }
@@ -120,6 +146,36 @@ class TransactionInteractor: ObservableObject {
                     completion?()
                 },
                 receiveValue: { _ in }
+            ).store(in: &subscriptions)
+    }
+    
+    func performOCR(on image: UIImage) -> AnyPublisher<OCRResponse, Error> {
+        return ocrService.performOCR(on: image)
+    }
+    
+    func suggestionFromOCR(ocrResponse: OCRResponse, labelDict: [String: String] = [:]) {
+        ocrSuggestions = .loading
+        
+        let scanDocItems = ocrResponse.results.map { result in
+            ScanDocDataItem(text: result.text, boundingBox: result.boundingBox.toBoundingBox())
+        }
+        
+        let request = ScanDocRequest(
+            items: scanDocItems,
+            originalImageDimensions: ocrResponse.imageSize.toImageDimensions(),
+            labelDict: labelDict
+        )
+        
+        scanService.scanDoc(request: request)
+            .sink(
+                receiveCompletion: { [weak self] result in
+                    guard let self, case .failure(let error) = result else { return }
+                    ocrSuggestions = .error(error)
+                },
+                receiveValue: { [weak self] suggestions in
+                    guard let self else { return }
+                    ocrSuggestions = .data(suggestions)
+                }
             ).store(in: &subscriptions)
     }
 }

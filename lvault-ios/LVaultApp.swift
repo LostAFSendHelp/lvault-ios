@@ -19,6 +19,7 @@ struct LVaultApp: App {
 
 struct MainView: View {
     @EnvironmentObject private var di: DI
+    @StateObject private var loadingManager: LoadingManager = .init()
     @State private var startupLoadable: Loadable<Void> = .loading
     
     var body: some View {
@@ -44,6 +45,15 @@ struct MainView: View {
                 
                 Settings()
             }
+            .overlay {
+                if loadingManager.isLoading {
+                    ZStack {
+                        Color.black.opacity(0.5)
+                        ProgressView().progressViewStyle(.circular)
+                    }.ignoresSafeArea()
+                }
+            }
+            .environmentObject(loadingManager)
         case .error(let error):
             if let lvaultError = error as? LVaultError,
                case .authenticationFailure = lvaultError {

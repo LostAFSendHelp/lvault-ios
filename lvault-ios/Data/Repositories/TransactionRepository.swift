@@ -19,6 +19,7 @@ protocol TransactionRepository: AnyObject {
         excludeTransfers: Bool
     ) -> AnyPublisher<[Transaction], Error>
     func createTransaction(amount: Double, date: Double, note: String?, labels: [TransactionLabel], chest: Chest) -> AnyPublisher<Transaction, Error>
+    func createTransactions(suggestions: [TransactionSuggestion], chest: Chest) -> AnyPublisher<Void, Error>
     func deleteTransaction(_ transaction: Transaction) -> AnyPublisher<Void, Error>
     func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error>
     func updateTransaction(_ transaction: Transaction, setNote note: String?) -> AnyPublisher<Transaction, Error>
@@ -110,14 +111,15 @@ class TransactionRepositoryImpl: TransactionRepository {
             
             persistence.create(
                 { (cso: TransactionCSO, transaction: AsynchronousDataTransaction) -> Void in
-                    let chest = transaction.edit(chest)!
-                    let labels = labels.map({ transaction.edit($0)! })
-                    cso.amount = amount
-                    cso.transactionDate = date
-                    cso.note = note
-                    cso.rLabels = Set(labels)
-                    cso.rChest = chest
-                    chest.currentAmount += amount
+                    _ = Self.createTransaction(
+                        base: cso,
+                        amount: amount,
+                        note: note,
+                        transactionDate: date,
+                        labels: labels,
+                        chest: chest,
+                        asyncTrn: transaction
+                    )
                 },
                 completion: { result in
                     switch result {
@@ -130,6 +132,48 @@ class TransactionRepositoryImpl: TransactionRepository {
             )
         }
         .eraseToAnyPublisher()
+    }
+    
+    func createTransactions(suggestions: [TransactionSuggestion], chest: any Chest) -> AnyPublisher<Void, Error> {
+        Future { [unowned self] promise in
+            guard let chest = chest as? ChestCSO else {promise(.failure(LVaultError.invalidArguments("Expected ChestCSO")))
+                return
+            }
+            
+            persistence.perform(
+                asynchronous: { trn in
+                    let chest = trn.edit(chest)!
+                    suggestions.forEach { suggestion in
+                        if let target = suggestion.transferTarget as? ChestCSO {
+                            Self.createTransfer(
+                                amount: suggestion.amount,
+                                note: suggestion.note,
+                                transactionDate: suggestion.timestamp,
+                                from: chest,
+                                to: target,
+                                asyncTrn: trn
+                            )
+                        } else {
+                            _ = Self.createTransaction(
+                                amount: suggestion.amount,
+                                note: suggestion.note,
+                                transactionDate: suggestion.timestamp,
+                                chest: chest,
+                                asyncTrn: trn
+                            )
+                        }
+                    }
+                },
+                completion: { result in
+                    switch result {
+                    case .success:
+                        promise(.success(()))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                }
+            )
+        }.eraseToAnyPublisher()
     }
     
     func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error> {
@@ -208,5 +252,69 @@ class TransactionRepositoryImpl: TransactionRepository {
             )
         }
         .eraseToAnyPublisher()
+    }
+}
+
+private extension TransactionRepository {
+    static func createTransaction(
+        base: TransactionCSO? = nil,
+        amount: Double,
+        note: String?,
+        transactionDate: Double,
+        labels: [TransactionLabelCSO] = [],
+        chest: ChestCSO,
+        asyncTrn: AsynchronousDataTransaction
+    ) -> TransactionCSO {
+        let cso = base.map({ asyncTrn.edit($0)! }) ?? asyncTrn.create(Into<TransactionCSO>())
+        let chest = asyncTrn.edit(chest)!
+        let labels = labels.map({ asyncTrn.edit($0)! })
+        
+        cso.amount = amount
+        cso.note = note
+        cso.rLabels = Set(labels)
+        cso.rChest = chest
+        cso.transactionDate = transactionDate
+        chest.currentAmount += amount
+        
+        return cso
+    }
+    
+    static func createTransfer(
+        amount: Double,
+        note: String?,
+        transactionDate: Double,
+        from: ChestCSO,
+        to: ChestCSO,
+        asyncTrn: AsynchronousDataTransaction
+    ) {
+        let from = asyncTrn.edit(from)!
+        let to = asyncTrn.edit(to)!
+        
+        let actualTo = amount < 0 ? to : from
+        let actualFrom = amount < 0 ? from : to
+        
+        var fullSendNote = "To chest [\(actualTo.name)]"
+        if let note { fullSendNote += " (\(note))" }
+        
+        var fullReceiveNote = "From chest [\(actualFrom.name)]"
+        if let note { fullReceiveNote += " (\(note))" }
+        
+        let send = createTransaction(
+            amount: amount,
+            note: amount > 0 ? fullReceiveNote : fullSendNote,
+            transactionDate: transactionDate,
+            chest: from,
+            asyncTrn: asyncTrn
+        )
+        send.isTransfer = true
+        
+        let receive = createTransaction(
+            amount: amount * -1,
+            note: (amount * -1) > 0 ? fullReceiveNote : fullSendNote,
+            transactionDate: transactionDate,
+            chest: to,
+            asyncTrn: asyncTrn
+        )
+        receive.isTransfer = true
     }
 }

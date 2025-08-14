@@ -19,8 +19,11 @@ struct ChestList: View {
         List {
             ForEach(chests, id: \.id) { chest in
                 NavigationLink {
-                    ChestDetail()
-                        .environmentObject(di.container.getTransactionInteractor(parentChest: chest))
+                    ChestDetail(
+                        transferrableChests: chests.filter({ $0.id
+                            != chest.id })
+                    )
+                    .environmentObject(di.container.getTransactionInteractor(parentChest: chest))
                 } label: {
                     ChestRow(chest: chest)
                 }

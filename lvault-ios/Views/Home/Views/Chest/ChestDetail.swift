@@ -6,14 +6,27 @@
 //
 
 import SwiftUI
+import PhotosUI
+import Combine
 
 struct ChestDetail: View {
+    let transferrableChests: [Chest]
     @State private var showCreateTransactionSheet = false
     @State private var editingTransaction: Transaction?
     @State private var editingTransactionNote: Transaction?
     @State private var isReconcilingBalance: Bool = false
     @State private var transactionAscendingByDate: Bool = false
     @State private var searchText: String = ""
+    @State private var showImagePicker = false
+    @State private var showCameraPicker = false
+    @State private var showImageSourceSelection = false
+    @State private var showCameraPermissionView = false
+    @State private var selectedImages: [PhotosPickerItem] = []
+    @State private var ocrResults: [OCRResult] = []
+    @State private var isProcessingOCR: Bool = false
+    @State private var showTransactionSuggestionSheet: Bool = false
+    @State private var cancellables = Set<AnyCancellable>()
+    @State private var isCreatingTransactionsBySuggestions: Bool = false
     @EnvironmentObject private var transactionInteractor: TransactionInteractor
     @EnvironmentObject private var di: DI
     
@@ -31,6 +44,10 @@ struct ChestDetail: View {
         )
     }
     
+    private var isLoading: Bool {
+        return transactionInteractor.ocrSuggestions.isLoading || isProcessingOCR || isCreatingTransactionsBySuggestions
+    }
+    
     var body: some View {
         buildStateView(transactionInteractor.transactions)
             .onAppear {
@@ -38,24 +55,35 @@ struct ChestDetail: View {
             }
             .navigationTitle(Text(transactionInteractor.parentChestName))
             .toolbar {
-                Button {
-                    showCreateTransactionSheet = true
-                } label: {
-                    Label("Create new transaction", systemImage: "plus")
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showCreateTransactionSheet = true
+                    } label: {
+                        Label("Create new transaction", systemImage: "plus")
+                    }
                 }
-                Menu {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        transactionAscendingByDate.toggle()
+                        showImageSourceSelection = true
                     } label: {
-                        Label("Sort by date", systemImage: "arrow.up.arrow.down")
+                        Label("Scan receipt", systemImage: "camera.viewfinder")
                     }
-                    Button {
-                        isReconcilingBalance.toggle()
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Button {
+                            transactionAscendingByDate.toggle()
+                        } label: {
+                            Label("Sort by date", systemImage: "arrow.up.arrow.down")
+                        }
+                        Button {
+                            isReconcilingBalance.toggle()
+                        } label: {
+                            Label("Reconcile balance", systemImage: "pencil.and.list.clipboard")
+                        }
                     } label: {
-                        Label("Reconcile balance", systemImage: "pencil.and.list.clipboard")
+                        Label("...", systemImage: "ellipsis")
                     }
-                } label: {
-                    Label("...", systemImage: "ellipsis")
                 }
             }.sheet(isPresented: $showCreateTransactionSheet) {
                 CreateTransactionSheet(isPresented: $showCreateTransactionSheet)
@@ -78,7 +106,76 @@ struct ChestDetail: View {
                         updateTransaction(editingTransactionNote!, setNote: note)
                     }
                 )
+            }.sheet(isPresented: $showTransactionSuggestionSheet) {
+                if case .data(let suggestions) = transactionInteractor.ocrSuggestions {
+                    TransactionSuggestionSheet(
+                        isPresented: $showTransactionSuggestionSheet,
+                        suggestions: suggestions,
+                        transferrableChests: transferrableChests,
+                        onConfirm: { suggestions in
+                            transactionInteractor.createTransactions(suggestions: suggestions) {
+                                transactionInteractor.loadTransactions()
+                            }
+                            showTransactionSuggestionSheet = false
+                        },
+                        onDismiss: { showTransactionSuggestionSheet = false }
+                    )
+                }
             }
+            .actionSheet(isPresented: $showImageSourceSelection) {
+                ActionSheet(
+                    title: Text("Scan Receipt"),
+                    message: Text("Choose image source"),
+                    buttons: [
+                        .default(Text("Camera")) {
+                            showCameraPermissionView = true
+                        },
+                        .default(Text("Photo Library")) {
+                            showImagePicker = true
+                        },
+                        .cancel()
+                    ]
+                )
+            }
+            .fullScreenCover(isPresented: $showCameraPicker) {
+                ImagePickerView(
+                    sourceType: .camera, 
+                    selectedImages: $selectedImages,
+                    onImageSelected: { image in
+                        processImageWithOCR(image)
+                    }
+                )
+            }
+            .photosPicker(
+                isPresented: $showImagePicker,
+                selection: $selectedImages,
+                maxSelectionCount: 1,
+                matching: .images
+            )
+            .background(
+                Group {
+                    if showCameraPermissionView {
+                        CameraPermissionView(
+                            onPermissionGranted: {
+                                showCameraPermissionView = false
+                                showCameraPicker = true
+                            },
+                            onPermissionDenied: {
+                                showCameraPermissionView = false
+                            }
+                        )
+                    }
+                }
+            )
+            .onChange(of: selectedImages) { newImages in
+                processSelectedImages(newImages)
+            }
+            .onReceive(transactionInteractor.$ocrSuggestions) { loadable in
+                if case .data(_) = loadable {
+                    showTransactionSuggestionSheet = true
+                }
+            }
+            .fullScreenLoading(isLoading)
     }
 }
 
@@ -156,16 +253,65 @@ private extension ChestDetail {
             completion: { transactionInteractor.loadTransactions() }
         )
     }
+    
+    func processImageWithOCR(_ image: UIImage) {
+        isProcessingOCR = true
+        transactionInteractor.performOCR(on: image)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [self] completion in
+                    isProcessingOCR = false
+                    if case .failure(let error) = completion {
+                        print("OCR Error: \(error.localizedDescription)")
+                    }
+                },
+                receiveValue: { [self] response in
+                    ocrResults = response.results
+                    getSuggestionsFromOCRResults(response)
+                }
+            )
+            .store(in: &cancellables)
+    }
+    
+    func processSelectedImages(_ images: [PhotosPickerItem]) {
+        guard !images.isEmpty else { return }
+        
+        // Process the first image for OCR
+        let firstImage = images[0]
+        
+        firstImage.loadTransferable(type: Data.self) { result in
+            switch result {
+            case .success(let data):
+                if let data = data, let uiImage = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        processImageWithOCR(uiImage)
+                    }
+                }
+            case .failure(let error):
+                // TODO: show error pop-up
+                print("Failed to load image: \(error)")
+            }
+        }
+        
+        // Reset selection after processing
+        selectedImages = []
+    }
+    
+    func getSuggestionsFromOCRResults(_ ocrResponse: OCRResponse) {
+        transactionInteractor.suggestionFromOCR(ocrResponse: ocrResponse)
+    }
 }
 
 #Preview {
     let interactor: TransactionInteractor = .init(
         chest: ChestDTO.create(vaultId: "1", name: "Example chest"),
-        repo: TransactionRepositoryStub()
+        repo: TransactionRepositoryStub(),
+        ocrService: OCRServiceStub(),
+        scanService: ScanServiceStub()
     )
     
     return NavigationStack {
-        ChestDetail()
+        ChestDetail(transferrableChests: ChestRepositoryStub.data)
             .environmentObject(interactor)
             .environmentObject(DI.preview)
     }

@@ -100,6 +100,26 @@ class TransactionRepositoryStub: TransactionRepository {
             .eraseToAnyPublisher()
     }
     
+    func createTransactions(suggestions: [TransactionSuggestion], chest: any Chest) -> AnyPublisher<Void, any Error> {
+        let added = suggestions.map { suggestion in
+            TransactionDTO(
+                id: UUID().uuidString,
+                amount: suggestion.amount,
+                isTransfer: suggestion.transferTarget != nil,
+                transactionDate: suggestion.timestamp,
+                note: suggestion.note,
+                labels: [],
+                createdAt: Date().millisecondsSince1970
+            )
+        }
+        
+        data.append(contentsOf: added)
+        
+        return Just(())
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
     func updateTransaction(_ transaction: Transaction, setTransactionLabels labels: [TransactionLabel]) -> AnyPublisher<Transaction, Error> {
         guard
             let transaction = transaction as? TransactionDTO,

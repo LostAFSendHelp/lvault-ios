@@ -18,4 +18,12 @@ enum Loadable<T> {
         default: return nil
         }
     }
+    
+    var isLoading: Bool {
+        if case .loading = self {
+            return true
+        } else {
+            return false
+        }
+    }
 }

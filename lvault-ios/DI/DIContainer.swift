@@ -22,6 +22,8 @@ class DI: ObservableObject {
 protocol DIContainer: AnyObject {
     var persistence: PersistenceController { get }
     var localAuthRepo: LocalAuthRepository { get }
+    var ocrService: OCRService { get }
+    var scanService: ScanService { get }
     func getVaultInteractor() -> VaultInteractor
     func getChestInteractor(parentVault: Vault) -> ChestInteractor
     func getTransactionInteractor(parentChest: Chest) -> TransactionInteractor
@@ -31,6 +33,8 @@ protocol DIContainer: AnyObject {
 
 class DIContainerImpl: DIContainer {
     let persistence: PersistenceController = .shared
+    let ocrService: OCRService = OCRServiceImpl()
+    let scanService: ScanService = ScanServiceImpl()
     #if targetEnvironment(simulator)
     let localAuthRepo: LocalAuthRepository = LocalAuthRepositoryStub(fails: false)
     #else
@@ -51,7 +55,7 @@ class DIContainerImpl: DIContainer {
     
     func getTransactionInteractor(parentChest: Chest) -> TransactionInteractor {
         assert(parentChest is ChestCSO, "Run-time object must be a CSO instance")
-        return TransactionInteractor(chest: parentChest, repo: TransactionRepositoryImpl(persistence: persistence))
+        return TransactionInteractor(chest: parentChest, repo: TransactionRepositoryImpl(persistence: persistence), ocrService: ocrService, scanService: scanService)
     }
     
     func getTransactionLabelInteractor() -> TransactionLabelInteractor {
@@ -66,6 +70,8 @@ class DIContainerImpl: DIContainer {
 class DIContainerPreview: DIContainer {
     let persistence: PersistenceController = .preview
     let localAuthRepo: LocalAuthRepository = LocalAuthRepositoryStub(fails: false)
+    let ocrService: OCRService = OCRServiceStub()
+    let scanService: ScanService = ScanServiceStub()
     
     private let vaultInteractor: VaultInteractor = .init(repo: VaultRepositoryStub())
     private let transactionLabelInteractor: TransactionLabelInteractor = .init(repo: TransactionLabelRepositoryStub())
@@ -79,7 +85,7 @@ class DIContainerPreview: DIContainer {
     }
     
     func getTransactionInteractor(parentChest: Chest) -> TransactionInteractor {
-        return TransactionInteractor(chest: parentChest, repo: TransactionRepositoryStub())
+        return TransactionInteractor(chest: parentChest, repo: TransactionRepositoryStub(), ocrService: ocrService, scanService: scanService)
     }
     
     func getTransactionLabelInteractor() -> TransactionLabelInteractor {
