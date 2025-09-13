@@ -6,6 +6,12 @@
 //
 
 import Foundation
+import UIKit
+
+struct TransactionSuggestionData {
+    var image: UIImage
+    var suggestions: [TransactionSuggestion]
+}
 
 struct TransactionSuggestion {
     var amount: Double

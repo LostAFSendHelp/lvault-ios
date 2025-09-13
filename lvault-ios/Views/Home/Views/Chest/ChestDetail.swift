@@ -108,11 +108,12 @@ struct ChestDetail: View {
                     }
                 )
             }.sheet(isPresented: $showTransactionSuggestionSheet) {
-                if case .data(let suggestions) = transactionInteractor.ocrSuggestions {
+                if case .data(let data) = transactionInteractor.ocrSuggestions {
                     TransactionSuggestionSheet(
                         isPresented: $showTransactionSuggestionSheet,
-                        suggestions: suggestions,
+                        suggestions: data.suggestions,
                         transferrableChests: transferrableChests,
+                        image: data.image,
                         onConfirm: { suggestions in
                             transactionInteractor.createTransactions(suggestions: suggestions) {
                                 transactionInteractor.loadTransactions()
@@ -278,12 +279,11 @@ private extension ChestDetail {
                     isProcessingOCR = false
                     if case .failure(let error) = completion {
                         alertError = error
-                        print("OCR Error: \(error.localizedDescription)")
                     }
                 },
                 receiveValue: { [self] response in
                     ocrResults = response.results
-                    getSuggestionsFromOCRResults(response)
+                    getSuggestionsFromOCRResults(response, image: image)
                 }
             )
             .store(in: &cancellables)
@@ -305,7 +305,6 @@ private extension ChestDetail {
                 }
             case .failure(let error):
                 alertError = error
-                print("Failed to load image: \(error)")
             }
         }
         
@@ -313,8 +312,8 @@ private extension ChestDetail {
         selectedImages = []
     }
     
-    func getSuggestionsFromOCRResults(_ ocrResponse: OCRResponse) {
-        transactionInteractor.suggestionFromOCR(ocrResponse: ocrResponse)
+    func getSuggestionsFromOCRResults(_ ocrResponse: OCRResponse, image: UIImage) {
+        transactionInteractor.suggestionFromOCR(ocrResponse: ocrResponse, image: image)
     }
 }
 

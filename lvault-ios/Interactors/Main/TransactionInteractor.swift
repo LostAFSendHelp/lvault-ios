@@ -12,7 +12,7 @@ import Combine
 
 class TransactionInteractor: ObservableObject {
     @Published var transactions: LoadableList<Transaction> = .loading
-    @Published var ocrSuggestions: Loadable<[TransactionSuggestion]> = .idle
+    @Published var ocrSuggestions: Loadable<TransactionSuggestionData> = .idle
     
     private let chest: Chest
     private let repo: TransactionRepository
@@ -153,7 +153,7 @@ class TransactionInteractor: ObservableObject {
         return ocrService.performOCR(on: image)
     }
     
-    func suggestionFromOCR(ocrResponse: OCRResponse, labelDict: [String: String] = [:]) {
+    func suggestionFromOCR(ocrResponse: OCRResponse, labelDict: [String: String] = [:], image: UIImage) {
         ocrSuggestions = .loading
         
         let scanDocItems = ocrResponse.results.map { result in
@@ -174,7 +174,7 @@ class TransactionInteractor: ObservableObject {
                 },
                 receiveValue: { [weak self] suggestions in
                     guard let self else { return }
-                    ocrSuggestions = .data(suggestions)
+                    ocrSuggestions = .data(.init(image: image, suggestions: suggestions))
                 }
             ).store(in: &subscriptions)
     }

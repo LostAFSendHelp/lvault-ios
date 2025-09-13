@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct TransactionSuggestionSheet: View {
     @Binding var isPresented: Bool
     @State private var suggestions: [TransactionSuggestion]
+    @State private var showImage: Bool = false
     let transferrableChests: [Chest]
+    let image: UIImage
     let onConfirm: VoidHandler<[TransactionSuggestion]>
     let onDismiss: EmptyVoidHandler
     
@@ -18,6 +21,7 @@ struct TransactionSuggestionSheet: View {
         isPresented: Binding<Bool>,
         suggestions: [TransactionSuggestion],
         transferrableChests: [Chest] = [],
+        image: UIImage,
         onConfirm: @escaping VoidHandler<[TransactionSuggestion]>,
         onDismiss: @escaping EmptyVoidHandler
     ) {
@@ -26,13 +30,23 @@ struct TransactionSuggestionSheet: View {
         self.onConfirm = onConfirm
         self.onDismiss = onDismiss
         self.transferrableChests = transferrableChests
+        self.image = image
     }
     
     var body: some View {
             VStack(alignment: .leading, spacing: 16) {
-                Text("OCR Transaction Suggestions")
-                    .font(.largeTitle.bold())
-                    .padding(.bottom, 8)
+                HStack {
+                    Text("OCR Transaction Suggestions")
+                        .font(.largeTitle.bold())
+                        .padding(.bottom, 8)
+                    Spacer()
+                    Button(action: { showImage = true }) {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 64, height: 64)
+                    }
+                }
                 
                 Text("The following transactions were detected from the scanned document:")
                     .font(.body)
@@ -87,6 +101,14 @@ struct TransactionSuggestionSheet: View {
                 }.buttonStyle(.bordered)
             }
             .padding()
+            .overlay {
+                if showImage {
+                    AdvancedZoomableImageViewer(
+                        image: Image(uiImage: image),
+                        isPresented: $showImage
+                    )
+                }
+            }
     }
 }
 
@@ -114,6 +136,7 @@ struct TransactionSuggestionSheet: View {
             )
         ],
         transferrableChests: ChestRepositoryStub.data,
+        image: UIImage(systemName: "wallet.pass")!,
         onConfirm: { suggestions in
             print("confirmed: \(suggestions.count)")
         },
@@ -125,6 +148,7 @@ struct TransactionSuggestionSheet: View {
     TransactionSuggestionSheet(
         isPresented: .constant(true),
         suggestions: [],
+        image: UIImage(systemName: "wallet.pass")!,
         onConfirm: { suggestions in print("confirmed: \(suggestions.count)") },
         onDismiss: { }
     )
