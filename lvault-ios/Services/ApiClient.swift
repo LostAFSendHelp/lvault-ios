@@ -57,7 +57,7 @@ class ApiClient {
                     let apiError = try JSONDecoder().decode(ErrorType.self, from: data)
                     completion(.failure(LVaultError.custom(apiError.localizedDescription)))
                 } catch {
-                    completion(.failure(LVaultError.custom("Unknown error")))
+                    completion(.failure(LVaultError.custom("Unknown error (\(error.localizedDescription))")))
                 }
             }
         }

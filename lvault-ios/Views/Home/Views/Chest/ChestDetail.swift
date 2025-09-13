@@ -27,6 +27,7 @@ struct ChestDetail: View {
     @State private var showTransactionSuggestionSheet: Bool = false
     @State private var cancellables = Set<AnyCancellable>()
     @State private var isCreatingTransactionsBySuggestions: Bool = false
+    @State private var alertError: Error?
     @EnvironmentObject private var transactionInteractor: TransactionInteractor
     @EnvironmentObject private var di: DI
     
@@ -152,6 +153,18 @@ struct ChestDetail: View {
                 maxSelectionCount: 1,
                 matching: .images
             )
+            .alert(
+                "Error",
+                isPresented: .constant(alertError != nil),
+                actions: {
+                    Button(action: { alertError = nil }) {
+                        Text("OK")
+                    }
+                },
+                message: {
+                    Text(alertError?.localizedDescription ?? "")
+                }
+            )
             .background(
                 Group {
                     if showCameraPermissionView {
@@ -173,6 +186,8 @@ struct ChestDetail: View {
             .onReceive(transactionInteractor.$ocrSuggestions) { loadable in
                 if case .data(_) = loadable {
                     showTransactionSuggestionSheet = true
+                } else if case .error(let error) = loadable {
+                    alertError = error
                 }
             }
             .fullScreenLoading(isLoading)
@@ -262,6 +277,7 @@ private extension ChestDetail {
                 receiveCompletion: { [self] completion in
                     isProcessingOCR = false
                     if case .failure(let error) = completion {
+                        alertError = error
                         print("OCR Error: \(error.localizedDescription)")
                     }
                 },
@@ -288,7 +304,7 @@ private extension ChestDetail {
                     }
                 }
             case .failure(let error):
-                // TODO: show error pop-up
+                alertError = error
                 print("Failed to load image: \(error)")
             }
         }
