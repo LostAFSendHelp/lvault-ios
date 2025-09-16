@@ -24,7 +24,7 @@ struct TransactionSuggestion {
 extension TransactionSuggestion {
     init(from item: ScanDocResultItem) {
         self.amount = item.amount
-        self.timestamp = item.timestamp
+        self.timestamp = (DateFormatter.localDateTime.date(from: item.timestampString) ?? Date()).millisecondsSince1970
         self.note = item.note
         self.labelIds = []
     }

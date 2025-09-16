@@ -27,6 +27,8 @@ extension DateFormatter {
     static let HHmmGMT: DateFormatter = .create(format: "HH:mm z")
     
     static let MMMMyyyyGMT: DateFormatter = .create(format: "MMMM, yyyy z")
+    
+    static let localDateTime: DateFormatter = .create(format: "dd/MM/yyyy HH:mm")
 }
 
 extension Date {

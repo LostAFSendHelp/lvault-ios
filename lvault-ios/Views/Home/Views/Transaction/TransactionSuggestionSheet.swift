@@ -101,6 +101,7 @@ struct TransactionSuggestionSheet: View {
                 }.buttonStyle(.bordered)
             }
             .padding()
+            .dismissKeyboardOnFocusLoss()
             .overlay {
                 if showImage {
                     AdvancedZoomableImageViewer(

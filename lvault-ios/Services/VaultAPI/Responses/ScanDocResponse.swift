@@ -7,7 +7,7 @@
 
 struct ScanDocResultItem: Decodable {
     let amount: Double
-    let timestamp: Double
+    let timestampString: String
     let note: String?
 //    let labelIds: [String]
 }

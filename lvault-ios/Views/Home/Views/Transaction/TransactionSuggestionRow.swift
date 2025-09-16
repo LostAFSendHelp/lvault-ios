@@ -10,7 +10,7 @@ import SwiftUI
 struct TransactionSuggestionRow: View {
     @Binding var suggestion: TransactionSuggestion
     @State private var isExpense: Bool
-    @State private var amountString: String
+    @State private var amount: Double
     @State private var date: Date
     @State private var note: String
     private let chests: [Chest]
@@ -29,18 +29,17 @@ struct TransactionSuggestionRow: View {
         )
     }
     
+    private var actualAmount: Double {
+        amount * (isExpense ? -1 : 0)
+    }
+    
     init(suggestion: Binding<TransactionSuggestion>, chests: [Chest] = []) {
         self._suggestion = suggestion
         self._isExpense = State(initialValue: suggestion.wrappedValue.amount < 0)
-        self._amountString = State(initialValue: abs(suggestion.wrappedValue.amount).decimalText)
+        self._amount = State(initialValue: abs(suggestion.wrappedValue.amount))
         self._date = State(initialValue: Date(timeIntervalSince1970: suggestion.wrappedValue.timestamp / 1000))
         self._note = State(initialValue: suggestion.wrappedValue.note ?? "")
         self.chests = chests
-    }
-    
-    private var displayAmount: Double {
-        let value = Double(amountString) ?? 0
-        return isExpense ? -abs(value) : abs(value)
     }
     
     var body: some View {
@@ -53,16 +52,18 @@ struct TransactionSuggestionRow: View {
                     Text(isExpense ? "-" : "+")
                         .foregroundStyle(isExpense ? .red : .green)
                         .font(.system(size: 18, weight: .semibold))
-                    TextField("Amount", text: $amountString)
-                        .multilineTextAlignment(.trailing)
-                        .keyboardType(.decimalPad)
-                        .textFieldStyle(.roundedBorder)
-                        .foregroundStyle(isExpense ? .red : .green)
-                        .font(.system(size: 18, weight: .semibold))
-                        .frame(width: 140)
-                        .onChange(of: amountString) { newValue in
-                            suggestion.amount = displayAmount
-                        }
+                    TextField(value: $amount, format: .number) {
+                        Text("Amount")
+                    }
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.decimalPad)
+                    .textFieldStyle(.roundedBorder)
+                    .foregroundStyle(isExpense ? .red : .green)
+                    .font(.system(size: 18, weight: .semibold))
+                    .frame(width: 140)
+                    .onChange(of: amount) { newValue in
+                        suggestion.amount = actualAmount
+                    }
                 }
                 
                 HStack {
@@ -86,7 +87,7 @@ struct TransactionSuggestionRow: View {
                     
                     Button(action: {
                         isExpense.toggle()
-                        suggestion.amount = displayAmount
+                        suggestion.amount = actualAmount
                     }) {
                         HStack(spacing: 4) {
                             Text("Is expense")

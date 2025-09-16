@@ -12,7 +12,7 @@ struct LVaultApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .dependency(.preview)
+                .dependency(.shared)
         }
     }
 }
